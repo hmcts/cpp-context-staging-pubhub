@@ -1,0 +1,637 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "http://justice.gov.uk/staging/pubhub/schema/pubhub-master.json",
+  "title": "Root",
+  "type": "object",
+  "properties": {
+    "schemaLocation": {
+      "type": "string"
+    },
+    "document": {
+      "type": "object",
+      "properties": {
+        "documentName": {
+          "description": "Defined for the title of a publications",
+          "title": "Document Name",
+          "type": "string"
+        },
+        "publicationDate": {
+          "description": "The date + time the list was published",
+          "type": "string"
+        },
+        "version": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "venue": {
+      "type": "object",
+      "properties": {
+        "venueType": {
+          "description": "Defines the courts or building being associated to a publication",
+          "type": "string"
+        },
+        "venueCode": {
+          "description": "Ref data code for court",
+          "type": "object",
+          "properties": {
+            "venueShortName": {
+              "description": "Short name fo the venue",
+              "type": "string"
+            },
+            "venueId": {
+              "description": "OU or EPIMS id of the venue used for reference data lookup (future need)",
+              "type": "string"
+            }
+          },
+          "additionalProperties": false
+        },
+        "venueName": {
+          "description": "Full venue name",
+          "type": "string"
+        },
+        "venueAddress": {
+          "description": "Full venue address",
+          "$ref": "#/definitions/address"
+        },
+        "venueDX": {
+          "type": "string"
+        },
+        "venueContact": {
+          "description": "Contact details for the venue",
+          "$ref": "#/definitions/venueContact"
+        }
+      },
+      "additionalProperties": false
+    },
+    "courtLists": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "courtHouse": {
+            "description": "The court house that owns the court rooms",
+            "type": "object",
+            "properties": {
+              "courtHouseType": {
+                "description": "Specifies the type of court",
+                "type": "string",
+                "enum": ["crown", "magistrate"]
+              },
+              "courtHouseCode": {
+                "description": "Links to the court that is responsible for the courtrooms",
+                "type": "string"
+              },
+              "courtHouseName": {
+                "description": "Name of the court house",
+                "type": "string"
+              },
+              "courtHouseDescription": {
+                "description": "Description of the court",
+                "type": "string"
+              },
+              "courtRoom": {
+                "type": "array",
+                "items": {
+                  "description": "The court room that owns the court rooms",
+                  "type": "object",
+                  "properties": {
+                    "courtRoomNumber": {
+                      "description": "Court room number in court",
+                      "type": "integer"
+                    },
+                    "courtRoomId": {
+                      "description": "Ref data id (EPIMS or OU Court id)",
+                      "type": "integer"
+                    },
+                    "courtRoomName": {
+                      "description": "Name for the court room",
+                      "type": "string"
+                    },
+                    "venueContact": {
+                      "description": "Contact details for the venue",
+                      "$ref": "#/definitions/venueContact"
+                    },
+                    "session": {
+                      "type": "array",
+                      "items": {
+                        "description": "Session associated with the court in the publication",
+                        "type": "object",
+                        "properties": {
+                          "sessionId": {
+                            "description": "ID for the session",
+                            "type": "string"
+                          },
+                          "sessionType": {
+                            "description": "Type of session (cases that can be heard in the session are associated to a sessiontype)",
+                            "type": "string"
+                          },
+                          "sessionChannel": {
+                            "type": "array",
+                            "items": {
+                              "description": "Requested to ensure we host the type of hearing channel in the session",
+                              "type": "string"
+                            }
+                          },
+                          "sessionStartTime": {
+                            "description": "Session start time rfc3999",
+                            "type": "string"
+                          },
+                          "sessionSequenceNumber": {
+                            "description": "Sessions order (if more than one then they will be a sequence)",
+                            "type": "integer"
+                          },
+                          "judiciary": {
+                            "type": "array",
+                            "description": "Judiciary for the session",
+                            "items":{
+                              "type": "object",
+                              "$ref": "#/definitions/judiciary"
+                            }
+                          },
+                          "sittings": {
+                            "type": "array",
+                            "items":{
+                              "type": "object",
+                              "properties": {
+                                "sittingSequence": {
+                                  "description": "Sitting Sequence Number",
+                                  "type": "integer"
+                                },
+                                "sittingStart": {
+                                  "description": "Sitting Start Time",
+                                  "type": "string"
+                                },
+                                "sittingEnd": {
+                                  "description": "Sitting End Time",
+                                  "type": "string"
+                                },
+                                "hearing": {
+                                  "type": "array",
+                                  "items": {
+                                    "type": "object",
+                                    "description": "Hearing details of the case and associated details for the sitting",
+                                    "properties": {
+                                      "hearingId": {
+                                        "description": "Id of the hearing associated with the scheduling system",
+                                        "type": "string"
+                                      },
+                                      "hearingType": {
+                                        "description": "Type of hearing being presented",
+                                        "type": "string"
+                                      },
+                                      "hearingDescription": {
+                                        "description": "Description associated to the hearing",
+                                        "type": "string"
+                                      },
+                                      "listNote": {
+                                        "description": "Will always be required but can be null",
+                                        "type": "string"
+                                      },
+                                      "hearingSequence": {
+                                        "description": "Order of which hearing is to be heard",
+                                        "type": "integer"
+                                      },
+                                      "cases": {
+                                        "type": "array",
+                                        "items": {
+                                          "type": "object",
+                                          "description": "Case Details",
+                                          "properties": {
+                                            "caseUrn": {
+                                              "description": "Unique reference number of case",
+                                              "type": "string"
+                                            },
+                                            "caseName": {
+                                              "description": "Case name is not always present but should be where available displayed",
+                                              "type": "string"
+                                            },
+                                            "reportingRestriction": {
+                                              "description": "Any reporting restrictions posed to the case",
+                                              "type": "boolean"
+                                            },
+                                            "caseJurisdictionET": {
+                                              "type": "string"
+                                            },
+                                            "caseNumber": {
+                                              "description": "Some systems hold two instances, i.e. it is duplicated across systems (xhibit, cp.. and a second ref number is required",
+                                              "type": "string"
+                                            },
+                                            "informant": {
+                                              "description": "Object representing an informant",
+                                              "type":"object",
+                                              "properties": {
+                                                "prosecutionAuthorityRef": {
+                                                  "type": "string"
+                                                },
+                                                "prosecutionAuthorityId":{
+                                                  "type": "string"
+                                                },
+                                                "prosecutionAuthorityCode":{
+                                                  "type": "string"
+                                                }
+                                              }
+                                            },
+                                            "numberOfDefendants": {
+                                              "description": "Number of defendants",
+                                              "type": "integer"
+                                            },
+                                            "youthCourt": {
+                                              "description": "If the case is to be held or is held in a youth court",
+                                              "type": "boolean"
+                                            },
+                                            "listComment": {
+                                              "description": "Comment for the listing",
+                                              "type": "string"
+                                            },
+                                            "committingCourt": {
+                                              "description": "Court the case is registered at. owning court",
+                                              "type": "object",
+                                              "properties": {
+                                                "courtHouseName": {
+                                                  "description": "Court House name of committing/owning court",
+                                                  "type": "string"
+                                                },
+                                                "courtHouseAddress": {
+                                                  "description": "Address of commiting/owning court",
+                                                  "$ref": "#/definitions/address"
+                                                },
+                                                "courtHouseContact": {
+                                                  "description": "Contact and name for commiting/owning court",
+                                                  "$ref": "#/definitions/venueContact"
+                                                }
+                                              }
+                                            },
+                                            "result":{
+                                              "description": "Sjo media requirement for the cases that result in a financial penalty, uplift or charges",
+                                              "type":"object",
+                                              "properties": {
+                                                "resultTitle1":{"type":"string"},
+                                                "value1":{"type":"string"},
+                                                "resultTitle2":{"type":"string"},
+                                                "value2":{"type":"string"},
+                                                "resultTitle3":{"type":"string"},
+                                                "value3":{"type":"string"},
+                                                "resultTitle4":{"type":"string"},
+                                                "value4":{"type":"string"},
+                                                "resultTitle5":{"type":"string"},
+                                                "value5":{"type":"string"},
+                                                "resultTitle6":{"type":"string"},
+                                                "value6":{"type":"string"},
+                                                "resultTitle7":{"type":"string"},
+                                                "value7":{"type":"string"}
+                                              }
+                                            }
+                                          },
+                                          "additionalProperties": false
+                                        }
+                                      },
+                                      "party": {
+                                        "description": "Parties involved in the case (defence, prosecution)",
+                                        "type": "array",
+                                        "items": {
+                                          "description": "A party",
+                                          "type": "object",
+                                          "properties": {
+                                            "partyRole": {
+                                              "description": "Role of the party, selectable list of roles, i.e. prosecution, solicitor defence etc",
+                                              "type": "string"
+                                            },
+                                            "individualDetails": {
+                                              "description": "Individual Details",
+                                              "type": "object",
+                                              "properties": {
+                                                "title": {
+                                                  "description": "Title of individual",
+                                                  "type": "string"
+                                                },
+                                                "individualForenames": {
+                                                  "description": "Forename of party",
+                                                  "type": "string"
+                                                },
+                                                "individualMiddleName": {
+                                                  "description": "Middle name of the individual",
+                                                  "type": "string"
+                                                },
+                                                "individualSurname": {
+                                                  "description": "Surname of party",
+                                                  "type": "string"
+                                                },
+                                                "isMasked": {
+                                                  "description": "If the name needs to be masked or hidden from view",
+                                                  "type": "boolean"
+                                                },
+                                                "dateOfBirth": {
+                                                  "description": "Date of birth for user (not mandated for all parties)",
+                                                  "type": "string"
+                                                },
+                                                "address": {
+                                                  "description": "Party Address",
+                                                  "$ref": "#/definitions/address"
+                                                },
+                                                "inCustody": {
+                                                  "description": "If party is in custody or not",
+                                                  "type": "boolean"
+                                                },
+                                                "asns": {
+                                                  "description": "Arrest Numbers",
+                                                  "type": "array",
+                                                  "items": {
+                                                    "description": "An ASN",
+                                                    "type": "string"
+                                                  }
+                                                },
+                                                "nationality": {
+                                                  "description": "Nationality of party not always required for all parties",
+                                                  "type": "string"
+                                                },
+                                                "plea": {
+                                                  "description": "If a plea has been received",
+                                                  "type": "string",
+                                                  "enum": ["GUILTY","NOT_GUILTY","NONE"]
+                                                },
+                                                "prosecutionNumber": {
+                                                  "type": "string"
+                                                }
+                                              }
+                                            },
+                                            "organisationDetails": {
+                                              "description": "Organisation Details",
+                                              "type": "object",
+                                              "properties": {
+                                                "organisationName": {
+                                                  "description": "Party name of organisation",
+                                                  "type": "string"
+                                                },
+                                                "organisationAddress": {
+                                                  "description": "Address for organisation",
+                                                  "$ref": "#/definitions/address"
+                                                },
+                                                "organisationContact": {
+                                                  "description": "Contact for Organisation",
+                                                  "type": "object",
+                                                  "properties": {
+                                                    "telephoneNumber": {
+                                                      "description": "Telephone number for organisation",
+                                                      "type": "string"
+                                                    },
+                                                    "email": {
+                                                      "description": "Email for organisation",
+                                                      "type": "string"
+                                                    }
+                                                  }
+                                                },
+                                                "organisationContactName": {
+                                                  "description": "Contact name for organisation",
+                                                  "type": "object",
+                                                  "properties": {
+                                                    "title": {
+                                                      "description": "Title",
+                                                      "type": "string"
+                                                    },
+                                                    "forename": {
+                                                      "description": "Forenames",
+                                                      "type": "string"
+                                                    },
+                                                    "surname": {
+                                                      "description": "Surname",
+                                                      "type": "string"
+                                                    }
+                                                  }
+                                                },
+                                                "organisationIncorporationNumber": {
+                                                  "description": "Incorporation Number of organisation",
+                                                  "type": "string"
+                                                },
+                                                "organisationCharityNumber": {
+                                                  "description": "Charity Number of organisation",
+                                                  "type": "string"
+                                                }
+                                              }
+                                            }
+                                          },
+                                          "additionalProperties": false
+                                        }
+                                      },
+                                      "offence":{
+                                        "type": "object",
+                                        "properties": {
+                                          "offenceCode":{
+                                            "description": "Offence unique code",
+                                            "type": "string"
+                                          },
+                                          "offenceTitle":{
+                                            "description": "Short description of offence",
+                                            "type": "string"
+                                          },
+                                          "offenceWording":{
+                                            "description": "Long description of offence",
+                                            "type":"string"
+                                          },
+                                          "offenceMaxPen":{
+                                            "description": "Maximum penalty if found guilty",
+                                            "type":"string"
+                                          },
+                                          "reportingRestriction": {
+                                            "description": "Any reporting restrictions posed to the offence",
+                                            "type": "boolean"
+                                          }
+                                        },
+                                        "additionalProperties": false
+                                      },
+                                      "lcsu": {
+                                        "description": "If any updates on the case as it is heard",
+                                        "type": "object",
+                                        "properties": {
+                                          "lcsuDescription": {
+                                            "description": "Description of update",
+                                            "type":"string"
+                                          },
+                                          "lcsuDateTime": {
+                                            "description": "",
+                                            "type":"string"
+                                          }
+                                        }
+                                      }
+                                    },
+                                    "additionalProperties": false
+                                  }
+                                },
+                                "judiciary": {
+                                  "type": "array",
+                                  "description": "If a separate or associated joh is required to be in attendance for sitting against a single case",
+                                  "items":{
+                                    "type": "object",
+                                    "$ref": "#/definitions/judiciary"
+                                  }
+                                },
+                                "channel": {
+                                  "type": "array",
+                                  "items": {
+                                    "description": "Channel if different from in court",
+                                    "type": "string"
+                                  }
+                                }
+                              },
+                              "additionalProperties": false
+                            }
+                          }
+                        },
+                        "additionalProperties": false
+                      }
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false,
+  "definitions": {
+    "address": {
+      "title": "Address Details",
+      "type": "object",
+      "properties": {
+        "line": {
+          "title": "Address Line",
+          "type": "array",
+          "default": [],
+          "items":{
+            "title": "Items",
+            "type": "string",
+            "default": "",
+            "examples": [
+              "THE LAW COURTS"
+            ],
+            "pattern": "^.*$"
+          }
+        },
+        "town": {
+          "title": "Town",
+          "description": "The town for the address",
+          "type": "string",
+          "default": "",
+          "examples": [
+            "Cambridge"
+          ],
+          "pattern": "^.*$"
+        },
+        "county": {
+          "title": "County",
+          "description": "The county for the address",
+          "type": "string",
+          "default": "",
+          "examples": [
+            "Cambridgeshire"
+          ],
+          "pattern": "^.*$"
+        },
+        "postCode": {
+          "title": "Address Postcode",
+          "type": "string",
+          "default": "",
+          "examples": [
+            "PR1 2LL"
+          ],
+          "pattern": "^.*$"
+        }
+      },
+      "additionalProperties": false
+    },
+    "venueContact": {
+      "title": "Contact Details for a venue",
+      "type": "object",
+      "properties": {
+        "venueTelephone": {
+          "description": "Telephone number for the venue",
+          "title": "Venue Telephone",
+          "type": "string",
+          "default": "",
+          "examples": [
+            "01772 844700"
+          ],
+          "pattern": "^.*$"
+        },
+        "venueEmail": {
+          "description": "Email for the venue",
+          "title": "Venue Email",
+          "type": "string",
+          "default": "",
+          "examples": [
+            "court1@moj.gov.uk"
+          ],
+          "pattern": "^.*$"
+        },
+        "primaryContactName": {
+          "description": "Name for contact of court",
+          "title": "Primary Contact Name",
+          "type": "string",
+          "default": "",
+          "examples": [
+            "Name"
+          ],
+          "pattern": "^.*$"
+        },
+        "venueSupport": {
+          "description": "National contact number for MOJ Courts and Venues",
+          "title": "Venue Support",
+          "type": "string",
+          "default": "",
+          "examples": [
+            "0330 566 5561"
+          ],
+          "pattern": "^.*$"
+        }
+      },
+      "additionalProperties": false
+    },
+    "judiciary": {
+      "title": "Judiciary",
+      "description": "Can be an array of objects as such will be a collective and use plurals for object arrays (clerks and scribes etc included)",
+      "type": "object",
+      "properties": {
+        "johTitle": {
+          "description": "The title for the judiciary",
+          "title": "Judiciary Title",
+          "type": "string",
+          "default": ""
+        },
+        "johNameSurname": {
+          "description": "First and Surname of the JOH",
+          "title": "JOH Name",
+          "type": "string",
+          "examples": [
+            "John Smith"
+          ],
+          "default": "",
+          "pattern": "^.*$"
+        },
+        "role": {
+          "description": "Role of the judiciary",
+          "title": "Role",
+          "type": "string",
+          "enum": ["judge", "magistrate", "clerk"],
+          "default": ""
+        },
+        "johKnownAs": {
+          "description": "Name and salutations, titles to be presented on publications",
+          "title": "JOH Known As",
+          "type": "string",
+          "examples": [
+            "judge"
+          ],
+          "default": "",
+          "pattern": "^.*$"
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}

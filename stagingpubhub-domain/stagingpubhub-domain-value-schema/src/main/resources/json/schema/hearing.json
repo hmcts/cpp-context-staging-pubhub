@@ -1,0 +1,114 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "http://justice.gov.uk/staging/pubhub/hearing.json",
+  "type": "object",
+  "properties": {
+    "id": {
+      "$ref": "http://justice.gov.uk/domain/core/common/definitions.json#/definitions/uuid"
+    },
+    "sequence": {
+      "type": "integer"
+    },
+    "reportingRestrictionReason": {
+      "type": "string"
+    },
+    "welshReportingRestrictionReason": {
+      "type": "string"
+    },
+    "startTime": {
+      "type": "string"
+    },
+    "hearingType": {
+      "type": "string"
+    },
+    "welshHearingType": {
+      "type": "string"
+    },
+    "caseNumber": {
+      "type": "string"
+    },
+    "prosecutorType": {
+      "type": "string"
+    },
+    "adjournedHearingDate": {
+      "type": "string"
+    },
+    "defendants": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/defendant"
+      }
+    },
+    "panel": {
+      "type": "string"
+    }
+  },
+  "definitions": {
+    "defendant": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "$ref": "http://justice.gov.uk/domain/core/common/definitions.json#/definitions/uuid"
+        },
+        "organisationName": {
+          "type": "string"
+        },
+        "firstName": {
+          "type": "string"
+        },
+        "surname": {
+          "type": "string"
+        },
+        "dateOfBirth": {
+          "type": "string"
+        },
+        "age": {
+          "type": "string"
+        },
+        "nationality": {
+          "type": "string"
+        },
+        "address": {
+          "$ref": "http://justice.gov.uk/core/courts/address.json"
+        },
+        "reportingRestrictions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/reportingRestriction"
+          }
+        },
+        "offences": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/offence"
+          }
+        }
+      }
+    },
+    "offence": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "$ref": "http://justice.gov.uk/domain/core/common/definitions.json#/definitions/uuid"
+        },
+        "offenceTitle": {
+          "type": "string"
+        },
+        "welshOffenceTitle": {
+          "type": "string"
+        },
+        "offenceWording": {
+          "type": "string"
+        }
+      }
+    },
+    "reportingRestriction": {
+      "type": "object",
+      "properties": {
+        "label": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

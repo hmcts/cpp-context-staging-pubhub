@@ -1,0 +1,20 @@
+#%RAML 0.8
+title: Staging pubhub Command API
+baseUri: http://localhost:8080/stagingpubhub-command-api/command/api/rest/stagingpubhub
+
+/pubhub:
+  post:
+    description: |
+      Submit list
+      ...
+      (mapping):
+          requestType: application/vnd.publish-standard-list+json
+          name: stagingpubhub.command.publish-standard-list
+      ...
+    body:
+      application/vnd.publish-standard-list+json:
+        example: !include json/stagingpubhub.command.publish-standard-list.json
+        schema: !include json/schema/stagingpubhub.command.publish-standard-list.json
+    responses:
+      202:
+        description: Accepted

@@ -1,0 +1,51 @@
+<!--
+    IMPORTANT:
+    - Policy elements can appear only within the <inbound>, <outbound>, <backend> section elements.
+    - To apply a policy to the incoming request (before it is forwarded to the backend service), place a corresponding policy element within the <inbound> section element.
+    - To apply a policy to the outgoing response (before it is sent back to the caller), place a corresponding policy element within the <outbound> section element.
+    - To add a policy, place the cursor at the desired insertion point and select a policy from the sidebar.
+    - To remove a policy, delete the corresponding policy statement from the policy document.
+    - Position the <base> element within a section element to inherit all policies from the corresponding section element in the enclosing scope.
+    - Remove the <base> element to prevent inheriting policies from the corresponding section element in the enclosing scope.
+    - Policies are applied in the order of their appearance, from the top down.
+    - Comments within policy elements are not supported and may disappear. Place your comments between policy elements or at a higher level scope.
+-->
+<policies>
+    <inbound>
+        <base />
+        <!-- CJSCPPUID header would be set by common policy -->
+        <!-- check presence of CJSOUCODE from header -->
+        <check-header name="CJSOUCODE" failed-check-httpcode="401" failed-check-error-message="Not authorized" ignore-case="false" />
+        <!-- set Accept header -->
+        <set-header name="Accept" exists-action="override">
+            <value>application/vnd.hmcts.results.v1+json</value>
+        </set-header>
+        <!-- wire to context query API -->
+        <rewrite-uri template="@{
+            string startDateQueryParameter = string.IsNullOrEmpty(context.Request.Url.Query.GetValueOrDefault("startdate", "")) ? "" : "startDate=" + context.Request.Url.Query.GetValueOrDefault("startdate", "");
+            string endDateQueryParameter = string.IsNullOrEmpty(context.Request.Url.Query.GetValueOrDefault("enddate", "")) ? "" : "endDate=" + context.Request.Url.Query.GetValueOrDefault("enddate", "");
+            string queryUri = "/stagingpubhub-query-api/query/api/rest/stagingpubhub/v1/results/" + context.Request.Headers.GetValueOrDefault("CJSOUCODE", "");
+            string queryParameter = string.Join("&", new[] {startDateQueryParameter, endDateQueryParameter}.Where(param => !string.IsNullOrEmpty(param)));
+            return string.Join("?", new[] {queryUri, queryParameter}.Where(item => !string.IsNullOrEmpty(item)));
+        }" />
+        <set-backend-service base-url="http://STECCM16ACTAP01.cpp.nonlive:8080" />
+    </inbound>
+    <backend>
+        <base />
+    </backend>
+    <outbound>
+        <base />
+        <choose>
+            <!-- return 204 status code when no results found for prosecutor -->
+            <when condition="@(context.Response.StatusCode == 200 && ((JArray)(context.Response.Body.As<JObject>(preserveContent: true)["hearingVenues"])).Count == 0)">
+                <!-- No results found for Prosecutor -->
+                <return-response>
+                    <set-status code="204" />
+                </return-response>
+            </when>
+        </choose>
+    </outbound>
+    <on-error>
+        <base />
+    </on-error>
+</policies>

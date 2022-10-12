@@ -1,0 +1,11 @@
+event_sources:
+  - name: stagingpubhub
+    is_default: true
+    location:
+      jms_uri:  jms:topic:stagingpubhub.event
+      rest_uri: http://localhost:8080/stagingpubhub-service/event-source-api/rest
+      data_source: java:/app/stagingpubhub-service/DS.eventstore
+
+  - name: public
+    location:
+      jms_uri:  jms:topic:public.event

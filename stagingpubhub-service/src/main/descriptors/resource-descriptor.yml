@@ -1,0 +1,49 @@
+--
+resource_descriptor:
+  spec_version: '1.0.0'
+  version: '${project.version}'
+
+  resources:
+    - name: java:/app/stagingpubhub-service/DS.eventstore
+      type: xa-datasource
+      setup:
+        - type: liquibase
+          maven:
+            groupId: uk.gov.justice.services
+            artifactId: event-repository-liquibase
+            type: jar
+            version: '${cpp.framework.version}'
+        - type: liquibase
+          maven:
+            groupId: uk.gov.justice.services
+            artifactId: aggregate-snapshot-repository-liquibase
+            type: jar
+            version: '${project.version}'
+
+    - name: java:/DS.stagingpubhub
+      type: xa-datasource
+      setup:
+        - type: liquibase
+          maven:
+            groupId: uk.gov.justice.services
+            artifactId: event-buffer-liquibase
+            type: jar
+            version: '${cpp.framework.version}'
+
+    - name: stagingpubhub.handler.command
+      type: queue
+    - name: stagingpubhub.event
+      type: topic
+    - name: public.event
+      type: topic
+
+  services:
+    # Stagingpubhub provides these service mappings
+    - name: 'stagingpubhub-service'
+      id: 'stagingpubhub_service'
+      target: '/stagingpubhub-service'
+      map:
+        - '/stagingpubhub-command-api'
+        - '/stagingpubhub-command-handler'
+        - '/stagingpubhub-event-processor'
+      matcher: '/stagingpubhub-[^/]+'

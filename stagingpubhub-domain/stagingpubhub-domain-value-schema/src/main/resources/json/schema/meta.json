@@ -1,0 +1,38 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "http://justice.gov.uk/staging/pubhub/json/schema/meta.json",
+  "type": "object",
+  "properties": {
+    "provenance": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string"
+    },
+    "listType": {
+      "type": "string"
+    },
+    "courtId": {
+      "type": "string"
+    },
+    "contentDate": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "sensitivity": {
+      "type": "string"
+    },
+    "language": {
+      "type": "string"
+    },
+    "displayFrom": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "displayTo": {
+      "type": "string",
+      "format": "date-time"
+    }
+  },
+  "additionalProperties": false
+}
