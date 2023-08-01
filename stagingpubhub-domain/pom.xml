@@ -3,7 +3,7 @@
     <parent>
         <artifactId>stagingpubhub</artifactId>
         <groupId>uk.gov.moj.cpp.staging.pubhub</groupId>
-        <version>8.0.9-SNAPSHOT</version>
+        <version>8.0.10-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
