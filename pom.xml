@@ -17,8 +17,8 @@
     <properties>
         <system.users.library.version>3.1.2</system.users.library.version>
         <sjp.version>8.0.48</sjp.version>
-        <referencedata.version>8.0.42</referencedata.version>
-        <coredomain.version>1.0.209</coredomain.version>
+        <referencedata.version>8.0.44</referencedata.version>
+        <coredomain.version>1.0.210</coredomain.version>
         <results.version>8.0.25</results.version>
     </properties>
      
