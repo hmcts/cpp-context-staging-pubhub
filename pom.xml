@@ -18,10 +18,10 @@
         <system.users.library.version>3.1.2</system.users.library.version>
         <sjp.version>8.0.48</sjp.version>
         <referencedata.version>8.0.44</referencedata.version>
-        <coredomain.version>1.0.210</coredomain.version>
+        <coredomain.version>1.0.211</coredomain.version>
         <results.version>8.0.25</results.version>
     </properties>
-     
+
     <modules>
         <module>stagingpubhub-command</module>
         <module>stagingpubhub-event</module>
