@@ -21,11 +21,13 @@
                             "caseUrn": "53NP8105522"
                           }
                         ],
-                        "offence": {
-                          "offenceTitle": "Occupy reserved seat / berth without a valid ticket on the Tyne and Wear Metro",
-                          "offenceWording": "Has a violent past and fear that he will commit further offences and\n                interfere with witnesse",
-                          "reportingRestriction": false
-                        },
+                        "offence": [
+                          {
+                            "title": "Occupy reserved seat / berth without a valid ticket on the Tyne and Wear Metro",
+                            "wording": "Has a violent past and fear that he will commit further offences and\n                interfere with witnesse",
+                            "reportingRestriction": false
+                          }
+                        ],
                         "party": [
                           {
                             "individualDetails": {
@@ -59,11 +61,13 @@
                             "caseUrn": "53NP1454922"
                           }
                         ],
-                        "offence": {
-                          "offenceTitle": "Occupy reserved seat / berth without a valid ticket on the Tyne and Wear Metro",
-                          "offenceWording": "Has a violent past and fear that he will commit further offences and\n                interfere with witnesse",
-                          "reportingRestriction": false
-                        },
+                        "offence": [
+                          {
+                            "title": "Occupy reserved seat / berth without a valid ticket on the Tyne and Wear Metro",
+                            "wording": "Has a violent past and fear that he will commit further offences and\n                interfere with witnesse",
+                            "reportingRestriction": false
+                          }
+                        ],
                         "party": [
                           {
                             "individualDetails": {

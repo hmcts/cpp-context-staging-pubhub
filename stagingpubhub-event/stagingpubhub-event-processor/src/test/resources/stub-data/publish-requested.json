@@ -32,11 +32,13 @@
                             "caseUrn": "53NP8105522"
                           }
                         ],
-                        "offence": {
-                          "offenceTitle": "Occupy reserved seat / berth without a valid ticket on the Tyne and Wear Metro",
-                          "offenceWording": "Has a violent past and fear that he will commit further offences and\n                interfere with witnesse",
-                          "reportingRestriction": false
-                        },
+                        "offence": [
+                          {
+                            "offenceTitle": "Occupy reserved seat / berth without a valid ticket on the Tyne and Wear Metro",
+                            "offenceWording": "Has a violent past and fear that he will commit further offences and\n                interfere with witnesse",
+                            "reportingRestriction": false
+                          }
+                        ],
                         "party": [
                           {
                             "individualDetails": {
@@ -72,11 +74,13 @@
                             "caseUrn": "53NP1454922"
                           }
                         ],
-                        "offence": {
-                          "offenceTitle": "Occupy reserved seat / berth without a valid ticket on the Tyne and Wear Metro",
-                          "offenceWording": "Has a violent past and fear that he will commit further offences and\n                interfere with witnesse",
-                          "reportingRestriction": false
-                        },
+                        "offence": [
+                          {
+                            "offenceTitle": "Occupy reserved seat / berth without a valid ticket on the Tyne and Wear Metro",
+                            "offenceWording": "Has a violent past and fear that he will commit further offences and\n                interfere with witnesse",
+                            "reportingRestriction": false
+                          }
+                        ],
                         "party": [
                           {
                             "individualDetails": {
@@ -112,11 +116,13 @@
                             "caseUrn": "53NP7998322"
                           }
                         ],
-                        "offence": {
-                          "offenceTitle": "Occupy reserved seat / berth without a valid ticket on the Tyne and Wear Metro",
-                          "offenceWording": "Has a violent past and fear that he will commit further offences and\n                interfere with witnesse",
-                          "reportingRestriction": false
-                        },
+                        "offence": [
+                          {
+                            "offenceTitle": "Occupy reserved seat / berth without a valid ticket on the Tyne and Wear Metro",
+                            "offenceWording": "Has a violent past and fear that he will commit further offences and\n                interfere with witnesse",
+                            "reportingRestriction": false
+                          }
+                        ],
                         "party": [
                           {
                             "individualDetails": {
@@ -187,11 +193,13 @@
                             "caseUrn": "41GD4978322"
                           }
                         ],
-                        "offence": {
-                          "offenceTitle": "Possess /    control TV set with intent another use install without a licence",
-                          "offenceWording": "On TEST  at  TEST  used or threatened unlawful violence towards another and your conduct was such as would cause a person of reasonable firmness present at the scene to fear for his personal safety. Contrary to section 3(1) and (7) of the Public Order Act 1986.",
-                          "reportingRestriction": false
-                        },
+                        "offence": [
+                          {
+                            "offenceTitle": "Possess /    control TV set with intent another use install without a licence",
+                            "offenceWording": "On TEST  at  TEST  used or threatened unlawful violence towards another and your conduct was such as would cause a person of reasonable firmness present at the scene to fear for his personal safety. Contrary to section 3(1) and (7) of the Public Order Act 1986.",
+                            "reportingRestriction": false
+                          }
+                        ],
                         "party": [
                           {
                             "individualDetails": {
@@ -284,11 +292,13 @@
                             "caseUrn": "31GD2297622"
                           }
                         ],
-                        "offence": {
-                          "offenceTitle": "Possess /    control TV set with intent another use install without a licence",
-                          "offenceWording": "On TEST  at  TEST  used or threatened unlawful violence towards another and your conduct was such as would cause a person of reasonable firmness present at the scene to fear for his personal safety. Contrary to section 3(1) and (7) of the Public Order Act 1986.",
-                          "reportingRestriction": false
-                        },
+                        "offence": [
+                          {
+                            "offenceTitle": "Possess /    control TV set with intent another use install without a licence",
+                            "offenceWording": "On TEST  at  TEST  used or threatened unlawful violence towards another and your conduct was such as would cause a person of reasonable firmness present at the scene to fear for his personal safety. Contrary to section 3(1) and (7) of the Public Order Act 1986.",
+                            "reportingRestriction": false
+                          }
+                        ],
                         "party": [
                           {
                             "individualDetails": {
@@ -346,11 +356,13 @@
                             "caseUrn": "58GD8569222"
                           }
                         ],
-                        "offence": {
-                          "offenceTitle": "Possess /    control TV set with intent another use install without a licence",
-                          "offenceWording": "On TEST  at  TEST  used or threatened unlawful violence towards another and your conduct was such as would cause a person of reasonable firmness present at the scene to fear for his personal safety. Contrary to section 3(1) and (7) of the Public Order Act 1986.",
-                          "reportingRestriction": false
-                        },
+                        "offence": [
+                          {
+                            "offenceTitle": "Possess /    control TV set with intent another use install without a licence",
+                            "offenceWording": "On TEST  at  TEST  used or threatened unlawful violence towards another and your conduct was such as would cause a person of reasonable firmness present at the scene to fear for his personal safety. Contrary to section 3(1) and (7) of the Public Order Act 1986.",
+                            "reportingRestriction": false
+                          }
+                        ],
                         "party": [
                           {
                             "individualDetails": {
@@ -408,11 +420,13 @@
                             "caseUrn": "57GD9086322"
                           }
                         ],
-                        "offence": {
-                          "offenceTitle": "Possess /    control TV set with intent another use install without a licence",
-                          "offenceWording": "On TEST  at  TEST  used or threatened unlawful violence towards another and your conduct was such as would cause a person of reasonable firmness present at the scene to fear for his personal safety. Contrary to section 3(1) and (7) of the Public Order Act 1986.",
-                          "reportingRestriction": false
-                        },
+                        "offence": [
+                          {
+                            "offenceTitle": "Possess /    control TV set with intent another use install without a licence",
+                            "offenceWording": "On TEST  at  TEST  used or threatened unlawful violence towards another and your conduct was such as would cause a person of reasonable firmness present at the scene to fear for his personal safety. Contrary to section 3(1) and (7) of the Public Order Act 1986.",
+                            "reportingRestriction": false
+                          }
+                        ],
                         "party": [
                           {
                             "individualDetails": {

@@ -9,7 +9,12 @@ import static uk.gov.justice.services.test.utils.core.reflection.ReflectionUtil.
 import uk.gov.justice.services.common.converter.ObjectToJsonObjectConverter;
 import uk.gov.justice.services.common.converter.jackson.ObjectMapperProducer;
 import uk.gov.justice.staging.pubhub.HearingDates;
+import uk.gov.justice.staging.pubhub.Language;
+import uk.gov.justice.staging.pubhub.ListPayload;
+import uk.gov.justice.staging.pubhub.PressTransparencyReportGenerated;
 import uk.gov.justice.staging.pubhub.PublishRequested;
+import uk.gov.justice.staging.pubhub.ReadyCases;
+import uk.gov.justice.staging.pubhub.RequestType;
 import uk.gov.justice.staging.pubhub.StandardList;
 
 import org.junit.Before;
@@ -21,13 +26,11 @@ import org.mockito.runners.MockitoJUnitRunner;
 
 @RunWith(MockitoJUnitRunner.class)
 public class PubHubAggregateTest {
-    @InjectMocks
-    private PubHubAggregate pubHubAggregate;
-
+    private static final String STANDARD = "Standard";
     @Spy
     ObjectToJsonObjectConverter objectToJsonObjectConverter;
-
-    private static final String STANDARD = "Standard";
+    @InjectMocks
+    private PubHubAggregate pubHubAggregate;
 
     @Before
     public void setUp() {
@@ -47,7 +50,7 @@ public class PubHubAggregateTest {
                 .build();
 
 
-        final PublishRequested publishRequested = (PublishRequested)pubHubAggregate
+        final PublishRequested publishRequested = (PublishRequested) pubHubAggregate
                 .requestPublish(standardList)
                 .collect(toList())
                 .get(0);
@@ -57,5 +60,26 @@ public class PubHubAggregateTest {
         assertThat(publishRequested.getStandardList().getCourtCentreName(), is("Lavender Hill Magistrates' Court"));
         assertThat(publishRequested.getStandardList().getCourtCentreAddress1(), is("176A Lavender Hill London"));
         assertThat(publishRequested.getStandardList().getHearingDates().get(0).getHearingDate(), is("2022-04-07"));
+    }
+
+    @Test
+    public void shouldRequestPressTransparencyReportGeneratedWhenListTypeIsSjpPressList() {
+        final ListPayload listPayload = ListPayload.listPayload()
+                .withGeneratedDateAndTime("2016-01-01 00:00:00")
+                .withTotalNumberOfRecords(1)
+                .withReadyCases(asList(new ReadyCases.Builder()
+                        .withCaseUrn("TFL901845675")
+                        .withDefendantName("John Doe")
+                        .build()))
+                .build();
+
+        final PressTransparencyReportGenerated pressTransparencyReportGenerated = (PressTransparencyReportGenerated) pubHubAggregate
+                .requestSjpPressPublish(Language.ENGLISH.toString(), listPayload, RequestType.FULL.toString())
+                .collect(toList())
+                .get(0);
+
+        assertThat(pressTransparencyReportGenerated.getLanguage(), is(Language.ENGLISH));
+        assertThat(pressTransparencyReportGenerated.getListPayload().getTotalNumberOfRecords(), is(1));
+        assertThat(pressTransparencyReportGenerated.getListPayload().getReadyCases().get(0).getCaseUrn(), is("TFL901845675"));
     }
 }

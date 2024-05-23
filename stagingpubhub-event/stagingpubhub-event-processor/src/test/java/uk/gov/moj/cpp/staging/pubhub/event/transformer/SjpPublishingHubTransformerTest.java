@@ -10,7 +10,7 @@ import uk.gov.justice.services.common.converter.JsonObjectToObjectConverter;
 import uk.gov.justice.services.common.converter.ObjectToJsonObjectConverter;
 import uk.gov.justice.services.common.converter.jackson.ObjectMapperProducer;
 import uk.gov.justice.services.messaging.JsonEnvelope;
-import uk.gov.justice.staging.pubhub.schema.PubhubMaster;
+import uk.gov.moj.cpp.stagingpubhub.domain.PubhubMaster;
 import uk.gov.moj.cpp.staging.pubhub.event.processor.util.FileUtil;
 
 import javax.inject.Inject;

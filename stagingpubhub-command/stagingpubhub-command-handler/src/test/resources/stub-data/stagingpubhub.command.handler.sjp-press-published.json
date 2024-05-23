@@ -13,8 +13,9 @@
         "offences": [
           {
             "title":"title1",
-            "wording": "Committed some offence",
-            "reportingRestriction": "false"
+            "offenceWording": "Committed some offence",
+            "reportingRestriction": "false",
+            "pressRestrictionName": "PS00001"
           }
         ],
         "prosecutorName": "TFL",
@@ -26,6 +27,7 @@
         "postcode": "W1T 1JY"
       },
       {
+        "caseId": "dd349d7c-8211-4a37-9ce9-bdd97123dcb3",
         "caseUrn": "TFL905582011",
         "defendantName": "D LastNameba12e4f5-4857-4e1d-94ed-12ed92c0ef09",
         "firstName": "David",
@@ -34,7 +36,8 @@
           {
             "title":"title2",
             "offenceWording": "Committed some offence",
-            "reportingRestriction": "true"
+            "reportingRestriction": "true",
+            "pressRestrictionName": "PS00001"
           }
         ],
         "prosecutorName": "TFL",

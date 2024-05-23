@@ -78,6 +78,6 @@ public class PublishEventProcessorTest {
         when(objectToJsonObjectConverter.convert(publishingHubList)).thenReturn(transformPayload);
 
         publishEventProcessor.publishRequested(envelope);
-        verify(publishingService, times(1)).sendData(publishRequestedArgumentCaptor.capture(), any(), any(), any());
+        verify(publishingService, times(1)).sendData(publishRequestedArgumentCaptor.capture(), any(), any(), any(), any());
     }
 }

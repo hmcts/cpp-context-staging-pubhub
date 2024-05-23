@@ -58,6 +58,23 @@
             <artifactId>stagingpubhub-domain-events</artifactId>
             <version>${project.version}</version>
         </dependency>
+        <!-- azure dependencies-->
+        <dependency>
+            <groupId>com.azure</groupId>
+            <artifactId>azure-identity</artifactId>
+            <version>1.11.4</version>
+        </dependency>
+        <dependency>
+            <groupId>com.azure</groupId>
+            <artifactId>azure-core</artifactId>
+            <version>1.47.0</version>
+        </dependency>
+        <dependency>
+            <groupId>com.azure</groupId>
+            <artifactId>azure-core-test</artifactId>
+            <version>1.24.0</version> <!-- {x-version-update;com.azure:azure-core-test;dependency} -->
+            <scope>test</scope>
+        </dependency>
         <!--Test dependencies-->
         <dependency>
             <groupId>junit</groupId>
@@ -75,7 +92,6 @@
             <scope>test</scope>
         </dependency>
     </dependencies>
-
     <build>
         <plugins>
             <plugin>

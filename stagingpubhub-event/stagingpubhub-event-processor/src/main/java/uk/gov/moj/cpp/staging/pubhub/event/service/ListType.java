@@ -4,6 +4,7 @@ public enum ListType {
 
     SJP_PUBLIC_LIST("SJP_PUBLIC_LIST"),
     SJP_PRESS_LIST("SJP_PRESS_LIST"),
+    SJP_DELTA_PRESS_LIST("SJP_DELTA_PRESS_LIST"),
     CROWN_DAILY_LIST("CROWN_DAILY_LIST"),
     CROWN_LCSU("CROWN_LCSU"),
     CROWN_FIRM_LIST("CROWN_FIRM_LIST"),
@@ -13,13 +14,15 @@ public enum ListType {
     CIVIL_DAILY_CAUSE_LIST("CIVIL_DAILY_CAUSE_LIST"),
     FAMILY_DAILY_CAUSE_LIST("FAMILY_DAILY_CAUSE_LIST");
 
-    public String getValue() {
-        return value;
-    }
-
     private final String value;
 
     ListType(String value) {
         this.value = value;
     }
+
+    @Override
+    public String toString() {
+        return value;
+    }
+
 }

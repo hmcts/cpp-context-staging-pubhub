@@ -30,7 +30,10 @@ import uk.gov.justice.services.messaging.JsonEnvelope;
 import uk.gov.justice.services.messaging.Metadata;
 import uk.gov.justice.services.messaging.spi.DefaultJsonEnvelopeProvider;
 import uk.gov.justice.services.test.utils.core.enveloper.EnveloperFactory;
+import uk.gov.justice.staging.pubhub.PressTransparencyReportGenerated;
+import uk.gov.justice.staging.pubhub.PublicReportGenerated;
 import uk.gov.justice.staging.pubhub.PublishRequested;
+import uk.gov.justice.staging.pubhub.RequestType;
 import uk.gov.justice.staging.pubhub.json.schema.PublishLiveStatus;
 import uk.gov.moj.cpp.staging.pubhub.command.handler.util.FileUtil;
 import uk.gov.moj.cpp.staging.pubhub.domain.PubHubAggregate;
@@ -62,10 +65,12 @@ public class StagingPubHubCommandHandlerTest {
     @Spy
     private final Enveloper enveloper = EnveloperFactory.createEnveloperWithEvents(
             PublishRequested.class,
-            PublishLiveStatus.class);
+            PublishLiveStatus.class,
+            PublicReportGenerated.class,
+            PressTransparencyReportGenerated.class);
 
     @InjectMocks
-    StagingPubHubCommandHandler stagingPubHubCommandHandler;
+    private StagingPubHubCommandHandler stagingPubHubCommandHandler;
     @Mock
     private EventSource eventSource;
     @Mock
@@ -114,6 +119,15 @@ public class StagingPubHubCommandHandlerTest {
         stagingPubHubCommandHandler.handleLiveStatusPublished(commandEnvelope);
 
         verifySubscriberHandlerResults("stagingpubhub.event.publish-live-status", "$.documentName", "Live Case Status Update");
+    }
+
+    @Test
+    public void handleSjpPressListPublished() throws EventStreamException {
+        final JsonObject payload = FileUtil.givenPayload("stub-data/stagingpubhub.command.handler.sjp-press-published.json");
+        final JsonEnvelope commandEnvelope = createCommandEnvelope(payload, "stagingpubhub.command.handler.sjp-press-published");
+        stagingPubHubCommandHandler.handleSjpPressReportPublished(commandEnvelope);
+
+        verifySubscriberHandlerResults("stagingpubhub.event.sjp-press-published", "$.requestType", RequestType.FULL.toString());
     }
 
     private JsonObject buildStandardListPayload() {

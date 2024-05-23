@@ -24,8 +24,6 @@ public class SJPListReportRequestedProcessor {
     private static final String STAGING_PUBHUB_COMMAND_SJP_PRESS = "stagingpubhub.command.handler.sjp-press-published";
     private static final String STAGING_PUBHUB_COMMAND_SJP_PUBLIC = "stagingpubhub.command.handler.sjp-public-published";
 
-
-
     @Inject
     @ServiceComponent(EVENT_PROCESSOR)
     private Sender sender;
@@ -35,16 +33,12 @@ public class SJPListReportRequestedProcessor {
 
     @Handles(PUBLIC_SJP_PRESS_TRANSPARENCY_REPORT_GENERATED)
     public void publishSjpTransparencyPressReportRequested(final JsonEnvelope envelope) {
-
-        if (featureControlGuard.isFeatureEnabled("PUBHUB")) {
-            if (LOGGER.isDebugEnabled()) {
-                LOGGER.debug("PUBLIC_SJP_PRESS_TRANSPARENCY_REPORT_GENERATED {}", envelope.toObfuscatedDebugString());
-            }
-
-            sender.send(envelopeFrom(metadataFrom(envelope.metadata()).withName(STAGING_PUBHUB_COMMAND_SJP_PRESS),
-                    envelope.payloadAsJsonObject()));
-
+        if (LOGGER.isDebugEnabled()) {
+            LOGGER.info("PUBLIC_SJP_PRESS_TRANSPARENCY_REPORT_GENERATED {}", envelope.toObfuscatedDebugString());
         }
+
+        sender.send(envelopeFrom(metadataFrom(envelope.metadata()).withName(STAGING_PUBHUB_COMMAND_SJP_PRESS),
+                envelope.payloadAsJsonObject()));
     }
 
     @Handles(PUBLIC_SJP_PUBLIC_CASES_LIST_REPORT_GENERATED)
@@ -56,7 +50,6 @@ public class SJPListReportRequestedProcessor {
 
             sender.send(envelopeFrom(metadataFrom(envelope.metadata()).withName(STAGING_PUBHUB_COMMAND_SJP_PUBLIC),
                     envelope.payloadAsJsonObject()));
-
         }
     }
 

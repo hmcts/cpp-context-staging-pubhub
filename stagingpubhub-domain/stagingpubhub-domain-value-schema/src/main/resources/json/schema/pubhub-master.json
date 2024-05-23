@@ -326,6 +326,10 @@
                                                   "description": "Date of birth for user (not mandated for all parties)",
                                                   "type": "string"
                                                 },
+                                                "age": {
+                                                  "description": "Age for user (not mandated for all parties)",
+                                                  "type": "integer"
+                                                },
                                                 "address": {
                                                   "description": "Party Address",
                                                   "$ref": "#/definitions/address"
@@ -415,30 +419,35 @@
                                         }
                                       },
                                       "offence":{
-                                        "type": "object",
-                                        "properties": {
-                                          "offenceCode":{
-                                            "description": "Offence unique code",
-                                            "type": "string"
+                                        "description": "The offence and details of offences associated with the case",
+                                        "type": "array",
+                                        "items": {
+                                          "description": "A offence",
+                                          "type": "object",
+                                          "properties": {
+                                            "offenceCode":{
+                                              "description": "Offence unique code",
+                                              "type": "string"
+                                            },
+                                            "offenceTitle":{
+                                              "description": "Short description of offence",
+                                              "type": "string"
+                                            },
+                                            "offenceWording":{
+                                              "description": "Long description of offence",
+                                              "type":"string"
+                                            },
+                                            "offenceMaxPen":{
+                                              "description": "Maximum penalty if found guilty",
+                                              "type":"string"
+                                            },
+                                            "reportingRestriction": {
+                                              "description": "Any reporting restrictions posed to the offence",
+                                              "type": "boolean"
+                                            }
                                           },
-                                          "offenceTitle":{
-                                            "description": "Short description of offence",
-                                            "type": "string"
-                                          },
-                                          "offenceWording":{
-                                            "description": "Long description of offence",
-                                            "type":"string"
-                                          },
-                                          "offenceMaxPen":{
-                                            "description": "Maximum penalty if found guilty",
-                                            "type":"string"
-                                          },
-                                          "reportingRestriction": {
-                                            "description": "Any reporting restrictions posed to the offence",
-                                            "type": "boolean"
-                                          }
-                                        },
-                                        "additionalProperties": false
+                                          "additionalProperties": false
+                                        }
                                       },
                                       "lcsu": {
                                         "description": "If any updates on the case as it is heard",

@@ -5,7 +5,8 @@ public enum DocumentType {
     MAGS_STANDARD_LIST_ENGLISH("Magistrates Standard List English"),
     CROWN_LCSU("Live Case Updates"),
     SJP_PUBLIC_LIST("SJP Pending list"),
-    SJP_PRESS_LIST("SJP Press list");
+    SJP_PRESS_LIST("SJP Press list"),
+    SJP_DELTA_PRESS_LIST("SJP DELTA Press list");
 
     private final String value;
 

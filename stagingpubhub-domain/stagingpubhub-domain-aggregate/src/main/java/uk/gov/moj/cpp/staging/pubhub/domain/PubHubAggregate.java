@@ -6,6 +6,7 @@ import static uk.gov.justice.domain.aggregate.matcher.EventSwitcher.when;
 import static uk.gov.justice.staging.pubhub.PublishRequested.publishRequested;
 
 import uk.gov.justice.domain.aggregate.Aggregate;
+import uk.gov.justice.staging.pubhub.RequestType;
 import uk.gov.justice.staging.pubhub.Language;
 import uk.gov.justice.staging.pubhub.ListPayload;
 import uk.gov.justice.staging.pubhub.PressTransparencyReportGenerated;
@@ -67,10 +68,11 @@ public class PubHubAggregate implements Aggregate {
         .build()));
     }
 
-    public Stream<Object> requestSjpPressPublish(final String language, final ListPayload payload) {
+    public Stream<Object> requestSjpPressPublish(final String language, final ListPayload payload, final String requestType) {
         return apply(Stream.of(PressTransparencyReportGenerated.pressTransparencyReportGenerated()
                 .withListPayload(payload)
                 .withLanguage(Language.valueOf(language))
+                .withRequestType(RequestType.valueOf(requestType))
                 .build()));
     }
 

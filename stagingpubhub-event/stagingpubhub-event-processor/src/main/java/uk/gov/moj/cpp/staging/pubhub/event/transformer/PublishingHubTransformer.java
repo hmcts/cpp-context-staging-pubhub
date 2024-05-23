@@ -191,18 +191,18 @@ public class PublishingHubTransformer {
         return parties;
     }
 
-    private Offence buildOffences(final List<Defendants> defendants) {
-        final Offence.Builder offence = Offence.offence();
+    private List<Offence> buildOffences(final List<Defendants> defendants) {
+        final List<Offence> offences = new ArrayList<>();
         final Defendants defendants1 = defendants.get(0);
-        final List<Offences> offences = defendants1.getOffences();
+        final List<Offences> offencesList = defendants1.getOffences();
 
-        if (nonNull(offences)) {
-            offence.withOffenceTitle(offences.get(0).getOffenceTitle())
-                    .withOffenceWording(offences.get(0).getOffenceWording())
+        offencesList.stream().forEach(offence -> {
+            final Offence.Builder offenceBuilder = Offence.offence();
+            offences.add(offenceBuilder.withOffenceTitle(offence.getOffenceTitle())
+                    .withOffenceWording(offence.getOffenceWording())
                     .withReportingRestriction(nonNull(defendants1.getReportingRestrictions()) && !defendants1.getReportingRestrictions().isEmpty() ? true : false)
-                    .build();
-        }
-
-        return offence.build();
+                    .build());
+        });
+        return offences;
     }
 }
