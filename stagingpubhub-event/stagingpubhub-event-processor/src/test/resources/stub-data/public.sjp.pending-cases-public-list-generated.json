@@ -1,50 +1,34 @@
 {
   "language": "ENGLISH",
+  "requestType": "FULL",
   "listPayload": {
     "generatedDateAndTime": "2016-01-01 00:00:00",
     "totalNumberOfRecords": 2,
     "readyCases": [
       {
-        "caseId": "401ec136-e80a-4083-aa08-e53aff06c28e",
         "caseUrn": "TFL901845675",
         "defendantName": "D LastName810c4cf4-ad87-456f-b7d4-3d60e1f07409",
         "firstName": "David",
         "lastName": "LastName810c4cf4-ad87-456f-b7d4-3d60e1f07409",
         "offences": [
           {
-            "title":"title1",
-            "offenceCode": "PS00001",
-            "offenceStartDate": "2016-01-01",
-            "offenceWording": "Committed some offence",
-            "pressRestrictionRequested": "false"
+            "title":"title1"
           }
         ],
         "prosecutorName": "TFL",
-        "town": "UK",
-        "county": "Greater London",
-        "addressLine1": "14 Tottenham Court Road",
-        "addressLine2": "London",
-        "defendantDateOfBirth": "1980-07-15",
         "postcode": "W1T 1JY"
       },
       {
-        "caseId": "dd349d7c-8211-4a37-9ce9-bdd97123dcb3",
         "caseUrn": "TFL905582011",
         "defendantName": "D LastNameba12e4f5-4857-4e1d-94ed-12ed92c0ef09",
         "firstName": "David",
         "lastName": "LastNameba12e4f5-4857-4e1d-94ed-12ed92c0ef09",
         "offences": [
           {
-            "title":"title2",
-            "offenceCode": "PS00001",
-            "offenceStartDate": "2016-01-01",
-            "offenceWording": "Committed some offence",
-            "pressRestrictionRequested": "true"
+            "title":"title2"
           }
         ],
         "prosecutorName": "TFL",
-        "addressLine1": "14 Tottenham Court Road",
-        "defendantDateOfBirth": "1980-07-15",
         "postcode": "W1T 1JY"
       }
     ]

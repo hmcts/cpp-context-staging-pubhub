@@ -18,8 +18,6 @@ import javax.ws.rs.core.Response;
 import com.google.common.collect.ImmutableMap;
 import org.jboss.resteasy.client.jaxrs.ResteasyClient;
 import org.jboss.resteasy.client.jaxrs.ResteasyClientBuilder;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 @SuppressWarnings({"squid:S2139", "squid:S00112", "squid:S2142"})
 public class RestEasyClientService {
@@ -45,7 +43,6 @@ public class RestEasyClientService {
     private String restEasyClientConnectionPoolSize;
 
     ResteasyClient client;
-    private static final Logger LOGGER = LoggerFactory.getLogger(RestEasyClientService.class);
 
     @PostConstruct
     public void createClient() {
@@ -67,7 +64,6 @@ public class RestEasyClientService {
     }
 
     public Response post(final String url, final String payload, final String localServiceAccessToken, final String remoteServiceAccessToken, final Meta meta) {
-        LOGGER.info("local token : {} and remote token : {}",localServiceAccessToken,remoteServiceAccessToken);
         final Invocation.Builder request = this.client.target(url).request();
         request.headers(new MultivaluedHashMap(getHeaders(localServiceAccessToken, remoteServiceAccessToken, meta)));
         return request.post(Entity.json(payload));

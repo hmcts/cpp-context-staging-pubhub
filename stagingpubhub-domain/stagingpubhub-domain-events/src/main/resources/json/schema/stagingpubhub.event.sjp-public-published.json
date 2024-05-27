@@ -3,6 +3,12 @@
   "id":"http://justice.gov.uk/staging/pubhub/sjp.public-report-generated.json",
   "type":"object",
   "properties":{
+    "requestType": {
+      "enum": [
+        "FULL",
+        "DELTA"
+      ]
+    },
     "language":{
       "enum":[
         "ENGLISH",
@@ -19,6 +25,9 @@
         "totalNumberOfRecords":{
           "type":"integer"
         },
+        "startDate":{
+          "type":"string"
+        },
         "readyCases":{
           "type":"array",
           "items":{
@@ -33,22 +42,13 @@
               "prosecutorName":{
                 "type":"string"
               },
+              "legalEntityName":{
+                "type":"string"
+              },
               "firstName":{
                 "type":"string"
               },
               "lastName":{
-                "type":"string"
-              },
-              "addressLine1":{
-                "type":"string"
-              },
-              "addressLine2":{
-                "type":"string"
-              },
-              "town":{
-                "type":"string"
-              },
-              "county":{
                 "type":"string"
               },
               "postcode":{
@@ -60,15 +60,6 @@
                   "type":"object",
                   "properties":{
                     "title":{
-                      "type":"string"
-                    },
-                    "wording":{
-                      "type":"string"
-                    },
-                    "reportingRestriction":{
-                      "type":"boolean"
-                    },
-                    "pressRestrictionName":{
                       "type":"string"
                     }
                   }

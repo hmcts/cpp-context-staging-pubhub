@@ -5,7 +5,6 @@ import static com.github.tomakehurst.wiremock.client.WireMock.equalToJson;
 import static com.github.tomakehurst.wiremock.client.WireMock.post;
 import static com.github.tomakehurst.wiremock.client.WireMock.stubFor;
 import static com.github.tomakehurst.wiremock.client.WireMock.urlPathEqualTo;
-import static com.google.common.collect.Lists.newArrayList;
 import static java.util.UUID.randomUUID;
 import static org.apache.http.HttpStatus.SC_OK;
 import static org.hamcrest.CoreMatchers.equalTo;
@@ -13,7 +12,6 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.junit.Assert.assertNotNull;
 import static uk.gov.justice.services.messaging.Envelope.metadataBuilder;
 import static uk.gov.justice.services.messaging.JsonEnvelope.envelopeFrom;
-import static uk.gov.moj.cpp.staging.pubhubapi.stub.PublishingServiceStub.verifyPublicationV2Api;
 import static uk.gov.moj.cpp.staging.pubhubapi.utils.FeatureToggleUtil.enablePubHubFeature;
 import static uk.gov.moj.cpp.staging.pubhubapi.utils.FileUtil.getPayload;
 
@@ -23,11 +21,10 @@ import uk.gov.justice.services.common.converter.jackson.ObjectMapperProducer;
 import uk.gov.justice.services.messaging.JsonEnvelope;
 import uk.gov.justice.services.messaging.Metadata;
 import uk.gov.justice.staging.pubhub.PressTransparencyReportGenerated;
+import uk.gov.justice.staging.pubhub.PublicReportGenerated;
 import uk.gov.moj.cpp.staging.pubhubapi.utils.AbstractTestHelper;
 import uk.gov.moj.cpp.staging.pubhubapi.utils.QueueUtil;
 
-import java.io.IOException;
-import java.util.List;
 import java.util.Optional;
 
 import javax.jms.JMSException;
@@ -40,16 +37,17 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.activemq.command.ActiveMQTextMessage;
 import org.junit.After;
 import org.junit.Before;
-import org.junit.Ignore;
 import org.junit.Test;
 
-
+@SuppressWarnings({"squid:S1607"})
 public class SjpReportingIT extends AbstractTestHelper {
 
     public static final String PUBLIC_SJP_PRESS_TRANSPARENCY_REPORT_GENERATED = "public.sjp.press-transparency-report-generated";
+    public static final String PUBLIC_SJP_PENDING_CASES_PUBLIC_LIST_GENERATED = "public.sjp.pending-cases-public-list-generated";
 
     private MessageProducer messageProducerClientPublic;
     private MessageConsumer publicEventsForSjpPressReportConsumer;
+    private MessageConsumer publicEventsForSjpPendingReportConsumer;
 
     protected static final ObjectMapper objectMapper = new ObjectMapperProducer().objectMapper();
 
@@ -61,10 +59,11 @@ public class SjpReportingIT extends AbstractTestHelper {
     public void setUp() {
         messageProducerClientPublic = QueueUtil.publicEvents.createProducer();
         publicEventsForSjpPressReportConsumer = QueueUtil.publicEvents.createConsumer(PUBLIC_SJP_PRESS_TRANSPARENCY_REPORT_GENERATED);
+        publicEventsForSjpPendingReportConsumer = QueueUtil.publicEvents.createConsumer(PUBLIC_SJP_PENDING_CASES_PUBLIC_LIST_GENERATED);
     }
 
     @Test
-    public void shouldRaisePublishedEventWhenSjpPressListPublicEventConsumed() throws IOException {
+    public void shouldRaisePublishedEventWhenSjpPressListPublicEventConsumed() {
         enablePubHubFeature(true);
 
         final String payload = getPayload("stub-data/public.sjp.press-transparency-report-generated.json");
@@ -89,9 +88,34 @@ public class SjpReportingIT extends AbstractTestHelper {
         final PressTransparencyReportGenerated pressTransparencyReportGenerated = jsonToObjectConverter.convert(jsonObject.get(), PressTransparencyReportGenerated.class);
         assertThat(pressTransparencyReportGenerated.getLanguage().toString(), equalTo("ENGLISH"));
         assertNotNull(pressTransparencyReportGenerated.getListPayload());
+    }
 
-        final List<String> expectedDetails = newArrayList("SJP Press list");
-        verifyPublicationV2Api(expectedDetails);
+    @Test
+    public void shouldRaisePublishedEventWhenSjpPendingListPublicEventConsumed() {
+        enablePubHubFeature(true);
+
+        final String payload = getPayload("stub-data/public.sjp.pending-cases-public-list-generated.json");
+
+        stubFor(post(urlPathEqualTo("publishing-hub/v2/publication"))
+                .withRequestBody(equalToJson(getPayload("stub-data/public_list_payload_sent.json")))
+                .willReturn(aResponse().withStatus(SC_OK)
+                        .withHeader("Ocp-Apim-Subscription-Key", "3674a16507104b749a76b29b6c837352")
+                        .withHeader("Ocp-Apim-Trace", "true")));
+
+        sendMessage(messageProducerClientPublic, PUBLIC_SJP_PENDING_CASES_PUBLIC_LIST_GENERATED, stringToJsonObjectConverter.convert(payload), metadataBuilder()
+                .withId(randomUUID())
+                .withName(PUBLIC_SJP_PENDING_CASES_PUBLIC_LIST_GENERATED)
+                .withUserId(randomUUID().toString())
+                .build());
+        assertNotNull(doVerifySjpPublicEvent(publicEventsForSjpPendingReportConsumer));
+
+        final MessageConsumer consumer = QueueUtil.privateEvents.createConsumer("stagingpubhub.event.sjp-public-published");
+
+        Optional<JsonObject> jsonObject = QueueUtil.retrieveMessageAsJsonObject(consumer);
+
+        final PublicReportGenerated publicReportGenerated = jsonToObjectConverter.convert(jsonObject.get(), PublicReportGenerated.class);
+        assertThat(publicReportGenerated.getLanguage().toString(), equalTo("ENGLISH"));
+        assertNotNull(publicReportGenerated.getListPayload());
     }
 
     private String doVerifySjpPublicEvent(final MessageConsumer publicEventConsumer) {

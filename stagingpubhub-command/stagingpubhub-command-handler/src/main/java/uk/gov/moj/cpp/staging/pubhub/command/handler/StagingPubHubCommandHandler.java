@@ -75,12 +75,11 @@ public class StagingPubHubCommandHandler {
 
     @Handles(STAGINGPUBHUB_COMMAND_HANDLER_SJP_PUBLIC_PUBLISHED)
     public void handleSjpPublicReportPublished(final JsonEnvelope jsonEnvelope) throws EventStreamException {
+        final ListPayload payload = jsonObjectToObjectConverter.convert(jsonEnvelope.payloadAsJsonObject().getJsonObject("listPayload"), ListPayload.class);
         final EventStream eventStream = eventSource.getStreamById(randomUUID());
         final PubHubAggregate pubHubAggregate = aggregateService.get(eventStream, PubHubAggregate.class);
 
-        final ListPayload payload = jsonObjectToObjectConverter.convert(jsonEnvelope.payloadAsJsonObject().getJsonObject("listPayload"), ListPayload.class);
-
-        final Stream<Object> events = pubHubAggregate.requestSjpPublicPublish(jsonEnvelope.payloadAsJsonObject().getString("language"), payload);
+        final Stream<Object> events = pubHubAggregate.requestSjpPublicPublish(jsonEnvelope.payloadAsJsonObject().getString("language"), payload, jsonEnvelope.payloadAsJsonObject().getString("requestType"));
 
         appendEventsToStream(jsonEnvelope, eventStream, events);
     }

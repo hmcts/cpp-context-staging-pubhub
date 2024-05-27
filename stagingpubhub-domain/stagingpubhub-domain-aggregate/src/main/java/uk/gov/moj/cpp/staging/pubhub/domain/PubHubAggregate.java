@@ -76,10 +76,11 @@ public class PubHubAggregate implements Aggregate {
                 .build()));
     }
 
-    public Stream<Object> requestSjpPublicPublish(final String language, final ListPayload payload) {
+    public Stream<Object> requestSjpPublicPublish(final String language, final ListPayload payload, final String requestType) {
         return apply(Stream.of(PublicReportGenerated.publicReportGenerated()
                 .withListPayload(payload)
                 .withLanguage(Language.valueOf(language))
+                .withRequestType(RequestType.valueOf(requestType))
                 .build()));
     }
 }

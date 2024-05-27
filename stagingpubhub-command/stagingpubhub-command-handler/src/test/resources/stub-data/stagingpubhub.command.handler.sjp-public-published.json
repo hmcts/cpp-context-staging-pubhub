@@ -10,12 +10,11 @@
         "defendantName": "D LastName810c4cf4-ad87-456f-b7d4-3d60e1f07409",
         "firstName": "David",
         "lastName": "LastName810c4cf4-ad87-456f-b7d4-3d60e1f07409",
-        "sjpOffences": [
+        "offences": [
           {
             "title":"title1"
           }
         ],
-        "prosecutorName": "TFL",
         "postcode": "W1T 1JY"
       },
       {

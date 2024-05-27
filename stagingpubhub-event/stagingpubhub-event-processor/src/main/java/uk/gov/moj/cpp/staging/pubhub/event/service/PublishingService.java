@@ -5,6 +5,7 @@ import static uk.gov.moj.cpp.staging.pubhub.event.transformer.DocumentType.MAGS_
 import static uk.gov.moj.cpp.staging.pubhub.event.transformer.DocumentType.SJP_DELTA_PRESS_LIST;
 import static uk.gov.moj.cpp.staging.pubhub.event.transformer.DocumentType.SJP_PRESS_LIST;
 import static uk.gov.moj.cpp.staging.pubhub.event.transformer.DocumentType.SJP_PUBLIC_LIST;
+import static uk.gov.moj.cpp.staging.pubhub.event.transformer.DocumentType.SJP_DELTA_PUBLIC_LIST;
 
 import uk.gov.justice.services.messaging.JsonEnvelope;
 import uk.gov.justice.staging.pubhub.json.schema.Meta;
@@ -72,17 +73,17 @@ public class PublishingService {
             } else if (documentType.equals(CROWN_LCSU.getValue())) {
                 builder.withType(ArtefactType.LCSU.getValue())
                         .withListType(ListType.CROWN_LCSU.toString());
-            }
-            else if(documentType.equals(SJP_PUBLIC_LIST.getValue())){
+            } else if (documentType.equals(SJP_PUBLIC_LIST.getValue())) {
                 builder.withType(ArtefactType.LIST.getValue())
                         .withListType(ListType.SJP_PUBLIC_LIST.toString());
-            }
-            else if(documentType.equals(SJP_PRESS_LIST.getValue())){
+            } else if (documentType.equals(SJP_DELTA_PUBLIC_LIST.getValue())) {
+                builder.withType(ArtefactType.LIST.getValue())
+                        .withListType(ListType.SJP_DELTA_PUBLIC_LIST.toString());
+            } else if (documentType.equals(SJP_PRESS_LIST.getValue())) {
                 builder.withType(ArtefactType.LIST.getValue())
                         .withSensitivity(Sensitivity.CLASSIFIED.getValue())
                         .withListType(ListType.SJP_PRESS_LIST.toString());
-            }
-            else if(documentType.equals(SJP_DELTA_PRESS_LIST.getValue())){
+            } else if (documentType.equals(SJP_DELTA_PRESS_LIST.getValue())) {
                 builder.withType(ArtefactType.LIST.getValue())
                         .withSensitivity(Sensitivity.CLASSIFIED.getValue())
                         .withListType(ListType.SJP_DELTA_PRESS_LIST.toString());

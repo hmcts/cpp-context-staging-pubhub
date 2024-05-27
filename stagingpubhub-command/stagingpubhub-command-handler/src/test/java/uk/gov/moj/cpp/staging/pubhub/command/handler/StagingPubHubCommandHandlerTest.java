@@ -130,6 +130,15 @@ public class StagingPubHubCommandHandlerTest {
         verifySubscriberHandlerResults("stagingpubhub.event.sjp-press-published", "$.requestType", RequestType.FULL.toString());
     }
 
+    @Test
+    public void handleSjpPublicListPublished() throws EventStreamException {
+        final JsonObject payload = FileUtil.givenPayload("stub-data/stagingpubhub.command.handler.sjp-public-published.json");
+        final JsonEnvelope commandEnvelope = createCommandEnvelope(payload, "stagingpubhub.command.handler.sjp-public-published");
+        stagingPubHubCommandHandler.handleSjpPublicReportPublished(commandEnvelope);
+
+        verifySubscriberHandlerResults("stagingpubhub.event.sjp-public-published", "$.requestType", RequestType.FULL.toString());
+    }
+
     private JsonObject buildStandardListPayload() {
         return createObjectBuilder()
                 .add("standardList",

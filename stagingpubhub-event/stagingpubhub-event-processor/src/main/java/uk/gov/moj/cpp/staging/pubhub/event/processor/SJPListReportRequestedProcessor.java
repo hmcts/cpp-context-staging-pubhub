@@ -34,7 +34,7 @@ public class SJPListReportRequestedProcessor {
     @Handles(PUBLIC_SJP_PRESS_TRANSPARENCY_REPORT_GENERATED)
     public void publishSjpTransparencyPressReportRequested(final JsonEnvelope envelope) {
         if (LOGGER.isDebugEnabled()) {
-            LOGGER.info("PUBLIC_SJP_PRESS_TRANSPARENCY_REPORT_GENERATED {}", envelope.toObfuscatedDebugString());
+            LOGGER.debug("PUBLIC_SJP_PRESS_TRANSPARENCY_REPORT_GENERATED {}", envelope.toObfuscatedDebugString());
         }
 
         sender.send(envelopeFrom(metadataFrom(envelope.metadata()).withName(STAGING_PUBHUB_COMMAND_SJP_PRESS),

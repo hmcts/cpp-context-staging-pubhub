@@ -30,6 +30,7 @@ import javax.json.JsonValue;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+@SuppressWarnings({"squid:S3655"})
 public class SjpPublishingHubTransformer {
     public static final String PROSECUTOR_NAME = "prosecutorName";
     public static final String LEGAL_ENTITY_NAME = "legalEntityName";

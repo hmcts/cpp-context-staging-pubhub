@@ -3,6 +3,7 @@ package uk.gov.moj.cpp.staging.pubhub.event.service;
 public enum ListType {
 
     SJP_PUBLIC_LIST("SJP_PUBLIC_LIST"),
+    SJP_DELTA_PUBLIC_LIST("SJP_DELTA_PUBLIC_LIST"),
     SJP_PRESS_LIST("SJP_PRESS_LIST"),
     SJP_DELTA_PRESS_LIST("SJP_DELTA_PRESS_LIST"),
     CROWN_DAILY_LIST("CROWN_DAILY_LIST"),

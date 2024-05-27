@@ -65,7 +65,6 @@ public class PublishEventProcessor {
     private ApplicationParameters applicationParameters;
 
 
-
     @Handles("stagingpubhub.event.publish-requested")
     public void publishRequested(final JsonEnvelope envelope) {
 
@@ -114,11 +113,13 @@ public class PublishEventProcessor {
 
         final DocumentType documentType =  publishRequested.getRequestType() == RequestType.FULL ? DocumentType.SJP_PRESS_LIST : DocumentType.SJP_DELTA_PRESS_LIST;
 
-        final uk.gov.moj.cpp.stagingpubhub.domain.PubhubMaster publishSjpList = sjpPublishingHubTransformer.transformSjpList(envelope, documentType);
+        final uk.gov.moj.cpp.stagingpubhub.domain.PubhubMaster publishSjpPressList = sjpPublishingHubTransformer.transformSjpList(envelope, documentType);
 
-        if (nonNull(publishSjpList)) {
-            final String payload = objectToJsonObjectConverter.convert(publishSjpList).toString();
-            LOGGER.info("SJP press list sent to CATH: {}", payload);
+        if (nonNull(publishSjpPressList)) {
+            final String payload = objectToJsonObjectConverter.convert(publishSjpPressList).toString();
+            if (LOGGER.isInfoEnabled()) {
+                LOGGER.info("SJP press list sent to CATH: {}", payload);
+            }
 
             retryHelper()
                     .withSupplier(() -> publishingService.sendData(payload, publishingService.fetchMetaData(documentType.getValue(), envelope, "0", publishRequested.getLanguage().toString())))
@@ -134,7 +135,7 @@ public class PublishEventProcessor {
     }
 
     @Handles("stagingpubhub.event.sjp-public-published")
-    public void publishSjpPublicReportRequested(final JsonEnvelope envelope) {
+    public void publishSjpPublicReportRequested(final JsonEnvelope envelope) throws InterruptedException {
 
         final PublicReportGenerated publishRequested = jsonObjectConverter.convert(envelope.payloadAsJsonObject(), PublicReportGenerated.class);
 
@@ -142,16 +143,26 @@ public class PublishEventProcessor {
             LOGGER.info(EVENT_PAYLOAD_DEBUG_STRING, "stagingpubhub.event.sjp-public-published", publishRequested.toString());
         }
 
-        transformAndSendToPI(envelope, DocumentType.SJP_PUBLIC_LIST, publishRequested.getLanguage());
+        final DocumentType documentType = publishRequested.getRequestType() == RequestType.FULL ? DocumentType.SJP_PUBLIC_LIST : DocumentType.SJP_DELTA_PUBLIC_LIST;
 
-    }
+        final uk.gov.moj.cpp.stagingpubhub.domain.PubhubMaster publishSjpPublicList = sjpPublishingHubTransformer.transformSjpList(envelope, documentType);
 
-    private void transformAndSendToPI(JsonEnvelope envelope, DocumentType documentType, final Language language) {
-        final uk.gov.moj.cpp.stagingpubhub.domain.PubhubMaster publishSjpList = sjpPublishingHubTransformer.transformSjpList(envelope, documentType);
-        if (nonNull(publishSjpList)) {
-            final String transformedJsonPayload = objectToJsonObjectConverter.convert(publishSjpList).toString();
-            LOGGER.info("{} payload send to P&I {}", documentType.getValue(), transformedJsonPayload);
-            publishingService.sendData(transformedJsonPayload, documentType.getValue(), envelope, "SJP", language.toString());
+        if (nonNull(publishSjpPublicList)) {
+            final String payload = objectToJsonObjectConverter.convert(publishSjpPublicList).toString();
+            if (LOGGER.isInfoEnabled()) {
+                LOGGER.info("SJP public list sent to CATH: {}", payload);
+            }
+
+            retryHelper()
+                    .withSupplier(() -> publishingService.sendData(payload, publishingService.fetchMetaData(documentType.getValue(), envelope, "0", publishRequested.getLanguage().toString())))
+                    .withApimUrl(applicationParameters.getPublishingHubUrlV2())
+                    .withPayload(payload)
+                    .withRetryTimes(parseInt(applicationParameters.getRetryTimes()))
+                    .withRetryInterval(parseInt(applicationParameters.getRetryInterval()))
+                    .withExceptionSupplier(() -> new AzureAPIMInvocationException(documentType.getValue(), applicationParameters.getPublishingHubUrlV2()))
+                    .withPredicate(statusCode -> statusCode > 429)
+                    .build()
+                    .postWithRetry();
         }
     }
 }
