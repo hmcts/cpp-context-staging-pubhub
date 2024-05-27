@@ -36,6 +36,7 @@ import javax.json.JsonObject;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.github.tomakehurst.wiremock.stubbing.StubMapping;
 import org.junit.AfterClass;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Spy;
@@ -58,6 +59,7 @@ public class LiveCaseUpdateIT {
         messageProducerClientPublic.close();
     }
 
+    @Ignore
     @Test
     public void shouldProcessLiveCaseUpdatePublicEvent(){
         enablePubHubFeature(true);

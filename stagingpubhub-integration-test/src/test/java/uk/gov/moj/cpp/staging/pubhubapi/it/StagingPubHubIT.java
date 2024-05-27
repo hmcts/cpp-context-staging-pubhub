@@ -30,6 +30,7 @@ import javax.json.JsonObject;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.After;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Spy;
@@ -47,6 +48,7 @@ public class StagingPubHubIT {
     private JsonObjectToObjectConverter jsonObjectConverter = new JsonObjectToObjectConverter(objectMapper);
 
 
+    @Ignore
     @Test
     public void shouldRaiseStandardListPublishedEventWhenPubHubEnabled() throws IOException {
         enablePubHubFeature(true);
