@@ -11,17 +11,17 @@
     <groupId>uk.gov.moj.cpp.staging.pubhub</groupId>
     <artifactId>stagingpubhub</artifactId>
     <version>8.0.18-SNAPSHOT</version>
+
     <packaging>pom</packaging>
     <name>stagingpubhub</name>
 
     <properties>
         <system.users.library.version>3.1.2</system.users.library.version>
         <sjp.version>8.0.48</sjp.version>
-        <referencedata.version>8.0.60</referencedata.version>
+        <referencedata.version>8.0.66</referencedata.version>
         <coredomain.version>8.0.2</coredomain.version>
         <results.version>8.0.25</results.version>
     </properties>
-
     <modules>
         <module>stagingpubhub-command</module>
         <module>stagingpubhub-event</module>
@@ -49,6 +49,11 @@
                     <archiveClasses>true</archiveClasses>
                     <attachClasses>true</attachClasses>
                 </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>sonar-maven-plugin</artifactId>
+                <version>3.11.0.3922</version>
             </plugin>
         </plugins>
     </build>

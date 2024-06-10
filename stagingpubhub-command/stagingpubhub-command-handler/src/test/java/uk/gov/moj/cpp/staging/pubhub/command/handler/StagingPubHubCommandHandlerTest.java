@@ -113,8 +113,26 @@ public class StagingPubHubCommandHandlerTest {
     }
 
     @Test
+    public void handlePublishStandardWithMultipleHearing() throws EventStreamException {
+        final JsonObject payload = FileUtil.givenPayload("stub-data/publish-standard-list.json");
+        final JsonEnvelope commandEnvelope = createCommandEnvelope(payload, "stagingpubhub.command.handler.publish-standard-list");
+        stagingPubHubCommandHandler.handlePublishStandard(commandEnvelope);
+
+        verifySubscriberHandlerResults("stagingpubhub.event.publish-requested", "$.listType", STANDARD);
+    }
+
+    @Test
     public void handleLiveStatusPublished() throws EventStreamException {
         final JsonObject payload = FileUtil.givenPayload("stub-data/stagingpubhub.command.handler.live-status-published.json");
+        final JsonEnvelope commandEnvelope = createCommandEnvelope(payload, "stagingpubhub.command.handler.live-status-published");
+        stagingPubHubCommandHandler.handleLiveStatusPublished(commandEnvelope);
+
+        verifySubscriberHandlerResults("stagingpubhub.event.publish-live-status", "$.documentName", "Live Case Status Update");
+    }
+
+    @Test
+    public void handleLiveStatusPublishedWithSingleHearingCase() throws EventStreamException {
+        final JsonObject payload = FileUtil.givenPayload("stub-data/live-status-published.json");
         final JsonEnvelope commandEnvelope = createCommandEnvelope(payload, "stagingpubhub.command.handler.live-status-published");
         stagingPubHubCommandHandler.handleLiveStatusPublished(commandEnvelope);
 

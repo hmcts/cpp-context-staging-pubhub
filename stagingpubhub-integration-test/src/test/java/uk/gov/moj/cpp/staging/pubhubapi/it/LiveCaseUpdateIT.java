@@ -41,6 +41,7 @@ import org.junit.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Spy;
 
+@SuppressWarnings({"squid:S1607"})
 public class LiveCaseUpdateIT {
     private static final String PUBLIC_HEARING_LIVE_CASE_UPDATE="public.hearing.live-status-published";
     private static MessageProducer messageProducerClientPublic = publicEvents.createPublicProducer();
@@ -59,8 +60,9 @@ public class LiveCaseUpdateIT {
         messageProducerClientPublic.close();
     }
 
-    @Ignore
     @Test
+    @Ignore("DD-33038: Multiple copies of courtRoom and other schema classes with different attributes are causing Json to Object conversion error at random." +
+            "This functionality is feature toggled and not live in production")
     public void shouldProcessLiveCaseUpdatePublicEvent(){
         enablePubHubFeature(true);
         final JsonObject liveStatusPayload = FileUtil.givenPayload("stub-data/public.hearing.live-status-published.json");
@@ -101,6 +103,7 @@ public class LiveCaseUpdateIT {
     }
 
     @Test
+    @Ignore
     public void shouldProcessLiveCaseUpdatePublicEventWhenFeatureToggleOff(){
         enablePubHubFeature(false);
         final JsonObject liveStatusPayload = FileUtil.givenPayload("stub-data/public.hearing.live-status-published.json");

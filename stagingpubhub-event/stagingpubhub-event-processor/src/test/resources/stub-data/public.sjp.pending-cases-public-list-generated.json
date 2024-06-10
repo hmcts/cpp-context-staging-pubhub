@@ -10,7 +10,7 @@
         "defendantName": "D LastName810c4cf4-ad87-456f-b7d4-3d60e1f07409",
         "firstName": "David",
         "lastName": "LastName810c4cf4-ad87-456f-b7d4-3d60e1f07409",
-        "offences": [
+        "sjpOffences": [
           {
             "title":"title1"
           }
@@ -23,7 +23,7 @@
         "defendantName": "D LastNameba12e4f5-4857-4e1d-94ed-12ed92c0ef09",
         "firstName": "David",
         "lastName": "LastNameba12e4f5-4857-4e1d-94ed-12ed92c0ef09",
-        "offences": [
+        "sjpOffences": [
           {
             "title":"title2"
           }

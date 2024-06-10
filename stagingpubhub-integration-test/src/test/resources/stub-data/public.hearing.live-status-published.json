@@ -1,8 +1,8 @@
 {
-  "welshCourtCentreName": "Llys Ynadon Lavender Hill",
   "documentDate": "2022-07-14T10:00:00.000Z",
   "courtRooms": [
     {
+      "roomId": "010",
       "courtRoomName": "Courtroom 01",
       "sessions": [
         {
@@ -13,31 +13,14 @@
                   "prosecutingAuthority": "CPS-EM",
                   "sequence": 1,
                   "hearingType": "First hearing",
-                  "defendants": [
-                    {
-                      "firstName": "Robert",
-                      "lastName": "Ormsby",
-                      "organisationName": "",
-                      "address": {
-                        "address3": "Optional[Locality2O]",
-                        "address2": "Optional[StreetDescription]",
-                        "address1": "819",
-                        "postcode": "LN5 5TT"
-                      },
-                      "offences": [
-                        {
-                          "offenceTitle": "Occupy reserved seat / berth without a valid ticket on the Tyne and Wear Metro",
-                          "offenceWording": "Has a violent past and fear that he will commit further offences and\n                interfere with witnesse",
-                          "id": "90aca8ef-fddd-40af-9be1-480e6c5a0f27"
-                        }
-                      ],
-                      "dateOfBirth": "5 May 1951",
-                      "age": 71
-                    }
-                  ],
-                  "welshHearingType": "Gwrandawiad Cyntaf",
                   "caseNumber": [
                     "53NP8105522"
+                  ],
+                  "hearingEvents": [
+                    {
+                      "hearingEvent": "Test",
+                      "hearingEventTime": "2022-07-08T10:14:28.257Z"
+                    }
                   ],
                   "startTime": "10:01"
                 },
@@ -45,29 +28,6 @@
                   "prosecutingAuthority": "CPS-EM",
                   "sequence": 2,
                   "hearingType": "First hearing",
-                  "defendants": [
-                    {
-                      "firstName": "Robert",
-                      "lastName": "Ormsby",
-                      "organisationName": "",
-                      "address": {
-                        "address3": "Optional[Locality2O]",
-                        "address2": "Optional[StreetDescription]",
-                        "address1": "688",
-                        "postcode": "LN5 5TT"
-                      },
-                      "offences": [
-                        {
-                          "offenceTitle": "Occupy reserved seat / berth without a valid ticket on the Tyne and Wear Metro",
-                          "offenceWording": "Has a violent past and fear that he will commit further offences and\n                interfere with witnesse",
-                          "id": "7628e182-0020-45e6-9e43-f1566198589f"
-                        }
-                      ],
-                      "dateOfBirth": "18 Aug 1967",
-                      "age": 54
-                    }
-                  ],
-                  "welshHearingType": "Gwrandawiad Cyntaf",
                   "caseNumber": [
                     "53NP1454922"
                   ],
@@ -77,438 +37,20 @@
                   "prosecutingAuthority": "CPS-EM",
                   "sequence": 3,
                   "hearingType": "First hearing",
-                  "defendants": [
-                    {
-                      "firstName": "Robert",
-                      "lastName": "Ormsby",
-                      "organisationName": "",
-                      "address": {
-                        "address3": "Optional[Locality2O]",
-                        "address2": "Optional[StreetDescription]",
-                        "address1": "800",
-                        "postcode": "LN5 5TT"
-                      },
-                      "offences": [
-                        {
-                          "offenceTitle": "Occupy reserved seat / berth without a valid ticket on the Tyne and Wear Metro",
-                          "offenceWording": "Has a violent past and fear that he will commit further offences and\n                interfere with witnesse",
-                          "id": "547e1f0e-9b72-494e-ae1a-03566d6d7089"
-                        }
-                      ],
-                      "dateOfBirth": "9 Apr 1935",
-                      "age": 87
-                    }
-                  ],
-                  "welshHearingType": "Gwrandawiad Cyntaf",
                   "caseNumber": [
                     "53NP7998322"
                   ],
                   "startTime": "10:01"
                 }
-              ],
-              "judiciaries": [
-                {
-                  "firstName": "Atkins",
-                  "lastName": "JP",
-                  "title": "Miss"
-                },
-                {
-                  "firstName": "Colman",
-                  "title": "Mrs"
-                },
-                {
-                  "firstName": "Judge",
-                  "lastName": "(MC)",
-                  "title": "District"
-                },
-                {
-                  "firstName": "Hartopp",
-                  "lastName": "JP",
-                  "title": "Mr"
-                },
-                {
-                  "firstName": "Maule-Farrell",
-                  "lastName": "JP",
-                  "title": "Mrs"
-                },
-                {
-                  "firstName": "Rahman",
-                  "lastName": "JP",
-                  "title": "Mr"
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "sittings": [
-            {
-              "hearing": [
-                {
-                  "prosecutingAuthority": "GLOSPF",
-                  "sequence": 1,
-                  "hearingType": "First hearing",
-                  "defendants": [
-                    {
-                      "firstName": "Robert",
-                      "lastName": "Smith",
-                      "organisationName": "",
-                      "address": {
-                        "address3": "Optional.empty",
-                        "address2": "Optional[DUNSTABLE]",
-                        "address1": "876 MALLERTON WAY",
-                        "postcode": "LN5 5TT"
-                      },
-                      "offences": [
-                        {
-                          "offenceTitle": "Possess /    control TV set with intent another use install without a licence",
-                          "offenceWording": "On TEST  at  TEST  used or threatened unlawful violence towards another and your conduct was such as would cause a person of reasonable firmness present at the scene to fear for his personal safety. Contrary to section 3(1) and (7) of the Public Order Act 1986.",
-                          "id": "03b966f4-9b0b-41ad-8079-c2318ea0ab54"
-                        },
-                        {
-                          "offenceTitle": "Possess /    control TV set with intent another use install without a licence",
-                          "offenceWording": "On TEST  at  TEST  used or threatened unlawful violence towards another and your conduct was such as would cause a person of reasonable firmness present at the scene to fear for his personal safety. Contrary to section 3(1) and (7) of the Public Order Act 1986.",
-                          "id": "a12e0a15-ceaa-44b8-ad93-1703aa36759b"
-                        }
-                      ],
-                      "dateOfBirth": "6 Jun 1985",
-                      "age": 37
-                    },
-                    {
-                      "firstName": "John",
-                      "lastName": "Smith",
-                      "organisationName": "",
-                      "address": {
-                        "address3": "Optional.empty",
-                        "address2": "Optional[DUNSTABLE]",
-                        "address1": "876 MALLERTON WAY",
-                        "postcode": "LN5 5TT",
-                        "welshAddress3": "Optional.empty",
-                        "welshAddress4": "Optional.empty",
-                        "address5": "Optional.empty",
-                        "welshAddress1": "Optional.empty",
-                        "address4": "Optional.empty",
-                        "welshAddress2": "Optional.empty",
-                        "welshAddress5": "Optional.empty"
-                      },
-                      "offences": [
-                        {
-                          "offenceTitle": "Possess /    control TV set with intent another use install without a licence",
-                          "offenceWording": "On TEST  at  TEST  used or threatened unlawful violence towards another and your conduct was such as would cause a person of reasonable firmness present at the scene to fear for his personal safety. Contrary to section 3(1) and (7) of the Public Order Act 1986.",
-                          "id": "f1f27e49-0933-4703-bea7-ad2b564a5185"
-                        },
-                        {
-                          "offenceTitle": "Possess /    control TV set with intent another use install without a licence",
-                          "offenceWording": "On TEST  at  TEST  used or threatened unlawful violence towards another and your conduct was such as would cause a person of reasonable firmness present at the scene to fear for his personal safety. Contrary to section 3(1) and (7) of the Public Order Act 1986.",
-                          "id": "6cbcc0ec-16cd-473e-b71b-1c5e19a59d61"
-                        }
-                      ],
-                      "dateOfBirth": "9 Feb 1949",
-                      "age": 73
-                    }
-                  ],
-                  "welshHearingType": "Gwrandawiad Cyntaf",
-                  "caseNumber": [
-                    "41GD4978322"
-                  ],
-                  "startTime": "10:29"
-                }
-              ],
-              "judiciaries": [
-                {
-                  "firstName": "Atkins",
-                  "lastName": "JP",
-                  "title": "Miss"
-                },
-                {
-                  "firstName": "Colman",
-                  "title": "Mrs"
-                },
-                {
-                  "firstName": "Judge",
-                  "lastName": "(MC)",
-                  "title": "District"
-                },
-                {
-                  "firstName": "Hartopp",
-                  "lastName": "JP",
-                  "title": "Mr"
-                },
-                {
-                  "firstName": "Maule-Farrell",
-                  "lastName": "JP",
-                  "title": "Mrs"
-                },
-                {
-                  "firstName": "Rahman",
-                  "lastName": "JP",
-                  "title": "Mr"
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "sittings": [
-            {
-              "hearing": [
-                {
-                  "prosecutingAuthority": "GLOSPF",
-                  "sequence": 1,
-                  "hearingType": "First hearing",
-                  "defendants": [
-                    {
-                      "firstName": "Robert",
-                      "lastName": "Smith",
-                      "organisationName": "",
-                      "address": {
-                        "address3": "Optional.empty",
-                        "address2": "Optional[DUNSTABLE]",
-                        "address1": "066 MALLERTON WAY",
-                        "postcode": "LN5 5TT",
-                        "welshAddress3": "Optional.empty",
-                        "welshAddress4": "Optional.empty",
-                        "address5": "Optional.empty",
-                        "welshAddress1": "Optional.empty",
-                        "address4": "Optional.empty",
-                        "welshAddress2": "Optional.empty",
-                        "welshAddress5": "Optional.empty"
-                      },
-                      "offences": [
-                        {
-                          "offenceTitle": "Possess /    control TV set with intent another use install without a licence",
-                          "offenceWording": "On TEST  at  TEST  used or threatened unlawful violence towards another and your conduct was such as would cause a person of reasonable firmness present at the scene to fear for his personal safety. Contrary to section 3(1) and (7) of the Public Order Act 1986.",
-                          "id": "76b79a33-5323-4a7a-9572-31ddb3b37f18"
-                        },
-                        {
-                          "offenceTitle": "Possess /    control TV set with intent another use install without a licence",
-                          "offenceWording": "On TEST  at  TEST  used or threatened unlawful violence towards another and your conduct was such as would cause a person of reasonable firmness present at the scene to fear for his personal safety. Contrary to section 3(1) and (7) of the Public Order Act 1986.",
-                          "id": "851a8b35-7c85-4d75-be4f-431ea8cf535e"
-                        }
-                      ],
-                      "dateOfBirth": "13 May 1985",
-                      "age": 37
-                    },
-                    {
-                      "firstName": "John",
-                      "lastName": "Smith",
-                      "organisationName": "",
-                      "address": {
-                        "address3": "Optional.empty",
-                        "address2": "Optional[DUNSTABLE]",
-                        "address1": "066 MALLERTON WAY",
-                        "postcode": "LN5 5TT",
-                        "welshAddress3": "Optional.empty",
-                        "welshAddress4": "Optional.empty",
-                        "address5": "Optional.empty",
-                        "welshAddress1": "Optional.empty",
-                        "address4": "Optional.empty",
-                        "welshAddress2": "Optional.empty",
-                        "welshAddress5": "Optional.empty"
-                      },
-                      "offences": [
-                        {
-                          "offenceTitle": "Possess /    control TV set with intent another use install without a licence",
-                          "offenceWording": "On TEST  at  TEST  used or threatened unlawful violence towards another and your conduct was such as would cause a person of reasonable firmness present at the scene to fear for his personal safety. Contrary to section 3(1) and (7) of the Public Order Act 1986.",
-                          "id": "7c15b1bc-c233-45bb-ade9-967b937683a5"
-                        },
-                        {
-                          "offenceTitle": "Possess /    control TV set with intent another use install without a licence",
-                          "offenceWording": "On TEST  at  TEST  used or threatened unlawful violence towards another and your conduct was such as would cause a person of reasonable firmness present at the scene to fear for his personal safety. Contrary to section 3(1) and (7) of the Public Order Act 1986.",
-                          "id": "91928af6-959c-4777-8581-2ca9f20bd350"
-                        }
-                      ],
-                      "dateOfBirth": "7 Jun 1995",
-                      "age": 27
-                    }
-                  ],
-                  "welshHearingType": "Gwrandawiad Cyntaf",
-                  "caseNumber": [
-                    "31GD2297622"
-                  ],
-                  "startTime": "11:29"
-                },
-                {
-                  "prosecutingAuthority": "GLOSPF",
-                  "sequence": 2,
-                  "hearingType": "First hearing",
-                  "defendants": [
-                    {
-                      "firstName": "Robert",
-                      "lastName": "Smith",
-                      "organisationName": "",
-                      "address": {
-                        "address3": "Optional.empty",
-                        "address2": "Optional[DUNSTABLE]",
-                        "address1": "510 MALLERTON WAY",
-                        "postcode": "LN5 5TT",
-                        "welshAddress3": "Optional.empty",
-                        "welshAddress4": "Optional.empty",
-                        "address5": "Optional.empty",
-                        "welshAddress1": "Optional.empty",
-                        "address4": "Optional.empty",
-                        "welshAddress2": "Optional.empty",
-                        "welshAddress5": "Optional.empty"
-                      },
-                      "offences": [
-                        {
-                          "offenceTitle": "Possess /    control TV set with intent another use install without a licence",
-                          "offenceWording": "On TEST  at  TEST  used or threatened unlawful violence towards another and your conduct was such as would cause a person of reasonable firmness present at the scene to fear for his personal safety. Contrary to section 3(1) and (7) of the Public Order Act 1986.",
-                          "id": "be663239-a658-4fc0-a209-ff8ee0e83fb9"
-                        },
-                        {
-                          "offenceTitle": "Possess /    control TV set with intent another use install without a licence",
-                          "offenceWording": "On TEST  at  TEST  used or threatened unlawful violence towards another and your conduct was such as would cause a person of reasonable firmness present at the scene to fear for his personal safety. Contrary to section 3(1) and (7) of the Public Order Act 1986.",
-                          "id": "2e900010-49db-4a43-84ce-bfa2d2ba111f"
-                        }
-                      ],
-                      "dateOfBirth": "24 May 1972",
-                      "age": 50
-                    },
-                    {
-                      "firstName": "John",
-                      "lastName": "Smith",
-                      "organisationName": "",
-                      "address": {
-                        "address3": "Optional.empty",
-                        "address2": "Optional[DUNSTABLE]",
-                        "address1": "510 MALLERTON WAY",
-                        "postcode": "LN5 5TT",
-                        "welshAddress3": "Optional.empty",
-                        "welshAddress4": "Optional.empty",
-                        "address5": "Optional.empty",
-                        "welshAddress1": "Optional.empty",
-                        "address4": "Optional.empty",
-                        "welshAddress2": "Optional.empty",
-                        "welshAddress5": "Optional.empty"
-                      },
-                      "offences": [
-                        {
-                          "offenceTitle": "Possess /    control TV set with intent another use install without a licence",
-                          "offenceWording": "On TEST  at  TEST  used or threatened unlawful violence towards another and your conduct was such as would cause a person of reasonable firmness present at the scene to fear for his personal safety. Contrary to section 3(1) and (7) of the Public Order Act 1986.",
-                          "id": "29a7c893-d25f-4196-8ee4-ecde6a440895"
-                        },
-                        {
-                          "offenceTitle": "Possess /    control TV set with intent another use install without a licence",
-                          "offenceWording": "On TEST  at  TEST  used or threatened unlawful violence towards another and your conduct was such as would cause a person of reasonable firmness present at the scene to fear for his personal safety. Contrary to section 3(1) and (7) of the Public Order Act 1986.",
-                          "id": "a8fce4fa-fd79-487b-80e4-c2b2b269a9c6"
-                        }
-                      ],
-                      "dateOfBirth": "13 Mar 2000",
-                      "age": 22
-                    }
-                  ],
-                  "welshHearingType": "Gwrandawiad Cyntaf",
-                  "caseNumber": [
-                    "58GD8569222"
-                  ],
-                  "startTime": "11:29"
-                },
-                {
-                  "prosecutingAuthority": "GLOSPF",
-                  "sequence": 3,
-                  "hearingType": "First hearing",
-                  "defendants": [
-                    {
-                      "firstName": "Robert",
-                      "lastName": "Smith",
-                      "organisationName": "",
-                      "address": {
-                        "address3": "Optional.empty",
-                        "address2": "Optional[DUNSTABLE]",
-                        "address1": "363 MALLERTON WAY",
-                        "postcode": "LN5 5TT"
-                      },
-                      "offences": [
-                        {
-                          "offenceTitle": "Possess /    control TV set with intent another use install without a licence",
-                          "offenceWording": "On TEST  at  TEST  used or threatened unlawful violence towards another and your conduct was such as would cause a person of reasonable firmness present at the scene to fear for his personal safety. Contrary to section 3(1) and (7) of the Public Order Act 1986.",
-                          "id": "231edc3e-21e8-416f-ae4f-d37d469722f6"
-                        },
-                        {
-                          "offenceTitle": "Possess /    control TV set with intent another use install without a licence",
-                          "offenceWording": "On TEST  at  TEST  used or threatened unlawful violence towards another and your conduct was such as would cause a person of reasonable firmness present at the scene to fear for his personal safety. Contrary to section 3(1) and (7) of the Public Order Act 1986.",
-                          "id": "eae6a083-612b-47e3-84b3-60094d9154f2"
-                        }
-                      ],
-                      "dateOfBirth": "27 Sep 1935",
-                      "age": 86
-                    },
-                    {
-                      "firstName": "John",
-                      "lastName": "Smith",
-                      "organisationName": "",
-                      "address": {
-                        "address3": "Optional.empty",
-                        "address2": "Optional[DUNSTABLE]",
-                        "address1": "363 MALLERTON WAY",
-                        "postcode": "LN5 5TT"
-                      },
-                      "offences": [
-                        {
-                          "offenceTitle": "Possess /    control TV set with intent another use install without a licence",
-                          "offenceWording": "On TEST  at  TEST  used or threatened unlawful violence towards another and your conduct was such as would cause a person of reasonable firmness present at the scene to fear for his personal safety. Contrary to section 3(1) and (7) of the Public Order Act 1986.",
-                          "id": "d7476e80-20aa-47c3-a860-7341cf3a701e"
-                        },
-                        {
-                          "offenceTitle": "Possess /    control TV set with intent another use install without a licence",
-                          "offenceWording": "On TEST  at  TEST  used or threatened unlawful violence towards another and your conduct was such as would cause a person of reasonable firmness present at the scene to fear for his personal safety. Contrary to section 3(1) and (7) of the Public Order Act 1986.",
-                          "id": "376a5373-196f-4974-a6d9-24c85555f2f0"
-                        }
-                      ],
-                      "dateOfBirth": "29 Jan 1949",
-                      "age": 73
-                    }
-                  ],
-                  "welshHearingType": "Gwrandawiad Cyntaf",
-                  "caseNumber": [
-                    "57GD9086322"
-                  ],
-                  "startTime": "11:29"
-                }
-              ],
-              "judiciaries": [
-                {
-                  "firstName": "Atkins",
-                  "lastName": "JP",
-                  "title": "Miss"
-                },
-                {
-                  "firstName": "Colman",
-                  "title": "Mrs"
-                },
-                {
-                  "firstName": "Judge",
-                  "lastName": "(MC)",
-                  "title": "District"
-                },
-                {
-                  "firstName": "Hartopp",
-                  "lastName": "JP",
-                  "title": "Mr"
-                },
-                {
-                  "firstName": "Maule-Farrell",
-                  "lastName": "JP",
-                  "title": "Mrs"
-                },
-                {
-                  "firstName": "Rahman",
-                  "lastName": "JP",
-                  "title": "Mr"
-                }
               ]
             }
           ]
         }
-      ],
-      "welshCourtRoomName": "Courtroom 01"
+      ]
     }
   ],
   "address1": "176A Lavender Hill London",
   "hearingDate": "2022-07-11",
-  "hearingDateWelsh": "11 Gorffennaf 2022",
-  "welshAddress1": " ",
   "documentName": "Live Case Updates",
   "courtCentreName": "Lavender Hill Magistrates' Court",
   "version": "1.0"

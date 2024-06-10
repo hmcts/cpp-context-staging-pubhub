@@ -8,12 +8,12 @@ public enum Sensitivity {
 
     private final String value;
 
-    public String getValue() {
-        return value;
-    }
-
     Sensitivity(String value) {
         this.value = value;
+    }
+
+    public String getValue() {
+        return value;
     }
 
 }

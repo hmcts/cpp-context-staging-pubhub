@@ -48,13 +48,13 @@ public class PubHubAggregate implements Aggregate {
                 .build()));
     }
 
-    public Stream<Object> publishLiveStatus(final String documentName, final ZonedDateTime documentDate, final String version,
+    public Stream<Object> publishLiveStatus(final String documentName, final String documentDate, final String version,
                                             final String venueId, final String venueType, final String listType, final String courtCenterName,
                                             final String courtId, final String address1, final String postCode, final String hearingdate,
                                             final List<CourtRoom> courtRooms){
         return apply(Stream.of(PublishLiveStatus.publishLiveStatus()
                 .withDocumentName(documentName)
-                .withDocumentDate(documentDate)
+                .withDocumentDate(documentDate != null ? ZonedDateTime.parse(documentDate): ZonedDateTime.now())
                 .withVersion(version)
                 .withVenueId(venueId)
                 .withVenueType(venueType)

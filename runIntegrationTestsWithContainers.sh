@@ -41,5 +41,4 @@ buildDeployAndTest() {
   healthchecks
   integrationTests
 }
-
 buildDeployAndTest

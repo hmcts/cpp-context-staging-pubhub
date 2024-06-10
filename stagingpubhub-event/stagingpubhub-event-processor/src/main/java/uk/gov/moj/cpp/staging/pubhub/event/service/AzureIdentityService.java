@@ -18,8 +18,6 @@ public class AzureIdentityService {
     public static final String AZURE_CLIENT_ID = "AZURE_CLIENT_ID";
     public static final String AZURE_TENANT_ID = "AZURE_TENANT_ID";
     private static final Logger LOGGER = LoggerFactory.getLogger(AzureIdentityService.class);
-    private static final String AZURE_SCOPE = "https://management.azure.com/.default";
-    private static final String AZURE_REMOTE_SCOPE = "api://781e9e74-a856-4dfc-b92a-9403a096a743/.default";
 
     @Inject
     private ApplicationParameters applicationParameters;
@@ -27,7 +25,7 @@ public class AzureIdentityService {
     public String getTokenFromLocalClientSecretCredentials() {
         String accessToken = null;
         final Configuration configuration = new Configuration();
-        configuration.put(AZURE_CLIENT_ID, applicationParameters.getAzureLocalMiClientId());
+        configuration.put(AZURE_CLIENT_ID, applicationParameters.getAzureLocalMiApimAuthClientId());
         configuration.put(AZURE_TENANT_ID, applicationParameters.getAzureLocalMiTenantId());
 
         try {
@@ -66,11 +64,15 @@ public class AzureIdentityService {
 
     private TokenRequestContext getTokenRequestContext() {
         return new TokenRequestContext()
-                .addScopes(AZURE_SCOPE);
+                .addScopes(applicationParameters.getAzureLocalScope());
     }
 
     private TokenRequestContext getRemoteTokenRequestContext() {
         return new TokenRequestContext()
-                .addScopes(AZURE_REMOTE_SCOPE);
+                .addScopes(getRemoteScope());
+    }
+
+    private String getRemoteScope() {
+        return "api://" + applicationParameters.getAzureDtsAppRegistrationId() + "/.default";
     }
 }

@@ -2,35 +2,798 @@
   "language": "ENGLISH",
   "requestType": "FULL",
   "listPayload": {
-    "generatedDateAndTime": "2016-01-01 00:00:00",
-    "totalNumberOfRecords": 2,
+    "generatedDateAndTime": "2024-06-06T14:53:56.624Z",
+    "totalNumberOfRecords": 65,
     "readyCases": [
       {
-        "caseUrn": "TFL901845675",
-        "defendantName": "D LastName810c4cf4-ad87-456f-b7d4-3d60e1f07409",
-        "firstName": "David",
-        "lastName": "LastName810c4cf4-ad87-456f-b7d4-3d60e1f07409",
+        "firstName": "F",
+        "lastName": "Smith3nifh",
+        "postcode": "IG",
         "sjpOffences": [
           {
-            "title":"title1"
+            "title": "Use a television set without a licence"
           }
         ],
-        "prosecutorName": "TFL",
-        "postcode": "W1T 1JY"
+        "prosecutorName": "TV Licensing",
+        "defendantName": "F Smith3nifh"
       },
       {
-        "caseUrn": "TFL905582011",
-        "defendantName": "D LastNameba12e4f5-4857-4e1d-94ed-12ed92c0ef09",
-        "firstName": "David",
-        "lastName": "LastNameba12e4f5-4857-4e1d-94ed-12ed92c0ef09",
+        "firstName": "F",
+        "lastName": "Smithgmgdx",
+        "postcode": "IG",
         "sjpOffences": [
           {
-            "title":"title2"
+            "title": "Use a television set without a licence"
           }
         ],
-        "prosecutorName": "TFL",
-        "postcode": "W1T 1JY"
+        "prosecutorName": "TV Licensing",
+        "defendantName": "F Smithgmgdx"
+      },
+      {
+        "firstName": "F",
+        "lastName": "Smithemiwn",
+        "postcode": "IG",
+        "sjpOffences": [
+          {
+            "title": "Speeding - exceed temporary 60 mph restriction on a motorway ( road works ) - automatic camera device"
+          }
+        ],
+        "prosecutorName": "City of London Police",
+        "defendantName": "F Smithemiwn"
+      },
+      {
+        "firstName": "D",
+        "lastName": "Beier",
+        "postcode": "CR",
+        "sjpOffences": [
+          {
+            "title": "Keep a vehicle without a valid vehicle licence"
+          }
+        ],
+        "prosecutorName": "City of London Police",
+        "defendantName": "D Beier"
+      },
+      {
+        "firstName": "F",
+        "lastName": "Smith4v6bx",
+        "postcode": "IG",
+        "sjpOffences": [
+          {
+            "title": "Keep a vehicle without a valid vehicle licence"
+          }
+        ],
+        "prosecutorName": "Transport for London",
+        "defendantName": "F Smith4v6bx"
+      },
+      {
+        "firstName": "F",
+        "lastName": "Smithgjpib",
+        "postcode": "IG",
+        "sjpOffences": [
+          {
+            "title": "Use a television set without a licence"
+          }
+        ],
+        "prosecutorName": "TV Licensing",
+        "defendantName": "F Smithgjpib"
+      },
+      {
+        "firstName": "F",
+        "lastName": "Smithyex17",
+        "postcode": "IG",
+        "sjpOffences": [
+          {
+            "title": "Fail / refuse to hand over valid ticket not in a designated compulsory ticket area - railway bye-law"
+          }
+        ],
+        "prosecutorName": "Transport for London",
+        "defendantName": "F Smithyex17"
+      },
+      {
+        "firstName": "F",
+        "lastName": "Smithblaev",
+        "postcode": "IG",
+        "sjpOffences": [
+          {
+            "title": "Use a television set without a licence"
+          }
+        ],
+        "prosecutorName": "TV Licensing",
+        "defendantName": "F Smithblaev"
+      },
+      {
+        "firstName": "",
+        "lastName": "",
+        "postcode": "CO",
+        "legalEntityName": "Org22XiCDHl,",
+        "sjpOffences": [
+          {
+            "title": "Throw down / leave / otherwise deposit litter"
+          }
+        ],
+        "prosecutorName": "Colchester City Council",
+        "defendantName": ""
+      },
+      {
+        "firstName": "F",
+        "lastName": "Smithtxvre",
+        "postcode": "IG",
+        "sjpOffences": [
+          {
+            "title": "Keep a vehicle without a valid vehicle licence"
+          }
+        ],
+        "prosecutorName": "Transport for London",
+        "defendantName": "F Smithtxvre"
+      },
+      {
+        "firstName": "F",
+        "lastName": "Smithooiin",
+        "postcode": "IG",
+        "sjpOffences": [
+          {
+            "title": "Use a television set without a licence"
+          }
+        ],
+        "prosecutorName": "TV Licensing",
+        "defendantName": "F Smithooiin"
+      },
+      {
+        "firstName": "K",
+        "lastName": "Schuppe",
+        "postcode": "CR",
+        "sjpOffences": [
+          {
+            "title": "Use a television set without a licence"
+          }
+        ],
+        "prosecutorName": "TV Licensing",
+        "defendantName": "K Schuppe"
+      },
+      {
+        "firstName": "F",
+        "lastName": "Smithuqxzb",
+        "postcode": "IG",
+        "sjpOffences": [
+          {
+            "title": "Speeding - exceed temporary 60 mph restriction on a motorway ( road works ) - automatic camera device"
+          }
+        ],
+        "prosecutorName": "City of London Police",
+        "defendantName": "F Smithuqxzb"
+      },
+      {
+        "firstName": "F",
+        "lastName": "Smith8iaqs",
+        "postcode": "IG",
+        "sjpOffences": [
+          {
+            "title": "Use a television set without a licence"
+          }
+        ],
+        "prosecutorName": "TV Licensing",
+        "defendantName": "F Smith8iaqs"
+      },
+      {
+        "firstName": "A",
+        "lastName": "Pacocha",
+        "postcode": "CR",
+        "sjpOffences": [
+          {
+            "title": "Use a television set without a licence"
+          }
+        ],
+        "prosecutorName": "TV Licensing",
+        "defendantName": "A Pacocha"
+      },
+      {
+        "firstName": "F",
+        "lastName": "Smithamzb9",
+        "postcode": "IG",
+        "sjpOffences": [
+          {
+            "title": "Speeding - exceed temporary 60 mph restriction on a motorway ( road works ) - automatic camera device"
+          }
+        ],
+        "prosecutorName": "City of London Police",
+        "defendantName": "F Smithamzb9"
+      },
+      {
+        "firstName": "A",
+        "lastName": "Langworth",
+        "postcode": "CF",
+        "sjpOffences": [
+          {
+            "title": "Obstruct person executing search warrant for TV receiver"
+          }
+        ],
+        "prosecutorName": "South Wales Police",
+        "defendantName": "A Langworth"
+      },
+      {
+        "firstName": "F",
+        "lastName": "Smithvrx58",
+        "postcode": "IG",
+        "sjpOffences": [
+          {
+            "title": "Use a television set without a licence"
+          }
+        ],
+        "prosecutorName": "TV Licensing",
+        "defendantName": "F Smithvrx58"
+      },
+      {
+        "firstName": "T",
+        "lastName": "N",
+        "postcode": "CR",
+        "sjpOffences": [
+          {
+            "title": "Aid / abet the causing of serious injury by dangerous driving"
+          }
+        ],
+        "prosecutorName": "Driver and Vehicle Licensing Agency",
+        "defendantName": "T N"
+      },
+      {
+        "firstName": "F",
+        "lastName": "Smithlnokt",
+        "postcode": "IG",
+        "sjpOffences": [
+          {
+            "title": "Keep a vehicle without a valid vehicle licence"
+          }
+        ],
+        "prosecutorName": "Transport for London",
+        "defendantName": "F Smithlnokt"
+      },
+      {
+        "firstName": "F",
+        "lastName": "Smithg7iuj",
+        "postcode": "IG",
+        "sjpOffences": [
+          {
+            "title": "Use a television set without a licence"
+          }
+        ],
+        "prosecutorName": "TV Licensing",
+        "defendantName": "F Smithg7iuj"
+      },
+      {
+        "firstName": "F",
+        "lastName": "Smithfawfn",
+        "postcode": "IG",
+        "sjpOffences": [
+          {
+            "title": "Use a television set without a licence"
+          }
+        ],
+        "prosecutorName": "TV Licensing",
+        "defendantName": "F Smithfawfn"
+      },
+      {
+        "firstName": "",
+        "lastName": "",
+        "postcode": "CR",
+        "legalEntityName": "Wunsch, Barton and Larson LTD,",
+        "sjpOffences": [
+          {
+            "title": "Keep a vehicle without a valid vehicle licence"
+          }
+        ],
+        "prosecutorName": "Driver and Vehicle Licensing Agency",
+        "defendantName": ""
+      },
+      {
+        "firstName": "F",
+        "lastName": "Smithiuiox",
+        "postcode": "IG",
+        "sjpOffences": [
+          {
+            "title": "Fail / refuse to hand over valid ticket not in a designated compulsory ticket area - railway bye-law"
+          }
+        ],
+        "prosecutorName": "Transport for London",
+        "defendantName": "F Smithiuiox"
+      },
+      {
+        "firstName": "F",
+        "lastName": "Smithqelhp",
+        "postcode": "IG",
+        "sjpOffences": [
+          {
+            "title": "Fail / refuse to hand over valid ticket not in a designated compulsory ticket area - railway bye-law"
+          }
+        ],
+        "prosecutorName": "Transport for London",
+        "defendantName": "F Smithqelhp"
+      },
+      {
+        "firstName": "F",
+        "lastName": "Smithlnthw",
+        "postcode": "IG",
+        "sjpOffences": [
+          {
+            "title": "Keep a vehicle without a valid vehicle licence"
+          }
+        ],
+        "prosecutorName": "Transport for London",
+        "defendantName": "F Smithlnthw"
+      },
+      {
+        "firstName": "D",
+        "lastName": "Cartwright",
+        "postcode": "CR",
+        "sjpOffences": [
+          {
+            "title": "Keep a vehicle without a valid vehicle licence"
+          }
+        ],
+        "prosecutorName": "City of London Police",
+        "defendantName": "D Cartwright"
+      },
+      {
+        "firstName": "F",
+        "lastName": "Smith8xb6m",
+        "postcode": "IG",
+        "sjpOffences": [
+          {
+            "title": "Keep a vehicle without a valid vehicle licence"
+          }
+        ],
+        "prosecutorName": "Transport for London",
+        "defendantName": "F Smith8xb6m"
+      },
+      {
+        "firstName": "F",
+        "lastName": "Smithctyli",
+        "postcode": "IG",
+        "sjpOffences": [
+          {
+            "title": "Use a television set without a licence"
+          }
+        ],
+        "prosecutorName": "TV Licensing",
+        "defendantName": "F Smithctyli"
+      },
+      {
+        "firstName": "F",
+        "lastName": "Smithn7kqz",
+        "postcode": "IG",
+        "sjpOffences": [
+          {
+            "title": "Fail / refuse to hand over valid ticket not in a designated compulsory ticket area - railway bye-law"
+          }
+        ],
+        "prosecutorName": "Transport for London",
+        "defendantName": "F Smithn7kqz"
+      },
+      {
+        "firstName": "F",
+        "lastName": "Smithrlqqk",
+        "postcode": "IG",
+        "sjpOffences": [
+          {
+            "title": "Use a television set without a licence"
+          }
+        ],
+        "prosecutorName": "TV Licensing",
+        "defendantName": "F Smithrlqqk"
+      },
+      {
+        "firstName": "F",
+        "lastName": "Smithgly6n",
+        "postcode": "IG",
+        "sjpOffences": [
+          {
+            "title": "Fail / refuse to hand over valid ticket not in a designated compulsory ticket area - railway bye-law"
+          }
+        ],
+        "prosecutorName": "Transport for London",
+        "defendantName": "F Smithgly6n"
+      },
+      {
+        "firstName": "F",
+        "lastName": "Smithsivzy",
+        "postcode": "IG",
+        "sjpOffences": [
+          {
+            "title": "Use a television set without a licence"
+          }
+        ],
+        "prosecutorName": "TV Licensing",
+        "defendantName": "F Smithsivzy"
+      },
+      {
+        "firstName": "E",
+        "lastName": "Becker",
+        "postcode": "CR",
+        "sjpOffences": [
+          {
+            "title": "Use a television set without a licence"
+          }
+        ],
+        "prosecutorName": "TV Licensing",
+        "defendantName": "E Becker"
+      },
+      {
+        "firstName": "S",
+        "lastName": "Syrup",
+        "postcode": "CM",
+        "sjpOffences": [
+          {
+            "title": "Drive a motor vehicle otherwise than in accordance with a licence - endorsable offence"
+          },
+          {
+            "title": "Use a motor vehicle on a road / public place without third party insurance"
+          },
+          {
+            "title": "Use a passenger vehicle with tyres with insufficient tread - less than 1.6mm"
+          }
+        ],
+        "prosecutorName": "Essex Police",
+        "defendantName": "S Syrup"
+      },
+      {
+        "firstName": "F",
+        "lastName": "Smith3tmtp",
+        "postcode": "IG",
+        "sjpOffences": [
+          {
+            "title": "Use a television set without a licence"
+          }
+        ],
+        "prosecutorName": "TV Licensing",
+        "defendantName": "F Smith3tmtp"
+      },
+      {
+        "firstName": "J",
+        "lastName": "Johns",
+        "postcode": "CR",
+        "sjpOffences": [
+          {
+            "title": "Keep a vehicle without a valid vehicle licence"
+          }
+        ],
+        "prosecutorName": "City of London Police",
+        "defendantName": "J Johns"
+      },
+      {
+        "firstName": "J",
+        "lastName": "Muller",
+        "postcode": "CR",
+        "sjpOffences": [
+          {
+            "title": "Use a television set without a licence"
+          }
+        ],
+        "prosecutorName": "TV Licensing",
+        "defendantName": "J Muller"
+      },
+      {
+        "firstName": "F",
+        "lastName": "Smith80xbd",
+        "postcode": "IG",
+        "sjpOffences": [
+          {
+            "title": "Fail / refuse to hand over valid ticket not in a designated compulsory ticket area - railway bye-law"
+          }
+        ],
+        "prosecutorName": "Transport for London",
+        "defendantName": "F Smith80xbd"
+      },
+      {
+        "firstName": "D",
+        "lastName": "Balistreri",
+        "postcode": "CR",
+        "sjpOffences": [
+          {
+            "title": "Keep a vehicle without a valid vehicle licence"
+          }
+        ],
+        "prosecutorName": "City of London Police",
+        "defendantName": "D Balistreri"
+      },
+      {
+        "firstName": "F",
+        "lastName": "Smithgrkep",
+        "postcode": "IG",
+        "sjpOffences": [
+          {
+            "title": "Fail / refuse to hand over valid ticket not in a designated compulsory ticket area - railway bye-law"
+          }
+        ],
+        "prosecutorName": "Transport for London",
+        "defendantName": "F Smithgrkep"
+      },
+      {
+        "firstName": "J",
+        "lastName": "Din",
+        "postcode": "CR",
+        "sjpOffences": [
+          {
+            "title": "Drive whilst unfit through drink"
+          }
+        ],
+        "prosecutorName": "City of London Police",
+        "defendantName": "J Din"
+      },
+      {
+        "firstName": "F",
+        "lastName": "Smith04due",
+        "postcode": "IG",
+        "sjpOffences": [
+          {
+            "title": "Fail / refuse to hand over valid ticket not in a designated compulsory ticket area - railway bye-law"
+          }
+        ],
+        "prosecutorName": "Transport for London",
+        "defendantName": "F Smith04due"
+      },
+      {
+        "firstName": "F",
+        "lastName": "Smithgsrqx",
+        "postcode": "IG",
+        "sjpOffences": [
+          {
+            "title": "Use a television set without a licence"
+          }
+        ],
+        "prosecutorName": "TV Licensing",
+        "defendantName": "F Smithgsrqx"
+      },
+      {
+        "firstName": "F",
+        "lastName": "Smitha1cao",
+        "postcode": "IG",
+        "sjpOffences": [
+          {
+            "title": "Fail / refuse to hand over valid ticket not in a designated compulsory ticket area - railway bye-law"
+          }
+        ],
+        "prosecutorName": "Transport for London",
+        "defendantName": "F Smitha1cao"
+      },
+      {
+        "firstName": "F",
+        "lastName": "Smith5qm9u",
+        "postcode": "IG",
+        "sjpOffences": [
+          {
+            "title": "Use a television set without a licence"
+          }
+        ],
+        "prosecutorName": "TV Licensing",
+        "defendantName": "F Smith5qm9u"
+      },
+      {
+        "firstName": "T",
+        "lastName": "Farrell",
+        "postcode": "SW",
+        "sjpOffences": [
+          {
+            "title": "Send letter / communication / article conveying indecent / offensive message"
+          }
+        ],
+        "prosecutorName": "Driver and Vehicle Licensing Agency",
+        "defendantName": "T Farrell"
+      },
+      {
+        "firstName": "F",
+        "lastName": "Smithovprb",
+        "postcode": "IG",
+        "sjpOffences": [
+          {
+            "title": "Use a television set without a licence"
+          }
+        ],
+        "prosecutorName": "TV Licensing",
+        "defendantName": "F Smithovprb"
+      },
+      {
+        "firstName": "R",
+        "lastName": "Rau",
+        "postcode": "CR",
+        "sjpOffences": [
+          {
+            "title": "Drive whilst unfit through drink"
+          }
+        ],
+        "prosecutorName": "City of London Police",
+        "defendantName": "R Rau"
+      },
+      {
+        "firstName": "F",
+        "lastName": "Smith6mxiq",
+        "postcode": "IG",
+        "sjpOffences": [
+          {
+            "title": "Keep a vehicle without a valid vehicle licence"
+          }
+        ],
+        "prosecutorName": "Transport for London",
+        "defendantName": "F Smith6mxiq"
+      },
+      {
+        "firstName": "F",
+        "lastName": "Smithpnxuf",
+        "postcode": "IG",
+        "sjpOffences": [
+          {
+            "title": "Keep a vehicle without a valid vehicle licence"
+          }
+        ],
+        "prosecutorName": "City of London Police",
+        "defendantName": "F Smithpnxuf"
+      },
+      {
+        "firstName": "F",
+        "lastName": "Smithbaqrq",
+        "postcode": "IG",
+        "sjpOffences": [
+          {
+            "title": "Keep a vehicle without a valid vehicle licence"
+          }
+        ],
+        "prosecutorName": "Transport for London",
+        "defendantName": "F Smithbaqrq"
+      },
+      {
+        "firstName": "L",
+        "lastName": "N",
+        "postcode": "CV",
+        "sjpOffences": [
+          {
+            "title": "Attempt robbery"
+          }
+        ],
+        "prosecutorName": "City of London Police",
+        "defendantName": "L N"
+      },
+      {
+        "firstName": "F",
+        "lastName": "Smithgiyre",
+        "postcode": "IG",
+        "sjpOffences": [
+          {
+            "title": "Use a television set without a licence"
+          }
+        ],
+        "prosecutorName": "TV Licensing",
+        "defendantName": "F Smithgiyre"
+      },
+      {
+        "firstName": "F",
+        "lastName": "Smithco4mg",
+        "postcode": "IG",
+        "sjpOffences": [
+          {
+            "title": "Keep a vehicle without a valid vehicle licence"
+          }
+        ],
+        "prosecutorName": "Transport for London",
+        "defendantName": "F Smithco4mg"
+      },
+      {
+        "firstName": "F",
+        "lastName": "Smithm1gl5",
+        "postcode": "IG",
+        "sjpOffences": [
+          {
+            "title": "Keep a vehicle without a valid vehicle licence"
+          }
+        ],
+        "prosecutorName": "Transport for London",
+        "defendantName": "F Smithm1gl5"
+      },
+      {
+        "firstName": "M",
+        "lastName": "Feest",
+        "postcode": "CR",
+        "sjpOffences": [
+          {
+            "title": "Use a television set without a licence"
+          }
+        ],
+        "prosecutorName": "TV Licensing",
+        "defendantName": "M Feest"
+      },
+      {
+        "firstName": "F",
+        "lastName": "Smithotwyh",
+        "postcode": "IG",
+        "sjpOffences": [
+          {
+            "title": "Use a television set without a licence"
+          }
+        ],
+        "prosecutorName": "TV Licensing",
+        "defendantName": "F Smithotwyh"
+      },
+      {
+        "firstName": "C",
+        "lastName": "Nienow",
+        "postcode": "CR",
+        "sjpOffences": [
+          {
+            "title": "Use a television set without a licence"
+          }
+        ],
+        "prosecutorName": "TV Licensing",
+        "defendantName": "C Nienow"
+      },
+      {
+        "firstName": "F",
+        "lastName": "Smithy0qsh",
+        "postcode": "IG",
+        "sjpOffences": [
+          {
+            "title": "Fail / refuse to hand over valid ticket not in a designated compulsory ticket area - railway bye-law"
+          }
+        ],
+        "prosecutorName": "Transport for London",
+        "defendantName": "F Smithy0qsh"
+      },
+      {
+        "firstName": "F",
+        "lastName": "Smithktrnc",
+        "postcode": "IG",
+        "sjpOffences": [
+          {
+            "title": "Keep a vehicle without a valid vehicle licence"
+          }
+        ],
+        "prosecutorName": "City of London Police",
+        "defendantName": "F Smithktrnc"
+      },
+      {
+        "firstName": "S",
+        "lastName": "Bot35567",
+        "postcode": "TA",
+        "sjpOffences": [
+          {
+            "title": "Robbery"
+          }
+        ],
+        "prosecutorName": "TV Licensing",
+        "defendantName": "S Bot35567"
+      },
+      {
+        "firstName": "F",
+        "lastName": "Smithurgno",
+        "postcode": "IG",
+        "sjpOffences": [
+          {
+            "title": "Keep a vehicle without a valid vehicle licence"
+          }
+        ],
+        "prosecutorName": "City of London Police",
+        "defendantName": "F Smithurgno"
+      },
+      {
+        "firstName": "E",
+        "lastName": "Torp",
+        "postcode": "CR",
+        "sjpOffences": [
+          {
+            "title": "Parent of child of compulsory school age registered at a school who failed to attend regularly"
+          }
+        ],
+        "prosecutorName": "City of London Police",
+        "defendantName": "E Torp"
+      },
+      {
+        "firstName": "F",
+        "lastName": "Smithvz7bz",
+        "postcode": "IG",
+        "sjpOffences": [
+          {
+            "title": "Fail / refuse to hand over valid ticket not in a designated compulsory ticket area - railway bye-law"
+          }
+        ],
+        "prosecutorName": "Transport for London",
+        "defendantName": "F Smithvz7bz"
       }
-    ]
+    ],
+    "startDate": "05 June 2024"
   }
 }

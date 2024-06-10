@@ -15,12 +15,15 @@ import uk.gov.justice.services.messaging.Envelope;
 import uk.gov.justice.services.messaging.JsonEnvelope;
 import uk.gov.justice.staging.pubhub.ListPayload;
 import uk.gov.justice.staging.pubhub.StandardList;
-import uk.gov.justice.staging.pubhub.json.schema.LiveStatusPublished;
+import uk.gov.justice.staging.pubhub.json.schema.CourtRoom;
 import uk.gov.moj.cpp.staging.pubhub.domain.PubHubAggregate;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.stream.Stream;
 
 import javax.inject.Inject;
+import javax.json.JsonObject;
 import javax.json.JsonValue;
 
 
@@ -51,13 +54,22 @@ public class StagingPubHubCommandHandler {
 
     @Handles(STAGINGPUBHUB_COMMAND_HANDLER_LIVE_STATUS_PUBLISHED)
     public void handleLiveStatusPublished(final JsonEnvelope envelope) throws EventStreamException {
+
         final EventStream eventStream = eventSource.getStreamById(randomUUID());
         final PubHubAggregate pubHubAggregate = aggregateService.get(eventStream, PubHubAggregate.class);
-        final LiveStatusPublished liveStatusPublished = jsonObjectToObjectConverter.convert(envelope.payloadAsJsonObject(), LiveStatusPublished.class);
-        final Stream<Object> events = pubHubAggregate.publishLiveStatus(liveStatusPublished.getDocumentName(), liveStatusPublished.getDocumentDate(),
-                liveStatusPublished.getVersion(), liveStatusPublished.getVenueId(), liveStatusPublished.getVenueType(), liveStatusPublished.getListType(),
-                liveStatusPublished.getCourtCentreName(), liveStatusPublished.getCourtId(), liveStatusPublished.getAddress1(), liveStatusPublished.getPostCode(),
-                liveStatusPublished.getHearingDate(), liveStatusPublished.getCourtRooms());
+        final JsonObject jsonObject = envelope.payloadAsJsonObject();
+        final List<CourtRoom> courtRooms = new ArrayList<>();
+
+        jsonObject.getJsonArray("courtRooms").stream().forEach(jsonCourtRoomValue -> {
+            final CourtRoom courtRoom = jsonObjectToObjectConverter.convert((JsonObject) jsonCourtRoomValue, CourtRoom.class);
+            final CourtRoom.Builder courtRoomBuilder = CourtRoom.courtRoom().withValuesFrom(courtRoom);
+            courtRooms.add(courtRoomBuilder.build());
+        });
+
+        final Stream<Object> events = pubHubAggregate.publishLiveStatus(jsonObject.getString("documentName", null), jsonObject.getString("documentDate", null),
+                jsonObject.getString("version", null), jsonObject.getString("venueId", null), jsonObject.getString("venueType", null), jsonObject.getString("listType", null),
+                jsonObject.getString("courtCentreName", null), jsonObject.getString("courtId", null), jsonObject.getString("address1", null), jsonObject.getString("postCode", null),
+                jsonObject.getString("hearingDate", null), courtRooms);
 
         appendEventsToStream(envelope, eventStream, events);
     }

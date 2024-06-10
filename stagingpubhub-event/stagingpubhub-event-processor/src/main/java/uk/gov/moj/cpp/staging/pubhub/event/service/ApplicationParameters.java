@@ -30,8 +30,8 @@ public class ApplicationParameters {
     private String retryTimes;
 
     @Inject
-    @GlobalValue(key = "azure.local.mi.clientId", defaultValue = "a9aae3da-14a1-4efe-b4e7-69c07009cd37")
-    private String azureLocalMiClientId;
+    @GlobalValue(key = "azure.local.mi.apimAuth.clientId", defaultValue = "cd4ae43a-df83-4978-a001-33e2692e051b")
+    private String azureLocalMiApimAuthClientId;
 
     @Inject
     @GlobalValue(key = "azure.local.mi.tenantId", defaultValue = "e2995d11-9947-4e78-9de6-d44e0603518e")
@@ -44,6 +44,14 @@ public class ApplicationParameters {
     @Inject
     @GlobalValue(key = "azure.dts.fi.tenantId", defaultValue = "531ff96d-0ae9-462a-8d2d-bec7c0b42082")
     private String azureDtsFiTenantId;
+
+    @Inject
+    @GlobalValue(key = "azure.dts.appRegistration.Id", defaultValue = "781e9e74-a856-4dfc-b92a-9403a096a743")
+    private String azureDtsAppRegistrationId;
+
+    @Inject
+    @GlobalValue(key = "azure.local.scope", defaultValue = "https://management.azure.com/.default")
+    private String azureLocalScope;
 
     public String getPublishingHubUrl() {
         return publishingHubUrl;
@@ -65,8 +73,8 @@ public class ApplicationParameters {
         return retryInterval;
     }
 
-    public String getAzureLocalMiClientId() {
-        return azureLocalMiClientId;
+    public String getAzureLocalMiApimAuthClientId() {
+        return azureLocalMiApimAuthClientId;
     }
 
     public String getAzureLocalMiTenantId() {
@@ -79,5 +87,13 @@ public class ApplicationParameters {
 
     public String getAzureDtsFiTenantId() {
         return azureDtsFiTenantId;
+    }
+
+    public String getAzureDtsAppRegistrationId() {
+        return azureDtsAppRegistrationId;
+    }
+
+    public String getAzureLocalScope() {
+        return azureLocalScope;
     }
 }

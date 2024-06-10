@@ -13,7 +13,7 @@ import uk.gov.justice.services.common.converter.jackson.ObjectMapperProducer;
 import uk.gov.justice.services.core.featurecontrol.FeatureControlGuard;
 import uk.gov.justice.services.core.sender.Sender;
 import uk.gov.justice.services.messaging.JsonEnvelope;
-import uk.gov.moj.cpp.stagingpubhub.domain.PubhubMaster;
+import uk.gov.justice.staging.pubhub.schema.PubhubMaster;
 import uk.gov.moj.cpp.staging.pubhub.event.processor.util.FileUtil;
 import uk.gov.moj.cpp.staging.pubhub.event.service.PublishingService;
 import uk.gov.moj.cpp.staging.pubhub.event.transformer.SjpPublishingHubTransformer;

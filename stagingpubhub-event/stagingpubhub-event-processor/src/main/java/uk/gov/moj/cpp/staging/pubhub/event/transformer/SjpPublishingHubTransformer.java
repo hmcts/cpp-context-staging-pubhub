@@ -13,13 +13,13 @@ import uk.gov.justice.staging.pubhub.schema.OrganisationAddress;
 import uk.gov.justice.staging.pubhub.schema.OrganisationDetails;
 import uk.gov.justice.staging.pubhub.schema.Party;
 import uk.gov.moj.cpp.staging.pubhub.event.service.PartyType;
-import uk.gov.moj.cpp.stagingpubhub.domain.CourtHouse;
-import uk.gov.moj.cpp.stagingpubhub.domain.CourtLists;
-import uk.gov.moj.cpp.stagingpubhub.domain.CourtRoom;
-import uk.gov.moj.cpp.stagingpubhub.domain.Hearing;
-import uk.gov.moj.cpp.stagingpubhub.domain.PubhubMaster;
-import uk.gov.moj.cpp.stagingpubhub.domain.Session;
-import uk.gov.moj.cpp.stagingpubhub.domain.Sittings;
+import uk.gov.justice.staging.pubhub.schema.CourtHouse;
+import uk.gov.justice.staging.pubhub.schema.CourtLists;
+import uk.gov.justice.staging.pubhub.schema.CourtRoom;
+import uk.gov.justice.staging.pubhub.schema.Hearing;
+import uk.gov.justice.staging.pubhub.schema.PubhubMaster;
+import uk.gov.justice.staging.pubhub.schema.Session;
+import uk.gov.justice.staging.pubhub.schema.Sittings;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -68,29 +68,29 @@ public class SjpPublishingHubTransformer {
                 .build();
         pubhubMasterBuilder.withDocument(document);
 
-        pubhubMasterBuilder.withCourtLists(buildCourtListsForSjp(envelope));
+        pubhubMasterBuilder.withCourtLists(buildCourtListsForSjp(envelope, documentType));
 
         return pubhubMasterBuilder.build();
 
     }
 
-    private List<CourtLists> buildCourtListsForSjp(final JsonEnvelope envelope) {
+    private List<CourtLists> buildCourtListsForSjp(final JsonEnvelope envelope, final DocumentType documentType) {
         final List<CourtLists> courtLists = new ArrayList<>();
         final CourtLists courtLists1 = CourtLists.courtLists().withCourtHouse(CourtHouse.courtHouse()
-                        .withCourtRoom(buildCourtRoomsForSjp(envelope)).build())
+                        .withCourtRoom(buildCourtRoomsForSjp(envelope, documentType)).build())
                 .build();
         courtLists.add(courtLists1);
         return courtLists;
     }
 
-    private List<CourtRoom> buildCourtRoomsForSjp(final JsonEnvelope envelope) {
+    private List<CourtRoom> buildCourtRoomsForSjp(final JsonEnvelope envelope, final DocumentType documentType) {
         final List<CourtRoom> courtRooms = new ArrayList<>();
         final List<Sittings> sittings = new ArrayList<>();
 
         final List<Session> sessions = new ArrayList<>();
         final List<Hearing> hearings = new ArrayList<>();
         envelope.payloadAsJsonObject().getJsonObject("listPayload").getJsonArray("readyCases")
-                .stream().forEach(sc -> hearings.add(buildHearingsForSjp(sc)));
+                .stream().forEach(sc -> hearings.add(buildHearingsForSjp(sc, documentType)));
 
         final Sittings sitting = Sittings.sittings().withHearing(hearings).build();
         sittings.add(sitting);
@@ -104,13 +104,13 @@ public class SjpPublishingHubTransformer {
 
     }
 
-    private Hearing buildHearingsForSjp(final JsonValue jsonValue) {
+    private Hearing buildHearingsForSjp(final JsonValue jsonValue, final DocumentType documentType) {
         final JsonObject jsonObject = (JsonObject) jsonValue;
         final String caseUrn = nonNull(jsonObject.get(CASE_URN)) ? jsonObject.getString(CASE_URN) : "";
 
         final Hearing.Builder hearingBuilder = Hearing.hearing()
                 .withParty(buildDefendantsForSjp(jsonObject))
-                .withOffence(buildOffencesForSjp(jsonObject));
+                .withOffence(buildOffencesForSjp(jsonObject, documentType));
 
         if (!caseUrn.isEmpty()) {
             final List<Cases> cases = new ArrayList<>();
@@ -168,6 +168,10 @@ public class SjpPublishingHubTransformer {
         JsonObjects.getString(jsonObject, ADDRESS_LINE_3).ifPresent(addressLines::add);
 
         final Address.Builder addressBuilder = Address.address().withLine(addressLines);
+        if (!addressLines.isEmpty()) {
+            addressBuilder.withLine(addressLines);
+        }
+
         JsonObjects.getString(jsonObject, TOWN).ifPresent(addressBuilder::withTown);
         JsonObjects.getString(jsonObject, COUNTRY).ifPresent(addressBuilder::withCounty);
         JsonObjects.getString(jsonObject, POSTCODE).ifPresent(addressBuilder::withPostCode);
@@ -189,7 +193,11 @@ public class SjpPublishingHubTransformer {
         JsonObjects.getString(jsonObject, ADDRESS_LINE_2).ifPresent(addressLines::add);
         JsonObjects.getString(jsonObject, ADDRESS_LINE_3).ifPresent(addressLines::add);
 
-        final OrganisationAddress.Builder addressBuilder = OrganisationAddress.organisationAddress().withLine(addressLines);
+        final OrganisationAddress.Builder addressBuilder = OrganisationAddress.organisationAddress();
+        if (!addressLines.isEmpty()) {
+            addressBuilder.withLine(addressLines);
+        }
+
         JsonObjects.getString(jsonObject, TOWN).ifPresent(addressBuilder::withTown);
         JsonObjects.getString(jsonObject, COUNTRY).ifPresent(addressBuilder::withCounty);
         JsonObjects.getString(jsonObject, POSTCODE).ifPresent(addressBuilder::withPostCode);
@@ -201,7 +209,7 @@ public class SjpPublishingHubTransformer {
 
     }
 
-    private List<Offence> buildOffencesForSjp(final JsonObject jsonObject) {
+    private List<Offence> buildOffencesForSjp(final JsonObject jsonObject, final DocumentType documentType) {
         final List<Offence> offences = new ArrayList<>();
 
         jsonObject.getJsonArray("sjpOffences").stream().forEach(jsonOffenceValue -> {
@@ -209,7 +217,9 @@ public class SjpPublishingHubTransformer {
             final JsonObject jsonOffenceObject = (JsonObject) jsonOffenceValue;
             JsonObjects.getString(jsonOffenceObject, OFFENCE_TITLE).ifPresent(offenceBuilder::withOffenceTitle);
             JsonObjects.getString(jsonOffenceObject, OFFENCE_WORDING).ifPresent(offenceBuilder::withOffenceWording);
-            offenceBuilder.withReportingRestriction(nonNull(jsonOffenceObject.get(REPORTING_RESTRICTION)) && jsonOffenceObject.getBoolean(REPORTING_RESTRICTION));
+            if (documentType.equals(DocumentType.SJP_PRESS_LIST) || documentType.equals(DocumentType.SJP_DELTA_PRESS_LIST)) {
+                offenceBuilder.withReportingRestriction(nonNull(jsonOffenceObject.get(REPORTING_RESTRICTION)) && jsonOffenceObject.getBoolean(REPORTING_RESTRICTION));
+            }
             offences.add(offenceBuilder.build());
         });
 

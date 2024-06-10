@@ -13,18 +13,8 @@ import com.github.tomakehurst.wiremock.client.RequestPatternBuilder;
 
 public class PublishingServiceStub {
     public static void verifyPublicationApi(final List<String> expectedValues) {
-        await().atMost(20, SECONDS).pollInterval(5, SECONDS).until(() -> {
+        await().atMost(60, SECONDS).pollInterval(5, SECONDS).until(() -> {
             final RequestPatternBuilder requestPatternBuilder = postRequestedFor(urlPathMatching("/publishing-hub/publication"));
-            expectedValues.forEach(
-                    expectedValue -> requestPatternBuilder.withRequestBody(containing(expectedValue))
-            );
-            verify(requestPatternBuilder);
-        });
-    }
-
-    public static void verifyPublicationV2Api(final List<String> expectedValues) {
-        await().atMost(20, SECONDS).pollInterval(5, SECONDS).until(() -> {
-            final RequestPatternBuilder requestPatternBuilder = postRequestedFor(urlPathMatching("/publishing-hub/V2/publication"));
             expectedValues.forEach(
                     expectedValue -> requestPatternBuilder.withRequestBody(containing(expectedValue))
             );

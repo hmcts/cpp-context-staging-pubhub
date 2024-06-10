@@ -43,14 +43,13 @@ public class SJPListReportRequestedProcessor {
 
     @Handles(PUBLIC_SJP_PUBLIC_CASES_LIST_REPORT_GENERATED)
     public void publishSjpPublicReportRequested(final JsonEnvelope envelope) {
-        if (featureControlGuard.isFeatureEnabled("PUBHUB")) {
-            if (LOGGER.isDebugEnabled()) {
-                LOGGER.debug("PUBLIC_SJP_PUBLIC_REPORT_GENERATED {}", envelope.toObfuscatedDebugString());
-            }
-
-            sender.send(envelopeFrom(metadataFrom(envelope.metadata()).withName(STAGING_PUBHUB_COMMAND_SJP_PUBLIC),
-                    envelope.payloadAsJsonObject()));
+        if (LOGGER.isDebugEnabled()) {
+            LOGGER.debug("PUBLIC_SJP_PUBLIC_REPORT_GENERATED {}", envelope.toObfuscatedDebugString());
         }
+
+        sender.send(envelopeFrom(metadataFrom(envelope.metadata()).withName(STAGING_PUBHUB_COMMAND_SJP_PUBLIC),
+                envelope.payloadAsJsonObject()));
     }
+
 
 }

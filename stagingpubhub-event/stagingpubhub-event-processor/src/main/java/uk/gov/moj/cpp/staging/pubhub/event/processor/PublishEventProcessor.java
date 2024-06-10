@@ -5,6 +5,7 @@ import static java.util.Objects.nonNull;
 import static uk.gov.justice.services.core.annotation.Component.EVENT_PROCESSOR;
 import static uk.gov.moj.cpp.staging.pubhub.event.transformer.DocumentType.CROWN_LCSU;
 import static uk.gov.moj.cpp.staging.pubhub.event.transformer.DocumentType.MAGS_STANDARD_LIST_ENGLISH;
+import static uk.gov.moj.cpp.staging.pubhub.event.util.JsonUtil.renameKey;
 import static uk.gov.moj.cpp.staging.pubhub.helper.RetryHelper.retryHelper;
 
 import uk.gov.justice.services.common.converter.JsonObjectToObjectConverter;
@@ -28,13 +29,18 @@ import uk.gov.moj.cpp.staging.pubhub.event.transformer.PublishingHubTransformer;
 import uk.gov.moj.cpp.staging.pubhub.event.transformer.SjpPublishingHubTransformer;
 import uk.gov.moj.cpp.staging.pubhub.exception.AzureAPIMInvocationException;
 
+import java.io.IOException;
+
 import javax.inject.Inject;
 
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.node.ObjectNode;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-@SuppressWarnings({"squid:S3655"})
 @ServiceComponent(EVENT_PROCESSOR)
+@SuppressWarnings({"squid:S00112", "squid:S3655"})
 public class PublishEventProcessor {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(PublishEventProcessor.class);
@@ -79,7 +85,7 @@ public class PublishEventProcessor {
         if (nonNull(publishStandardCourtList)) {
             final String transformedJsonPayload = objectToJsonObjectConverter.convert(publishStandardCourtList).toString();
             LOGGER.info("Standard court list payload send to P&I {}", transformedJsonPayload);
-            final String courtId = publishRequested.getStandardList().getCourtId();
+            final String courtId = nonNull(publishRequested.getStandardList().getCourtId()) ?  publishRequested.getStandardList().getCourtId() : "0";
             publishingService.sendData(transformedJsonPayload, MAGS_STANDARD_LIST_ENGLISH.getValue(), envelope, courtId, Language.ENGLISH.toString());
         }
     }
@@ -96,14 +102,14 @@ public class PublishEventProcessor {
         if (nonNull(liveCaseStatus)) {
             final String transformedJsonPayload = objectToJsonObjectConverter.convert(liveCaseStatus).toString();
             LOGGER.info("Live case status payload send to P&I {}", transformedJsonPayload);
-            final String courtId = publishLiveStatus.getCourtId();
+            final String courtId = nonNull(publishLiveStatus.getCourtId()) ? publishLiveStatus.getCourtId() : "0";
             publishingService.sendData(transformedJsonPayload, CROWN_LCSU.getValue(), envelope, courtId, Language.ENGLISH.toString());
         }
 
     }
 
     @Handles("stagingpubhub.event.sjp-press-published")
-    public void publishSjpPressReportRequested(final JsonEnvelope envelope) throws InterruptedException {
+    public void publishSjpPressReportRequested(final JsonEnvelope envelope) throws Exception {
 
         final PressTransparencyReportGenerated publishRequested = jsonObjectConverter.convert(envelope.payloadAsJsonObject(), PressTransparencyReportGenerated.class);
 
@@ -113,10 +119,10 @@ public class PublishEventProcessor {
 
         final DocumentType documentType =  publishRequested.getRequestType() == RequestType.FULL ? DocumentType.SJP_PRESS_LIST : DocumentType.SJP_DELTA_PRESS_LIST;
 
-        final uk.gov.moj.cpp.stagingpubhub.domain.PubhubMaster publishSjpPressList = sjpPublishingHubTransformer.transformSjpList(envelope, documentType);
+        final PubhubMaster publishSjpPressList = sjpPublishingHubTransformer.transformSjpList(envelope, documentType);
 
         if (nonNull(publishSjpPressList)) {
-            final String payload = objectToJsonObjectConverter.convert(publishSjpPressList).toString();
+            final String payload = transformPayload(publishSjpPressList);
             if (LOGGER.isInfoEnabled()) {
                 LOGGER.info("SJP press list sent to CATH: {}", payload);
             }
@@ -145,7 +151,7 @@ public class PublishEventProcessor {
 
         final DocumentType documentType = publishRequested.getRequestType() == RequestType.FULL ? DocumentType.SJP_PUBLIC_LIST : DocumentType.SJP_DELTA_PUBLIC_LIST;
 
-        final uk.gov.moj.cpp.stagingpubhub.domain.PubhubMaster publishSjpPublicList = sjpPublishingHubTransformer.transformSjpList(envelope, documentType);
+        final PubhubMaster publishSjpPublicList = sjpPublishingHubTransformer.transformSjpList(envelope, documentType);
 
         if (nonNull(publishSjpPublicList)) {
             final String payload = objectToJsonObjectConverter.convert(publishSjpPublicList).toString();
@@ -164,5 +170,13 @@ public class PublishEventProcessor {
                     .build()
                     .postWithRetry();
         }
+    }
+
+    private String transformPayload(final PubhubMaster pubhubMaster) throws IOException {
+        final String transformedJsonPayload = objectToJsonObjectConverter.convert(pubhubMaster).toString();
+        final ObjectMapper objectMapper = new ObjectMapper();
+        final JsonNode rootNode = objectMapper.readTree(transformedJsonPayload);
+        renameKey((ObjectNode) rootNode, "cases", "case");
+        return objectMapper.writeValueAsString(rootNode);
     }
 }

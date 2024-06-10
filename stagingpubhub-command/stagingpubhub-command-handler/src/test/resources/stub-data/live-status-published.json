@@ -1,0 +1,55 @@
+{
+  "courtCentreName": "Croydon Crown Court",
+  "courtId": "07e45c88-9e5d-3e44-b664-d5345bb13be2",
+  "courtRooms": [
+    {
+      "courtRoomName": "Courtroom 01",
+      "roomId": "731816c1-5ee4-373a-9bda-840e13a5bcb0",
+      "sessions": [
+        {
+          "sittings": [
+            {
+              "hearing": [
+                {
+                  "caseNumber": [
+                    "86GD7608224"
+                  ],
+                  "defendants": [
+                    {
+                      "address": {
+                        "address1": "jD4jKmCn45",
+                        "address2": "56Police HouseD",
+                        "address3": "StreetDescriptionD",
+                        "address4": "LocalityD",
+                        "address5": "TownD",
+                        "postcode": "TW14 9XD"
+                      },
+                      "arrestSummonsNumber": "REF1",
+                      "bailStatus": "Conditional bail",
+                      "dateOfBirth": "1930-05-01",
+                      "firstName": "Robert",
+                      "gender": "MALE",
+                      "lastName": "Smith",
+                      "organisationName": ""
+                    }
+                  ],
+                  "hearingEvents": [
+                    {
+                      "hearingEvent": "Hearing started",
+                      "hearingEventTime": "2024-05-25T13:00:11.039Z"
+                    }
+                  ],
+                  "hearingType": "Sentence",
+                  "startTime": "2024-05-25T13:00:11.039Z[UTC]"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "listType": "CROWN_LCSU",
+  "venueId": "C01CY00",
+  "documentName": "Live Case Status Update"
+}
