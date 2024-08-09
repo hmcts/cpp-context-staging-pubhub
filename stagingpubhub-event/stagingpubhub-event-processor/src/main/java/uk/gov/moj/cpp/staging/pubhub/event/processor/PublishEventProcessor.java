@@ -166,7 +166,7 @@ public class PublishEventProcessor {
                     .withRetryTimes(parseInt(applicationParameters.getRetryTimes()))
                     .withRetryInterval(parseInt(applicationParameters.getRetryInterval()))
                     .withExceptionSupplier(() -> new AzureAPIMInvocationException(documentType.getValue(), applicationParameters.getPublishingHubUrlV2()))
-                    .withPredicate(statusCode -> statusCode > 429)
+                    .withPredicate(statusCode -> statusCode >= 400)
                     .build()
                     .postWithRetry();
         }
