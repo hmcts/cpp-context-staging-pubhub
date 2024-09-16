@@ -17,14 +17,14 @@ import uk.gov.justice.staging.pubhub.ReadyCases;
 import uk.gov.justice.staging.pubhub.RequestType;
 import uk.gov.justice.staging.pubhub.StandardList;
 
-import org.junit.Before;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Spy;
-import org.mockito.runners.MockitoJUnitRunner;
+import org.mockito.junit.jupiter.MockitoExtension;
 
-@RunWith(MockitoJUnitRunner.class)
+@ExtendWith(MockitoExtension.class)
 public class PubHubAggregateTest {
     private static final String STANDARD = "Standard";
     @Spy
@@ -32,7 +32,7 @@ public class PubHubAggregateTest {
     @InjectMocks
     private PubHubAggregate pubHubAggregate;
 
-    @Before
+    @BeforeEach
     public void setUp() {
         this.pubHubAggregate = new PubHubAggregate();
         setField(this.objectToJsonObjectConverter, "mapper", new ObjectMapperProducer().objectMapper());

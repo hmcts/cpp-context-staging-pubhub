@@ -4,9 +4,9 @@ import static com.jayway.jsonpath.matchers.JsonPathMatchers.withJsonPath;
 import static java.util.UUID.randomUUID;
 import static javax.json.Json.createArrayBuilder;
 import static javax.json.Json.createObjectBuilder;
+import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.allOf;
-import static org.junit.Assert.assertThat;
-import static org.mockito.Matchers.any;
+import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
 import static uk.gov.justice.services.core.annotation.Component.COMMAND_HANDLER;
 import static uk.gov.justice.services.test.utils.core.helper.EventStreamMockHelper.verifyAppendAndGetArgumentFrom;
@@ -18,7 +18,6 @@ import static uk.gov.justice.services.test.utils.core.matchers.JsonEnvelopePaylo
 import static uk.gov.justice.services.test.utils.core.matchers.JsonEnvelopeStreamMatcher.streamContaining;
 
 import uk.gov.justice.services.common.converter.JsonObjectToObjectConverter;
-import uk.gov.justice.services.common.converter.jackson.ObjectMapperProducer;
 import uk.gov.justice.services.core.aggregate.AggregateService;
 import uk.gov.justice.services.core.enveloper.Enveloper;
 import uk.gov.justice.services.core.sender.Sender;
@@ -30,6 +29,7 @@ import uk.gov.justice.services.messaging.JsonEnvelope;
 import uk.gov.justice.services.messaging.Metadata;
 import uk.gov.justice.services.messaging.spi.DefaultJsonEnvelopeProvider;
 import uk.gov.justice.services.test.utils.core.enveloper.EnveloperFactory;
+import uk.gov.justice.services.test.utils.framework.api.JsonObjectConvertersFactory;
 import uk.gov.justice.staging.pubhub.PressTransparencyReportGenerated;
 import uk.gov.justice.staging.pubhub.PublicReportGenerated;
 import uk.gov.justice.staging.pubhub.PublishRequested;
@@ -43,18 +43,15 @@ import java.util.stream.Stream;
 
 import javax.json.JsonObject;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-import org.hamcrest.MatcherAssert;
 import org.hamcrest.Matchers;
-import org.junit.Before;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Spy;
-import org.mockito.runners.MockitoJUnitRunner;
+import org.mockito.junit.jupiter.MockitoExtension;
 
-@RunWith(MockitoJUnitRunner.class)
+@ExtendWith(MockitoExtension.class)
 public class StagingPubHubCommandHandlerTest {
 
     private static final String STANDARD = "Standard";
@@ -69,31 +66,20 @@ public class StagingPubHubCommandHandlerTest {
             PublicReportGenerated.class,
             PressTransparencyReportGenerated.class);
 
-    @InjectMocks
-    private StagingPubHubCommandHandler stagingPubHubCommandHandler;
     @Mock
     private EventSource eventSource;
+
     @Mock
     private EventStream eventStream;
+
     @Mock
     private AggregateService aggregateService;
-    @Mock
-    private PubHubAggregate aggregate;
 
     @Spy
-    ObjectMapper mapper = new ObjectMapperProducer().objectMapper();
+    private JsonObjectToObjectConverter jsonObjectToObjectConverter = new JsonObjectConvertersFactory().jsonObjectToObjectConverter();
 
-    @Spy
     @InjectMocks
-    private JsonObjectToObjectConverter jsonObjectToObjectConverter = new JsonObjectToObjectConverter(mapper);
-
-
-    @Before
-    public void setup() {
-        aggregate = new PubHubAggregate();
-        when(eventSource.getStreamById(any())).thenReturn(eventStream);
-        when(aggregateService.get(eventStream, PubHubAggregate.class)).thenReturn(aggregate);
-    }
+    private StagingPubHubCommandHandler stagingPubHubCommandHandler;
 
     @Test
     public void shouldHandlerReceiveAllegationsCommand() {
@@ -105,6 +91,10 @@ public class StagingPubHubCommandHandlerTest {
 
     @Test
     public void handlePublishStandard() throws EventStreamException {
+        final PubHubAggregate pubHubAggregate = new PubHubAggregate();
+        when(eventSource.getStreamById(any())).thenReturn(eventStream);
+        when(aggregateService.get(eventStream, PubHubAggregate.class)).thenReturn(pubHubAggregate);
+
         final JsonObject payload = FileUtil.givenPayload("stub-data/stagingpubhub.command.handler.publish-standard-list.json");
         final JsonEnvelope commandEnvelope = createCommandEnvelope(payload, "stagingpubhub.command.handler.publish-standard-list");
         stagingPubHubCommandHandler.handlePublishStandard(commandEnvelope);
@@ -114,6 +104,10 @@ public class StagingPubHubCommandHandlerTest {
 
     @Test
     public void handlePublishStandardWithMultipleHearing() throws EventStreamException {
+        final PubHubAggregate pubHubAggregate = new PubHubAggregate();
+        when(eventSource.getStreamById(any())).thenReturn(eventStream);
+        when(aggregateService.get(eventStream, PubHubAggregate.class)).thenReturn(pubHubAggregate);
+
         final JsonObject payload = FileUtil.givenPayload("stub-data/publish-standard-list.json");
         final JsonEnvelope commandEnvelope = createCommandEnvelope(payload, "stagingpubhub.command.handler.publish-standard-list");
         stagingPubHubCommandHandler.handlePublishStandard(commandEnvelope);
@@ -123,6 +117,10 @@ public class StagingPubHubCommandHandlerTest {
 
     @Test
     public void handleLiveStatusPublished() throws EventStreamException {
+        final PubHubAggregate pubHubAggregate = new PubHubAggregate();
+        when(eventSource.getStreamById(any())).thenReturn(eventStream);
+        when(aggregateService.get(eventStream, PubHubAggregate.class)).thenReturn(pubHubAggregate);
+
         final JsonObject payload = FileUtil.givenPayload("stub-data/stagingpubhub.command.handler.live-status-published.json");
         final JsonEnvelope commandEnvelope = createCommandEnvelope(payload, "stagingpubhub.command.handler.live-status-published");
         stagingPubHubCommandHandler.handleLiveStatusPublished(commandEnvelope);
@@ -132,6 +130,10 @@ public class StagingPubHubCommandHandlerTest {
 
     @Test
     public void handleLiveStatusPublishedWithSingleHearingCase() throws EventStreamException {
+        final PubHubAggregate pubHubAggregate = new PubHubAggregate();
+        when(eventSource.getStreamById(any())).thenReturn(eventStream);
+        when(aggregateService.get(eventStream, PubHubAggregate.class)).thenReturn(pubHubAggregate);
+
         final JsonObject payload = FileUtil.givenPayload("stub-data/live-status-published.json");
         final JsonEnvelope commandEnvelope = createCommandEnvelope(payload, "stagingpubhub.command.handler.live-status-published");
         stagingPubHubCommandHandler.handleLiveStatusPublished(commandEnvelope);
@@ -141,6 +143,10 @@ public class StagingPubHubCommandHandlerTest {
 
     @Test
     public void handleSjpPressListPublished() throws EventStreamException {
+        final PubHubAggregate pubHubAggregate = new PubHubAggregate();
+        when(eventSource.getStreamById(any())).thenReturn(eventStream);
+        when(aggregateService.get(eventStream, PubHubAggregate.class)).thenReturn(pubHubAggregate);
+
         final JsonObject payload = FileUtil.givenPayload("stub-data/stagingpubhub.command.handler.sjp-press-published.json");
         final JsonEnvelope commandEnvelope = createCommandEnvelope(payload, "stagingpubhub.command.handler.sjp-press-published");
         stagingPubHubCommandHandler.handleSjpPressReportPublished(commandEnvelope);
@@ -150,6 +156,10 @@ public class StagingPubHubCommandHandlerTest {
 
     @Test
     public void handleSjpPublicListPublished() throws EventStreamException {
+        final PubHubAggregate pubHubAggregate = new PubHubAggregate();
+        when(eventSource.getStreamById(any())).thenReturn(eventStream);
+        when(aggregateService.get(eventStream, PubHubAggregate.class)).thenReturn(pubHubAggregate);
+
         final JsonObject payload = FileUtil.givenPayload("stub-data/stagingpubhub.command.handler.sjp-public-published.json");
         final JsonEnvelope commandEnvelope = createCommandEnvelope(payload, "stagingpubhub.command.handler.sjp-public-published");
         stagingPubHubCommandHandler.handleSjpPublicReportPublished(commandEnvelope);
@@ -210,7 +220,7 @@ public class StagingPubHubCommandHandlerTest {
     private void verifySubscriberHandlerResults(String eventName, final String jsonPath, final String expectedValue) throws EventStreamException {
         final Stream<JsonEnvelope> envelopeStream = verifyAppendAndGetArgumentFrom(eventStream);
 
-        MatcherAssert.assertThat(envelopeStream, streamContaining(
+        assertThat(envelopeStream, streamContaining(
                 jsonEnvelope(
                         metadata()
                                 .withName(eventName),

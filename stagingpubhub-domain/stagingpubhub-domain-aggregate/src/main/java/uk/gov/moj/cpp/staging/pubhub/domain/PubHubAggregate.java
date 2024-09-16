@@ -6,12 +6,12 @@ import static uk.gov.justice.domain.aggregate.matcher.EventSwitcher.when;
 import static uk.gov.justice.staging.pubhub.PublishRequested.publishRequested;
 
 import uk.gov.justice.domain.aggregate.Aggregate;
-import uk.gov.justice.staging.pubhub.RequestType;
 import uk.gov.justice.staging.pubhub.Language;
 import uk.gov.justice.staging.pubhub.ListPayload;
 import uk.gov.justice.staging.pubhub.PressTransparencyReportGenerated;
 import uk.gov.justice.staging.pubhub.PublicReportGenerated;
 import uk.gov.justice.staging.pubhub.PublishRequested;
+import uk.gov.justice.staging.pubhub.RequestType;
 import uk.gov.justice.staging.pubhub.StandardList;
 import uk.gov.justice.staging.pubhub.json.schema.CourtRoom;
 import uk.gov.justice.staging.pubhub.json.schema.PublishLiveStatus;

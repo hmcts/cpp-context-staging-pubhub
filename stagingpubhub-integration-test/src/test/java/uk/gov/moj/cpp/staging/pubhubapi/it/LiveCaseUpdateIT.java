@@ -1,6 +1,5 @@
 package uk.gov.moj.cpp.staging.pubhubapi.it;
 
-import static java.util.Objects.nonNull;
 import static com.github.tomakehurst.wiremock.client.WireMock.aResponse;
 import static com.github.tomakehurst.wiremock.client.WireMock.containing;
 import static com.github.tomakehurst.wiremock.client.WireMock.equalToJson;
@@ -8,6 +7,7 @@ import static com.github.tomakehurst.wiremock.client.WireMock.listAllStubMapping
 import static com.github.tomakehurst.wiremock.client.WireMock.post;
 import static com.github.tomakehurst.wiremock.client.WireMock.stubFor;
 import static com.github.tomakehurst.wiremock.client.WireMock.urlPathEqualTo;
+import static java.util.Objects.nonNull;
 import static java.util.UUID.randomUUID;
 import static org.apache.http.HttpStatus.SC_OK;
 import static org.hamcrest.CoreMatchers.equalTo;
@@ -17,8 +17,8 @@ import static uk.gov.moj.cpp.staging.pubhubapi.utils.QueueUtil.publicEvents;
 import static uk.gov.moj.cpp.staging.pubhubapi.utils.QueueUtil.sendMessage;
 
 import uk.gov.justice.services.common.converter.JsonObjectToObjectConverter;
-import uk.gov.justice.services.common.converter.jackson.ObjectMapperProducer;
 import uk.gov.justice.services.messaging.JsonEnvelope;
+import uk.gov.justice.services.test.utils.framework.api.JsonObjectConvertersFactory;
 import uk.gov.justice.staging.pubhub.json.schema.PublishLiveStatus;
 import uk.gov.moj.cpp.staging.pubhubapi.utils.FileUtil;
 import uk.gov.moj.cpp.staging.pubhubapi.utils.QueueUtil;
@@ -33,12 +33,10 @@ import javax.jms.MessageConsumer;
 import javax.jms.MessageProducer;
 import javax.json.JsonObject;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.github.tomakehurst.wiremock.stubbing.StubMapping;
-import org.junit.AfterClass;
-import org.junit.Ignore;
-import org.junit.Test;
-import org.mockito.InjectMocks;
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Test;
 import org.mockito.Spy;
 
 @SuppressWarnings({"squid:S1607"})
@@ -49,19 +47,15 @@ public class LiveCaseUpdateIT {
     private static final String userId = UUID.randomUUID().toString();
 
     @Spy
-    ObjectMapper objectMapper = new ObjectMapperProducer().objectMapper();
+    private JsonObjectToObjectConverter jsonObjectConverter = new JsonObjectConvertersFactory().jsonObjectToObjectConverter();
 
-    @Spy
-    @InjectMocks
-    private JsonObjectToObjectConverter jsonObjectConverter = new JsonObjectToObjectConverter(objectMapper);
-
-    @AfterClass
+    @AfterAll
     public static void tearDownClass() throws JMSException {
         messageProducerClientPublic.close();
     }
 
     @Test
-    @Ignore("DD-33038: Multiple copies of courtRoom and other schema classes with different attributes are causing Json to Object conversion error at random." +
+    @Disabled("DD-33038: Multiple copies of courtRoom and other schema classes with different attributes are causing Json to Object conversion error at random." +
             "This functionality is feature toggled and not live in production")
     public void shouldProcessLiveCaseUpdatePublicEvent(){
         enablePubHubFeature(true);
@@ -93,7 +87,7 @@ public class LiveCaseUpdateIT {
         final AtomicReference<String> body = new AtomicReference<>();
         List<StubMapping> mappings =  listAllStubMappings().getMappings();
         mappings.forEach(stubMapping -> {
-            String json = nonNull(stubMapping.getRequest().getBodyPatterns())? stubMapping.getRequest().getBodyPatterns().get(0).getEqualToJson():"";
+            String json = nonNull(stubMapping.getRequest().getBodyPatterns())? stubMapping.getRequest().getBodyPatterns().get(0).toString():"";
                     if(json.contains("Live Case Updates")){
                         body.set(json);
                     }
@@ -103,7 +97,7 @@ public class LiveCaseUpdateIT {
     }
 
     @Test
-    @Ignore
+    @Disabled
     public void shouldProcessLiveCaseUpdatePublicEventWhenFeatureToggleOff(){
         enablePubHubFeature(false);
         final JsonObject liveStatusPayload = FileUtil.givenPayload("stub-data/public.hearing.live-status-published.json");

@@ -3,9 +3,9 @@ package uk.gov.moj.cpp.staging.pubhub.event.service;
 import static uk.gov.moj.cpp.staging.pubhub.event.transformer.DocumentType.CROWN_LCSU;
 import static uk.gov.moj.cpp.staging.pubhub.event.transformer.DocumentType.MAGS_STANDARD_LIST_ENGLISH;
 import static uk.gov.moj.cpp.staging.pubhub.event.transformer.DocumentType.SJP_DELTA_PRESS_LIST;
+import static uk.gov.moj.cpp.staging.pubhub.event.transformer.DocumentType.SJP_DELTA_PUBLIC_LIST;
 import static uk.gov.moj.cpp.staging.pubhub.event.transformer.DocumentType.SJP_PRESS_LIST;
 import static uk.gov.moj.cpp.staging.pubhub.event.transformer.DocumentType.SJP_PUBLIC_LIST;
-import static uk.gov.moj.cpp.staging.pubhub.event.transformer.DocumentType.SJP_DELTA_PUBLIC_LIST;
 
 import uk.gov.justice.services.messaging.JsonEnvelope;
 import uk.gov.justice.staging.pubhub.json.schema.Meta;

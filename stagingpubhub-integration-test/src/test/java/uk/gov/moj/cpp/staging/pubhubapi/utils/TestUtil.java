@@ -29,7 +29,7 @@ import javax.json.JsonArrayBuilder;
 import javax.json.JsonObject;
 
 import com.jayway.jsonpath.ReadContext;
-import com.jayway.restassured.response.Response;
+import io.restassured.response.Response;
 import org.hamcrest.Matcher;
 
 public class TestUtil {
@@ -87,7 +87,7 @@ public class TestUtil {
 
         try (final JMSTopicHelper publicTopicHelper = new JMSTopicHelper(); final MessageConsumerClient caseManagement = new MessageConsumerClient()) {
             caseManagement.startConsumer(eventName, "cpscasemanagement.event");
-            publicTopicHelper.startProducer("public.event");
+            publicTopicHelper.startProducer("jms.topic.public.event");
             publicTopicHelper.sendMessage(commandName, stringToJsonObjectConverter.convert(payload));
             if (verify) {
                 Optional<String> message = caseManagement.retrieveMessage(80000L);

@@ -20,6 +20,7 @@ import uk.gov.justice.services.common.converter.StringToJsonObjectConverter;
 import uk.gov.justice.services.common.converter.jackson.ObjectMapperProducer;
 import uk.gov.justice.services.messaging.JsonEnvelope;
 import uk.gov.justice.services.messaging.Metadata;
+import uk.gov.justice.services.test.utils.framework.api.JsonObjectConvertersFactory;
 import uk.gov.justice.staging.pubhub.PressTransparencyReportGenerated;
 import uk.gov.justice.staging.pubhub.PublicReportGenerated;
 import uk.gov.moj.cpp.staging.pubhubapi.utils.AbstractTestHelper;
@@ -35,9 +36,9 @@ import javax.json.JsonObject;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.activemq.command.ActiveMQTextMessage;
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 @SuppressWarnings({"squid:S1607"})
 public class SjpReportingIT extends AbstractTestHelper {
@@ -52,10 +53,10 @@ public class SjpReportingIT extends AbstractTestHelper {
     protected static final ObjectMapper objectMapper = new ObjectMapperProducer().objectMapper();
 
     private final StringToJsonObjectConverter stringToJsonObjectConverter = new StringToJsonObjectConverter();
-    protected final JsonObjectToObjectConverter jsonToObjectConverter = new JsonObjectToObjectConverter(objectMapper);
+    protected JsonObjectToObjectConverter jsonToObjectConverter = new JsonObjectConvertersFactory().jsonObjectToObjectConverter();
 
 
-    @Before
+    @BeforeEach
     public void setUp() {
         messageProducerClientPublic = QueueUtil.publicEvents.createProducer();
         publicEventsForSjpPressReportConsumer = QueueUtil.publicEvents.createConsumer(PUBLIC_SJP_PRESS_TRANSPARENCY_REPORT_GENERATED);
@@ -140,7 +141,7 @@ public class SjpReportingIT extends AbstractTestHelper {
         }
     }
 
-    @After
+    @AfterEach
     public void tearDown() throws Exception {
         messageProducerClientPublic.close();
     }

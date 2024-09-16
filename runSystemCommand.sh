@@ -17,7 +17,7 @@
 #
 ##################################################################################################
 
-FRAMEWORK_VERSION=7.0.10
+FRAMEWORK_VERSION=17.5.5
 CONTEXT_NAME="stagingpubhub"
 USER_NAME="admin"
 PASSWORD="admin"

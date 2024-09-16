@@ -3,17 +3,13 @@
     <parent>
         <artifactId>stagingpubhub</artifactId>
         <groupId>uk.gov.moj.cpp.staging.pubhub</groupId>
-        <version>8.0.21-SNAPSHOT</version>
+        <version>17.0.1-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>stagingpubhub-service</artifactId>
 
     <packaging>war</packaging>
-    <properties>
-        <azure-identity.version>1.11.4</azure-identity.version>
-        <azure-core.version>1.47.0</azure-core.version>
-    </properties>
     <dependencies>
         <dependency>
             <groupId>uk.gov.moj.cpp.staging.pubhub</groupId>
@@ -57,34 +53,31 @@
         <dependency>
             <groupId>com.azure</groupId>
             <artifactId>azure-identity</artifactId>
-            <version>1.11.4</version>
         </dependency>
         <dependency>
             <groupId>com.fasterxml.jackson.dataformat</groupId>
             <artifactId>jackson-dataformat-xml</artifactId>
-            <version>2.13.5</version>
         </dependency>
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-core</artifactId>
-            <version>2.13.5</version>
         </dependency>
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-annotations</artifactId>
-            <version>2.13.5</version>
         </dependency>
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-databind</artifactId>
-            <version>2.13.5</version>
         </dependency>
-
-
         <dependency>
             <groupId>com.azure</groupId>
             <artifactId>azure-core</artifactId>
-            <version>1.47.0</version>
+        </dependency>
+        <dependency>
+            <groupId>uk.gov.moj.cpp.staging.pubhub</groupId>
+            <artifactId>stagingpubhub-healthchecks</artifactId>
+            <version>${project.version}</version>
         </dependency>
     </dependencies>
     <build>

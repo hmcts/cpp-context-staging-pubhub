@@ -23,7 +23,7 @@ import javax.jms.Topic;
 import javax.json.Json;
 import javax.json.JsonObject;
 
-import com.jayway.restassured.path.json.JsonPath;
+import io.restassured.path.json.JsonPath;
 import org.apache.activemq.artemis.jms.client.ActiveMQConnectionFactory;
 import org.apache.activemq.artemis.jms.client.ActiveMQTopic;
 import org.apache.activemq.command.ActiveMQTextMessage;
@@ -43,7 +43,7 @@ public class QueueUtil {
 
     private static final long RETRIEVE_TIMEOUT = 90000;
 
-    private Session session;
+    private static Session session;
 
     private Topic topic;
 
@@ -51,12 +51,12 @@ public class QueueUtil {
 
     private String topicName;
 
-    public static final QueueUtil privateEvents = new QueueUtil("stagingpubhub.event");
+    public static final QueueUtil privateEvents = new QueueUtil("jms.topic.stagingpubhub.event");
 
-    public static final QueueUtil publicEvents = new QueueUtil("public.event");
+    public static final QueueUtil publicEvents = new QueueUtil("jms.topic.public.event");
 
     private QueueUtil(final String topicName) {
-        this.topicName = topicName;
+        this.topicName = "jms.topic" + topicName;
         initialize(topicName);
     }
 
@@ -102,7 +102,7 @@ public class QueueUtil {
     public MessageProducer createPublicProducer() {
         try {
             if(!isAlive(this.connection)){
-                initialize("public.event");
+                initialize("jms.topic.public.event");
             }
             return session.createProducer(topic);
         } catch (final JMSException e) {

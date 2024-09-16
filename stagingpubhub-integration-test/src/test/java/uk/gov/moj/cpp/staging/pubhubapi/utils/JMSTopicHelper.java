@@ -6,6 +6,7 @@ import static java.util.Optional.empty;
 import static java.util.UUID.randomUUID;
 import static javax.jms.Session.AUTO_ACKNOWLEDGE;
 import static org.apache.commons.io.FileUtils.readFileToString;
+import static org.awaitility.Awaitility.await;
 import static org.hamcrest.CoreMatchers.allOf;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -35,8 +36,7 @@ import javax.jms.Session;
 import javax.jms.TextMessage;
 import javax.json.JsonObject;
 
-import com.jayway.awaitility.Awaitility;
-import com.jayway.restassured.path.json.JsonPath;
+import io.restassured.path.json.JsonPath;
 import org.apache.activemq.artemis.jms.client.ActiveMQConnectionFactory;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.hamcrest.Matcher;
@@ -58,11 +58,11 @@ public class JMSTopicHelper implements AutoCloseable {
         final StringToJsonObjectConverter stringToJsonObjectConverter = new StringToJsonObjectConverter();
         String topicName = "cpscasefile.event";
         if(isExpectingPublicEvent){
-            topicName = "public.event";
+            topicName = "jms.topic.public.event";
         }
         try (JMSTopicHelper publicTopicHelper = new JMSTopicHelper(); MessageConsumerClient messageConsumerClient = new MessageConsumerClient()) {
             messageConsumerClient.startConsumer(expectedEventToBePublished, topicName);
-            publicTopicHelper.startProducer("public.event");
+            publicTopicHelper.startProducer("jms.topic.public.event");
             publicTopicHelper.sendMessage(publicEventName, stringToJsonObjectConverter.convert(payload), empty());
             assertThat(expectedEventToBePublished + " message not found in "+topicName+" topic", messageConsumerClient.retrieveMessage(timeout).isPresent(), is(true));
         }
@@ -79,7 +79,7 @@ public class JMSTopicHelper implements AutoCloseable {
     public static String retrieveMessageWithMatchers(final MessageConsumerClient consumer, final Matcher matchers) {
 
         final AtomicReference<String> message = new AtomicReference<>();
-        Awaitility.await().timeout(35, TimeUnit.SECONDS)
+        await().timeout(35, TimeUnit.SECONDS)
                 .pollInterval(500, TimeUnit.MILLISECONDS)
                 .pollDelay(500, TimeUnit.MILLISECONDS)
                 .until(
@@ -216,22 +216,28 @@ public class JMSTopicHelper implements AutoCloseable {
 
     @Override
     public void close() {
-        close(messageProducer);
-        close(session);
-        close(connection);
+
+        try {
+            if (messageProducer != null) {
+                messageProducer.close();
+            }
+        } catch (final JMSException ignored) {
+        }
+        try {
+            if (session != null) {
+                session.close();
+            }
+        } catch (final JMSException ignored) {
+        }
+        try {
+            if (connection != null) {
+                connection.close();
+            }
+        } catch (final JMSException ignored) {
+        }
 
         session = null;
         messageProducer = null;
         connection = null;
     }
-
-    private void close(final AutoCloseable closeable) {
-        if (closeable != null) {
-            try {
-                closeable.close();
-            } catch (Exception ignored) {
-            }
-        }
-    }
-
 }

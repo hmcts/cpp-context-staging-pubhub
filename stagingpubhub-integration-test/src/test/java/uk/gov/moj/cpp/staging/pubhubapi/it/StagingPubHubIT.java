@@ -15,7 +15,7 @@ import static uk.gov.moj.cpp.staging.pubhubapi.utils.TestUtil.postCommandAndVeri
 import static uk.gov.moj.cpp.staging.pubhubapi.utils.TestUtil.postCommandAndVerifyForForbidden;
 
 import uk.gov.justice.services.common.converter.JsonObjectToObjectConverter;
-import uk.gov.justice.services.common.converter.jackson.ObjectMapperProducer;
+import uk.gov.justice.services.test.utils.framework.api.JsonObjectConvertersFactory;
 import uk.gov.justice.staging.pubhub.PublishRequested;
 import uk.gov.moj.cpp.staging.pubhubapi.utils.FileUtil;
 import uk.gov.moj.cpp.staging.pubhubapi.utils.QueueUtil;
@@ -28,28 +28,22 @@ import javax.jms.JMSException;
 import javax.jms.MessageConsumer;
 import javax.json.JsonObject;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-import org.junit.After;
-import org.junit.Ignore;
-import org.junit.Test;
-import org.mockito.InjectMocks;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Test;
 import org.mockito.Spy;
 
 @SuppressWarnings({"squid:S1607"})
 public class StagingPubHubIT {
     private static final String STANDARD = "Standard";
-    private MessageConsumer consumer = QueueUtil.privateEvents.createConsumer("stagingpubhub.event.publish-requested");
+    private MessageConsumer consumer = QueueUtil.privateEvents.createConsumer("jms.topic.stagingpubhub.event.publish-requested");
 
     @Spy
-    ObjectMapper objectMapper = new ObjectMapperProducer().objectMapper();
-
-    @Spy
-    @InjectMocks
-    private JsonObjectToObjectConverter jsonObjectConverter = new JsonObjectToObjectConverter(objectMapper);
+    private JsonObjectToObjectConverter jsonObjectConverter = new JsonObjectConvertersFactory().jsonObjectToObjectConverter();
 
 
     @Test
-    @Ignore("DD-33039: Multiple copies of courtRooms and other schema classes with different attributes are causing Json to Object conversion error at random." +
+    @Disabled("DD-33039: Multiple copies of courtRooms and other schema classes with different attributes are causing Json to Object conversion error at random." +
             "This functionality is feature toggled and not live in production")
     public void shouldRaiseStandardListPublishedEventWhenPubHubEnabled() throws IOException {
         enablePubHubFeature(true);
@@ -75,7 +69,7 @@ public class StagingPubHubIT {
     }
 
     @Test
-    @Ignore
+    @Disabled
     public void shouldGetForbiddenWhenCallStandardListEventWhenPubHubDisabled() throws IOException {
         enablePubHubFeature(false);
         final String payload = FileUtil.getPayload("stub-data/stagingpubhub.command.publish-standard-list.json");
@@ -86,7 +80,7 @@ public class StagingPubHubIT {
                 "application/vnd.publish-standard-list+json");
     }
 
-    @After
+    @AfterEach
     public void tearDown() throws JMSException {
         consumer.close();
     }

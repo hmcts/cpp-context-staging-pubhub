@@ -1,5 +1,6 @@
 package uk.gov.moj.cpp.staging.pubhub.helper;
 
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
@@ -10,21 +11,20 @@ import uk.gov.moj.cpp.staging.pubhub.exception.AzureAPIMInvocationException;
 
 import java.util.function.IntSupplier;
 
-import org.junit.Before;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
-import org.mockito.runners.MockitoJUnitRunner;
+import org.mockito.junit.jupiter.MockitoExtension;
 
-@RunWith(MockitoJUnitRunner.class)
-
+@ExtendWith(MockitoExtension.class)
 public class RetryHelperTest {
 
     @Mock
     IntSupplier supplier;
 
-    @Before
+    @BeforeEach
     public void initMocks() {
         MockitoAnnotations.initMocks(this);
     }
@@ -46,17 +46,20 @@ public class RetryHelperTest {
         verify(supplier).getAsInt();
     }
 
-    @Test(expected = AzureAPIMInvocationException.class)
+    @Test
     public void shouldThrowExceptionAfterExceedingRetryCount() throws Exception {
 
-        retryHelper()
-                .withSupplier(() -> 500)
+        when(supplier.getAsInt()).thenReturn(500);
+
+        final RetryHelper retryHelper = retryHelper()
+                .withSupplier(() -> supplier.getAsInt())
                 .withRetryTimes(3)
                 .withRetryInterval(200)
                 .withExceptionSupplier(() -> new AzureAPIMInvocationException(DocumentType.SJP_PRESS_LIST.getValue(), "url"))
                 .withPredicate(statusCode -> statusCode > 429)
-                .build()
-                .postWithRetry();
+                .build();
+
+        assertThrows(AzureAPIMInvocationException.class, () -> retryHelper.postWithRetry());
         verify(supplier, times(3)).getAsInt();
     }
 

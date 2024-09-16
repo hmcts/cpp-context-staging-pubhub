@@ -4,12 +4,12 @@ import static com.github.tomakehurst.wiremock.client.WireMock.containing;
 import static com.github.tomakehurst.wiremock.client.WireMock.postRequestedFor;
 import static com.github.tomakehurst.wiremock.client.WireMock.urlPathMatching;
 import static com.github.tomakehurst.wiremock.client.WireMock.verify;
-import static com.jayway.awaitility.Awaitility.await;
 import static java.util.concurrent.TimeUnit.SECONDS;
+import static org.awaitility.Awaitility.await;
 
 import java.util.List;
 
-import com.github.tomakehurst.wiremock.client.RequestPatternBuilder;
+import com.github.tomakehurst.wiremock.matching.RequestPatternBuilder;
 
 public class PublishingServiceStub {
     public static void verifyPublicationApi(final List<String> expectedValues) {
@@ -19,6 +19,7 @@ public class PublishingServiceStub {
                     expectedValue -> requestPatternBuilder.withRequestBody(containing(expectedValue))
             );
             verify(requestPatternBuilder);
+            return true;
         });
     }
 }

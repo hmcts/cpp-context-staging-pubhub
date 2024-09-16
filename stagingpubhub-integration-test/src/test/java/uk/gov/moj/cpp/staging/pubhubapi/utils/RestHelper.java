@@ -1,6 +1,6 @@
 package uk.gov.moj.cpp.staging.pubhubapi.utils;
 
-import static com.jayway.restassured.RestAssured.given;
+import static io.restassured.RestAssured.given;
 import static java.util.UUID.randomUUID;
 import static javax.ws.rs.core.Response.Status.OK;
 import static org.hamcrest.CoreMatchers.allOf;
@@ -24,9 +24,9 @@ import javax.json.JsonReader;
 
 import com.google.common.base.Joiner;
 import com.jayway.jsonpath.ReadContext;
-import com.jayway.restassured.builder.RequestSpecBuilder;
-import com.jayway.restassured.response.Response;
-import com.jayway.restassured.specification.RequestSpecification;
+import io.restassured.builder.RequestSpecBuilder;
+import io.restassured.response.Response;
+import io.restassured.specification.RequestSpecification;
 import org.hamcrest.Matcher;
 
 public class RestHelper {
