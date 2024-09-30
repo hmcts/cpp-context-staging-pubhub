@@ -16,10 +16,10 @@
     <name>stagingpubhub</name>
 
     <properties>
-        <sjp.version>8.0.48</sjp.version>
+        <sjp.version>17.0.6</sjp.version>
         <referencedata.version>17.0.16</referencedata.version>
         <coredomain.version>17.21.11</coredomain.version>
-        <results.version>8.0.25</results.version>
+        <results.version>17.0.1</results.version>
 
         <!-- WARNING - these are old libraries, some of whom are obsolete and have security vulnerabilities - update and move to common-bom -->
         <azure-identity.version>1.11.4</azure-identity.version>
