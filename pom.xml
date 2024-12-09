@@ -28,6 +28,7 @@
         <azure-identity.version>1.11.4</azure-identity.version>
 
         <sonar-maven-plugin.version>3.11.0.3922</sonar-maven-plugin.version>
+        <jgitflow.maven.developBranchName>main</jgitflow.maven.developBranchName>
     </properties>
 
     <modules>
