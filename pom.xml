@@ -10,7 +10,7 @@
 
     <groupId>uk.gov.moj.cpp.staging.pubhub</groupId>
     <artifactId>stagingpubhub</artifactId>
-    <version>17.0.22-SPIPH2-SNAPSHOT</version>
+    <version>17.0.21-SNAPSHOT</version>
 
     <packaging>pom</packaging>
     <name>stagingpubhub</name>
@@ -18,7 +18,7 @@
     <properties>
         <sjp.version>17.0.6</sjp.version>
         <referencedata.version>17.0.101</referencedata.version>
-        <coredomain.version>17.101.10-SPIPH2-SNAPSHOT</coredomain.version>
+        <coredomain.version>17.102.9</coredomain.version>
         <results.version>17.0.2</results.version>
 
         <!-- WARNING - these are old libraries, some of whom are obsolete and have security vulnerabilities - update and move to common-bom -->
