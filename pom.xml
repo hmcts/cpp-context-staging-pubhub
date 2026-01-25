@@ -5,19 +5,19 @@
     <parent>
         <groupId>uk.gov.moj.cpp.common</groupId>
         <artifactId>service-parent-pom</artifactId>
-        <version>17.103.3</version>
+        <version>17.103.9-M1</version>
     </parent>
 
     <groupId>uk.gov.moj.cpp.staging.pubhub</groupId>
     <artifactId>stagingpubhub</artifactId>
-    <version>17.0.28-SNAPSHOT</version>
+    <version>17.0.28-PEG-2848--SNAPSHOT</version>
 
     <packaging>pom</packaging>
     <name>stagingpubhub</name>
 
     <properties>
         <sjp.version>17.0.6</sjp.version>
-        <referencedata.version>17.0.113</referencedata.version>
+        <referencedata.version>17.103.122</referencedata.version>
         <coredomain.version>17.103.10</coredomain.version>
         <results.version>17.0.2</results.version>
 
