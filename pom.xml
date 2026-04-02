@@ -16,9 +16,9 @@
     <name>stagingpubhub</name>
 
     <properties>
-        <sjp.version>17.0.6</sjp.version>
-        <referencedata.version>17.103.122</referencedata.version>
-        <coredomain.version>17.103.11</coredomain.version>
+        <sjp.version>17.103.166</sjp.version>
+        <referencedata.version>17.103.129</referencedata.version>
+        <coredomain.version>17.103.12</coredomain.version>
         <results.version>17.0.2</results.version>
 
         <!-- WARNING - these are old libraries, some of whom are obsolete and have security vulnerabilities - update and move to common-bom -->
