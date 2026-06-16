@@ -1,0 +1,79 @@
+{
+  "documentDate": "2022-07-14T10:00:00.000Z",
+  "courtRooms": [
+    {
+      "roomId": "010",
+      "courtRoomName": "Courtroom 01",
+      "sessions": [
+        {
+          "sittings": [
+            {
+              "hearing": [
+                {
+                  "prosecutingAuthority": "CPS-EM",
+                  "sequence": 1,
+                  "hearingType": "First hearing",
+                  "defendants": [
+                    {
+                      "firstName": "Robert",
+                      "lastName": "Ormsby",
+                      "organisationName": "",
+                      "address": {
+                        "address3": "Optional[Locality2O]",
+                        "address2": "Optional[StreetDescription]",
+                        "address1": "819",
+                        "postcode": "LN5 5TT"
+                      },
+                      "offences": [
+                        {
+                          "offenceTitle": "Occupy reserved seat / berth without a valid ticket on the Tyne and Wear Metro",
+                          "offenceWording": "Has a violent past and fear that he will commit further offences and\n                interfere with witnesse",
+                          "id": "90aca8ef-fddd-40af-9be1-480e6c5a0f27"
+                        }
+                      ],
+                      "dateOfBirth": "5 May 1951",
+                      "age": 71
+                    }
+                  ],
+                  "caseNumber": [
+                    "53NP8105522"
+                  ],
+                  "hearingEvents": [
+                    {
+                      "hearingEvent":"Test",
+                      "hearingEventTime":"2022-07-08T10:14:28.257Z"
+                    }
+                  ],
+                  "startTime": "10:01"
+                },
+                {
+                  "prosecutingAuthority": "CPS-EM",
+                  "sequence": 2,
+                  "hearingType": "First hearing",
+                  "caseNumber": [
+                    "53NP1454922"
+                  ],
+                  "startTime": "10:01"
+                },
+                {
+                  "prosecutingAuthority": "CPS-EM",
+                  "sequence": 3,
+                  "hearingType": "First hearing",
+                  "caseNumber": [
+                    "53NP7998322"
+                  ],
+                  "startTime": "10:01"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "address1": "176A Lavender Hill London",
+  "hearingDate": "2022-07-11",
+  "documentName": "Live Case Status Update",
+  "courtCentreName": "Lavender Hill Magistrates' Court",
+  "version": "1.0"
+}

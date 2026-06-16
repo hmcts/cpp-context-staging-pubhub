@@ -1,0 +1,11 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "http://justice.gov.uk/staging/pubhub/publish-standard-list.json",
+  "type": "object",
+  "properties": {
+    "standardList": {
+      "$ref": "http://justice.gov.uk/staging/pubhub/standard-list.json"
+    }
+  },
+  "additionalProperties": true
+}

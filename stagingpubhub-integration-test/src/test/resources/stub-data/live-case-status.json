@@ -1,0 +1,54 @@
+{
+  "venue": {
+    "venueName": "Lavender Hill Magistrates' Court",
+    "venueCode": {
+
+    },
+    "venueAddress": {
+      "line": [
+        "176A Lavender Hill London"
+      ]
+    }
+  },
+  "document": {
+    "documentName": "Live Case Updates",
+    "version": "1.0",
+    "publicationDate": "2022-07-27T13:40:18.484+01:00[Europe/London]"
+  },
+  "courtLists": [
+    {
+      "courtHouse": {
+        "courtRoom": [
+          {
+            "courtRoomName": "Courtroom 01",
+            "session": [
+              {
+                "sittings": [
+                  {
+                    "hearing": [
+                      {
+                        "cases": [
+                          {
+                            "caseUrn": "53NP8105522"
+                          }
+                        ],
+                        "lcsu": {
+                          "lcsuDescription": "Test",
+                          "lcsuDateTime": "2022-07-08T10:14:28.257Z[UTC]",
+                          "additionalProperties": {
+
+                          }
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "courtRoomId": 10
+          }
+        ]
+      }
+    }
+  ]
+}

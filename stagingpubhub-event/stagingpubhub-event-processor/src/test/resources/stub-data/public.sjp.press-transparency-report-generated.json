@@ -1,0 +1,54 @@
+{
+  "language": "ENGLISH",
+  "requestType": "FULL",
+  "listPayload": {
+    "generatedDateAndTime": "2016-01-01 00:00:00",
+    "totalNumberOfRecords": 2,
+    "readyCases": [
+      {
+        "caseUrn": "TFL901845675",
+        "defendantName": "D LastName810c4cf4-ad87-456f-b7d4-3d60e1f07409",
+        "title": "Mr",
+        "firstName": "David",
+        "lastName": "LastName810c4cf4-ad87-456f-b7d4-3d60e1f07409",
+        "sjpOffences": [
+          {
+            "title":"title1",
+            "wording": "Committed some offence",
+            "reportingRestriction": false
+          }
+        ],
+        "prosecutorName": "TFL",
+        "town": "Greater London",
+        "county": "UK",
+        "addressLine1": "14 Tottenham Court Road",
+        "addressLine2": "Park Hill",
+        "dateOfBirth": "1980-07-15",
+        "age": "44",
+        "postcode": "W1T 1JY"
+      },
+      {
+        "caseUrn": "TFL905582011",
+        "defendantName": "D LastNameba12e4f5-4857-4e1d-94ed-12ed92c0ef09",
+        "title": "Mr",
+        "firstName": "David",
+        "lastName": "LastNameba12e4f5-4857-4e1d-94ed-12ed92c0ef09",
+        "sjpOffences": [
+          {
+            "title":"title2",
+            "wording": "Committed some offence",
+            "reportingRestriction": true
+          }
+        ],
+        "prosecutorName": "TFL",
+        "town": "Greater London",
+        "county": "UK",
+        "addressLine1": "14 Tottenham Court Road",
+        "addressLine2": "Park Hill",
+        "dateOfBirth": "1980-07-15",
+        "age": "44",
+        "postcode": "W1T 1JY"
+      }
+    ]
+  }
+}

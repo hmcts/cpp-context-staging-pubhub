@@ -1,0 +1,109 @@
+{
+
+  "document": {
+    "documentName": "SJP_PRESS_LIST",
+    "publicationDate": "2022-07-18T16:49:20.433+01:00[Europe/London]",
+    "version": "1.0"
+  },
+  "courtLists": [
+    {
+      "courtHouse": {
+        "courtRoom": [
+          {
+            "session": [
+              {
+                "sittings": [
+                  {
+                    "hearing": [
+                      {
+                        "cases": [
+                          {
+                            "caseUrn": "53NP8105522"
+                          }
+                        ],
+                        "offence": [
+                          {
+                            "title": "Occupy reserved seat / berth without a valid ticket on the Tyne and Wear Metro",
+                            "wording": "Has a violent past and fear that he will commit further offences and\n                interfere with witnesse",
+                            "reportingRestriction": false
+                          }
+                        ],
+                        "party": [
+                          {
+                            "individualDetails": {
+                              "individualSurname": "Ormsby",
+                              "individualForenames": "Robert",
+                              "address": {
+                                "town": "StreetDescription",
+                                "line": [
+                                  "819"
+                                ],
+                                "county": "Locality2O"
+                              },
+                              "dateOfBirth": "5 May 1951",
+                              "additionalProperties": {
+
+                              }
+                            },
+                            "organisationDetails": {
+                              "organisationName": "",
+                              "additionalProperties": {
+
+                              }
+                            },
+                            "partyRole": "CPS-EM"
+                          }
+                        ]
+                      },
+                      {
+                        "cases": [
+                          {
+                            "caseUrn": "53NP1454922"
+                          }
+                        ],
+                        "offence": [
+                          {
+                            "title": "Occupy reserved seat / berth without a valid ticket on the Tyne and Wear Metro",
+                            "wording": "Has a violent past and fear that he will commit further offences and\n                interfere with witnesse",
+                            "reportingRestriction": false
+                          }
+                        ],
+                        "party": [
+                          {
+                            "individualDetails": {
+                              "individualSurname": "Ormsby",
+                              "individualForenames": "Robert",
+                              "address": {
+                                "town": "StreetDescription",
+                                "line": [
+                                  "688"
+                                ],
+                                "county": "Locality2O"
+                              },
+                              "dateOfBirth": "18 Aug 1967",
+                              "additionalProperties": {
+
+                              }
+                            },
+                            "organisationDetails": {
+                              "organisationName": "",
+                              "additionalProperties": {
+
+                              }
+                            },
+                            "partyRole": "CPS-EM"
+                          }
+                        ]
+                      }
+                    ]
+
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

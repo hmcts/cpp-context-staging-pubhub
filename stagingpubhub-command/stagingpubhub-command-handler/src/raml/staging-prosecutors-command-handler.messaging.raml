@@ -1,0 +1,20 @@
+#%RAML 0.8
+title: pubhub Command handler
+version: 1.0
+baseUri: message://command/handler/message/stagingpubhub
+
+/stagingpubhub.handler.command:
+    post:
+        body:
+            application/vnd.stagingpubhub.command.handler.publish-standard-list+json:
+                schema: !include json/schema/stagingpubhub.command.handler.publish-standard-list.json
+                example: !include json/stagingpubhub.command.handler.publish-standard-list.json
+            application/vnd.stagingpubhub.command.handler.live-status-published+json:
+                schema: !include json/schema/stagingpubhub.command.handler.live-status-published.json
+                example: !include json/stagingpubhub.command.handler.live-status-published.json
+            application/vnd.stagingpubhub.command.handler.sjp-press-published+json:
+                schema: !include json/schema/stagingpubhub.command.handler.sjp-press-published.json
+                example: !include json/stagingpubhub.command.handler.sjp-press-published.json
+            application/vnd.stagingpubhub.command.handler.sjp-public-published+json:
+                schema: !include json/schema/stagingpubhub.command.handler.sjp-public-published.json
+                example: !include json/stagingpubhub.command.handler.sjp-public-published.json

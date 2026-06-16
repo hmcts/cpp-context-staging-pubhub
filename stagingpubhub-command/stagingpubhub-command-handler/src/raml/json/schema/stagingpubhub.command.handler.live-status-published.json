@@ -1,0 +1,287 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "http://justice.gov.uk/staging/pubhub/json/schema/live-status-published.json",
+  "type": "object",
+  "properties": {
+    "documentName": {
+      "type": "string"
+    },
+    "documentDate": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "version": {
+      "type": "string"
+    },
+    "venueId": {
+      "type": "string"
+    },
+    "venueType": {
+      "type": "string"
+    },
+    "listType": {
+      "type": "string"
+    },
+    "courtId": {
+      "type": "string"
+    },
+    "courtCentreName": {
+      "type": "string"
+    },
+    "address1": {
+      "type": "string"
+    },
+    "postCode": {
+      "type": "string"
+    },
+    "welshCourtCentreName": {
+      "type": "string"
+    },
+    "welshAddress1": {
+      "type": "string"
+    },
+    "hearingDate": {
+      "type": "string",
+      "format": "date"
+    },
+    "hearingDateWelsh": {
+      "type": "string"
+    },
+    "courtRooms": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/courtRoom"
+      }
+    }
+  },
+  "additionalProperties": false,
+  "definitions": {
+    "hearing": {
+      "id": "http://justice.gov.uk/staging/pubhub/json/schema/hearing.json",
+      "type": "object",
+      "properties": {
+        "sequence": {
+          "type": "integer"
+        },
+        "startTime": {
+          "type": "string"
+        },
+        "hearingType": {
+          "type": "string"
+        },
+        "welshHearingType": {
+          "type": "string"
+        },
+        "caseNumber": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "welshCaseNumber": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "prosecutingAuthority": {
+          "type": "string"
+        },
+        "defendants": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/defendant"
+          }
+        },
+        "hearingEvents": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/hearingEvent"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "hearingEvent": {
+      "id": "http://justice.gov.uk/staging/pubhub/json/schema/hearingEvent.json",
+      "type": "object",
+      "properties": {
+        "hearingEvent": {
+          "type": "string"
+        },
+        "hearingEventWelsh": {
+          "type": "string"
+        },
+        "hearingEventTime": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "additionalProperties": false
+    },
+    "courtRoom": {
+      "id": "http://justice.gov.uk/staging/pubhub/json/schema/courtRoom.json",
+      "type": "object",
+      "properties": {
+        "roomId": {
+          "type": "string"
+        },
+        "courtRoomName": {
+          "type": "string"
+        },
+        "welshCourtRoomName": {
+          "type": "string"
+        },
+        "sessions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/session"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "session": {
+      "id": "http://justice.gov.uk/staging/pubhub/json/schema/session.json",
+      "type": "object",
+      "properties": {
+        "sittings": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/sitting"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "sitting": {
+      "id": "http://justice.gov.uk/staging/pubhub/json/schema/sitting.json",
+      "type": "object",
+      "properties": {
+        "hearing": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/hearing"
+          }
+        },
+        "judiciaries": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/judiciary"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "judiciary": {
+      "id": "http://justice.gov.uk/staging/pubhub/json/schema/judiciary.json",
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": "string"
+        },
+        "firstName": {
+          "type": "string"
+        },
+        "lastName": {
+          "type": "string"
+        },
+        "johKnownAs": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "defendant": {
+      "id": "http://justice.gov.uk/staging/pubhub/json/schema/defendant.json",
+      "type": "object",
+      "properties": {
+        "organisationName": {
+          "type": "string"
+        },
+        "firstName": {
+          "type": "string"
+        },
+        "lastName": {
+          "type": "string"
+        },
+        "dateOfBirth": {
+          "type": "string",
+          "format": "date"
+        },
+        "age": {
+          "type": "integer"
+        },
+        "nationality": {
+          "type": "integer"
+        },
+        "arrestSummonsNumber": {
+          "type": "string"
+        },
+        "bailStatus": {
+          "type": "string"
+        },
+        "address": {
+          "$ref": "http://justice.gov.uk/core/courts/address.json"
+        },
+        "gender": {
+          "type": "string"
+        },
+        "offences": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/offence"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "offence": {
+      "id": "http://justice.gov.uk/staging/pubhub/json/schema/offence.json",
+      "type": "object",
+      "properties": {
+        "id": {
+          "$ref": "http://justice.gov.uk/domain/core/common/definitions.json#/definitions/uuid"
+        },
+        "maxPenalty": {
+          "type": "string"
+        },
+        "listingNumber": {
+          "type": "integer"
+        },
+        "offenceCode": {
+          "type": "string"
+        },
+        "offenceTitle": {
+          "type": "string"
+        },
+        "offenceLegislation": {
+          "type": "string"
+        },
+        "committingCourt": {
+          "type": "string"
+        },
+        "offenceWording": {
+          "type": "string"
+        },
+        "reportingRestrictions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/reportingRestriction"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "reportingRestriction": {
+      "id": "http://justice.gov.uk/staging/pubhub/json/schema/reportingRestriction.json",
+      "type": "object",
+      "properties": {
+        "label": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}

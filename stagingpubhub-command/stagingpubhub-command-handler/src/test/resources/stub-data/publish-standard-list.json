@@ -1,0 +1,528 @@
+{
+  "standardList": {
+    "listType": "standard",
+    "courtCentreName": "City of London Magistrates' Court",
+    "courtCentreAddress1": "1 Queen Victoria Street London",
+    "courtCentreAddress2": "   EC4N 4XY",
+    "welshCourtCentreName": "Llys Ynadon Dinas Llundain",
+    "welshCourtCentreAddress1": " ",
+    "welshCourtCentreAddress2": "   EC4N 4XY",
+    "hearingDates": [
+      {
+        "hearingDate": "2024-05-25",
+        "hearingDateWelsh": "25 Mai 2024",
+        "courtRooms": [
+          {
+            "courtRoomName": "Courtroom 02",
+            "welshCourtRoomName": "Courtroom 02",
+            "judiciaryNames": "Mr Daber",
+            "welshJudiciaryNames": "Mr  Daber",
+            "timeslots": [
+              {
+                "hearings": [
+                  {
+                    "id": "0c5b86f6-450c-4ef6-a397-9b545fa8b578",
+                    "sequence": 0,
+                    "reportingRestrictionReason": "",
+                    "welshReportingRestrictionReason": "",
+                    "startTime": "11:00",
+                    "hearingType": "Sentence",
+                    "welshHearingType": "Adolygiad Cyn-treial",
+                    "caseNumber": "42GD7292024",
+                    "caseId": "b88829c6-3cee-4801-831b-83b7cc8e2b06",
+                    "prosecutorType": "TVL",
+                    "defendants": [
+                      {
+                        "id": "a1c91e9d-f61f-4550-b57c-20325a9d1c1e",
+                        "organisationName": "",
+                        "firstName": "Buck",
+                        "surname": "Rath",
+                        "dateOfBirth": "29 Sep 2002",
+                        "age": "21",
+                        "nationality": "British",
+                        "address": {
+                          "address1": "9jI2dkobLJ"
+                        },
+                        "reportingRestrictions": [],
+                        "offences": [
+                          {
+                            "id": "81785e14-9455-4f5e-a275-b3a916134f3c",
+                            "adjournedDate": "2024-05-25",
+                            "adjournedHearingType": "To attend or a warrant to issue",
+                            "offenceCode": "CA03014",
+                            "offenceTitle": "Fail / refuse give assistance to person executing Communications Act search warrant",
+                            "offenceWording": "Some offence wording",
+                            "listingNumber": 1,
+                            "offenceLegislation": "Section 18 - attempt    wounding with intent Legislation"
+                          }
+                        ],
+                        "gender": "NOT_SPECIFIED"
+                      }
+                    ],
+                    "adjournedHearingDate": "",
+                    "panel": "ADULT"
+                  },
+                  {
+                    "id": "ebcf76e6-62d1-4cc2-8f89-d2227f7a104e",
+                    "sequence": 0,
+                    "reportingRestrictionReason": "",
+                    "welshReportingRestrictionReason": "",
+                    "startTime": "11:00",
+                    "hearingType": "Sentence",
+                    "welshHearingType": "Adolygiad Cyn-treial",
+                    "caseNumber": "46GD2032024",
+                    "caseId": "5d1909ef-d05a-44af-82a8-993dc4a192e8",
+                    "prosecutorType": "TVL",
+                    "defendants": [
+                      {
+                        "id": "f5208ae5-944b-4740-a606-a1a03ad9493a",
+                        "organisationName": "",
+                        "firstName": "Lilla",
+                        "surname": "Cassin",
+                        "dateOfBirth": "11 Mar 1985",
+                        "age": "39",
+                        "nationality": "British",
+                        "address": {
+                          "address1": "UZ3SohruqO"
+                        },
+                        "reportingRestrictions": [],
+                        "offences": [
+                          {
+                            "id": "4fb03aac-8a0d-4e65-b044-73a418b1b6b9",
+                            "adjournedDate": "2024-05-25",
+                            "adjournedHearingType": "To attend or a warrant to issue",
+                            "offenceCode": "CA03014",
+                            "offenceTitle": "Fail / refuse give assistance to person executing Communications Act search warrant",
+                            "offenceWording": "Some offence wording",
+                            "listingNumber": 1,
+                            "offenceLegislation": "Section 18 - attempt    wounding with intent Legislation"
+                          }
+                        ],
+                        "gender": "NOT_SPECIFIED"
+                      }
+                    ],
+                    "adjournedHearingDate": "",
+                    "panel": "ADULT"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "hearingDate": "2024-05-26",
+        "hearingDateWelsh": "26 Mai 2024",
+        "courtRooms": [
+          {
+            "courtRoomName": "Courtroom 02",
+            "welshCourtRoomName": "Courtroom 02",
+            "judiciaryNames": "Mr Daber",
+            "welshJudiciaryNames": "Mr  Daber",
+            "timeslots": [
+              {
+                "hearings": [
+                  {
+                    "id": "0c5b86f6-450c-4ef6-a397-9b545fa8b578",
+                    "sequence": 0,
+                    "reportingRestrictionReason": "",
+                    "welshReportingRestrictionReason": "",
+                    "startTime": "10:00",
+                    "hearingType": "Sentence",
+                    "welshHearingType": "Adolygiad Cyn-treial",
+                    "caseNumber": "42GD7292024",
+                    "caseId": "b88829c6-3cee-4801-831b-83b7cc8e2b06",
+                    "prosecutorType": "TVL",
+                    "defendants": [
+                      {
+                        "id": "a1c91e9d-f61f-4550-b57c-20325a9d1c1e",
+                        "organisationName": "",
+                        "firstName": "Buck",
+                        "surname": "Rath",
+                        "dateOfBirth": "29 Sep 2002",
+                        "age": "21",
+                        "nationality": "British",
+                        "address": {
+                          "address1": "9jI2dkobLJ"
+                        },
+                        "reportingRestrictions": [],
+                        "offences": [
+                          {
+                            "id": "81785e14-9455-4f5e-a275-b3a916134f3c",
+                            "adjournedDate": "2024-05-25",
+                            "adjournedHearingType": "To attend or a warrant to issue",
+                            "offenceCode": "CA03014",
+                            "offenceTitle": "Fail / refuse give assistance to person executing Communications Act search warrant",
+                            "offenceWording": "Some offence wording",
+                            "listingNumber": 1,
+                            "offenceLegislation": "Section 18 - attempt    wounding with intent Legislation"
+                          }
+                        ],
+                        "gender": "NOT_SPECIFIED"
+                      }
+                    ],
+                    "adjournedHearingDate": "",
+                    "panel": "ADULT"
+                  },
+                  {
+                    "id": "ebcf76e6-62d1-4cc2-8f89-d2227f7a104e",
+                    "sequence": 0,
+                    "reportingRestrictionReason": "",
+                    "welshReportingRestrictionReason": "",
+                    "startTime": "10:00",
+                    "hearingType": "Sentence",
+                    "welshHearingType": "Adolygiad Cyn-treial",
+                    "caseNumber": "46GD2032024",
+                    "caseId": "5d1909ef-d05a-44af-82a8-993dc4a192e8",
+                    "prosecutorType": "TVL",
+                    "defendants": [
+                      {
+                        "id": "f5208ae5-944b-4740-a606-a1a03ad9493a",
+                        "organisationName": "",
+                        "firstName": "Lilla",
+                        "surname": "Cassin",
+                        "dateOfBirth": "11 Mar 1985",
+                        "age": "39",
+                        "nationality": "British",
+                        "address": {
+                          "address1": "UZ3SohruqO"
+                        },
+                        "reportingRestrictions": [],
+                        "offences": [
+                          {
+                            "id": "4fb03aac-8a0d-4e65-b044-73a418b1b6b9",
+                            "adjournedDate": "2024-05-25",
+                            "adjournedHearingType": "To attend or a warrant to issue",
+                            "offenceCode": "CA03014",
+                            "offenceTitle": "Fail / refuse give assistance to person executing Communications Act search warrant",
+                            "offenceWording": "Some offence wording",
+                            "listingNumber": 1,
+                            "offenceLegislation": "Section 18 - attempt    wounding with intent Legislation"
+                          }
+                        ],
+                        "gender": "NOT_SPECIFIED"
+                      }
+                    ],
+                    "adjournedHearingDate": "",
+                    "panel": "ADULT"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "hearingDate": "2024-05-27",
+        "hearingDateWelsh": "27 Mai 2024",
+        "courtRooms": [
+          {
+            "courtRoomName": "Courtroom 02",
+            "welshCourtRoomName": "Courtroom 02",
+            "judiciaryNames": "Mr Daber",
+            "welshJudiciaryNames": "Mr  Daber",
+            "timeslots": [
+              {
+                "hearings": [
+                  {
+                    "id": "0c5b86f6-450c-4ef6-a397-9b545fa8b578",
+                    "sequence": 0,
+                    "reportingRestrictionReason": "",
+                    "welshReportingRestrictionReason": "",
+                    "startTime": "10:00",
+                    "hearingType": "Sentence",
+                    "welshHearingType": "Adolygiad Cyn-treial",
+                    "caseNumber": "42GD7292024",
+                    "caseId": "b88829c6-3cee-4801-831b-83b7cc8e2b06",
+                    "prosecutorType": "TVL",
+                    "defendants": [
+                      {
+                        "id": "a1c91e9d-f61f-4550-b57c-20325a9d1c1e",
+                        "organisationName": "",
+                        "firstName": "Buck",
+                        "surname": "Rath",
+                        "dateOfBirth": "29 Sep 2002",
+                        "age": "21",
+                        "nationality": "British",
+                        "address": {
+                          "address1": "9jI2dkobLJ"
+                        },
+                        "reportingRestrictions": [],
+                        "offences": [
+                          {
+                            "id": "81785e14-9455-4f5e-a275-b3a916134f3c",
+                            "adjournedDate": "2024-05-25",
+                            "adjournedHearingType": "To attend or a warrant to issue",
+                            "offenceCode": "CA03014",
+                            "offenceTitle": "Fail / refuse give assistance to person executing Communications Act search warrant",
+                            "offenceWording": "Some offence wording",
+                            "listingNumber": 1,
+                            "offenceLegislation": "Section 18 - attempt    wounding with intent Legislation"
+                          }
+                        ],
+                        "gender": "NOT_SPECIFIED"
+                      }
+                    ],
+                    "adjournedHearingDate": "",
+                    "panel": "ADULT"
+                  },
+                  {
+                    "id": "ebcf76e6-62d1-4cc2-8f89-d2227f7a104e",
+                    "sequence": 0,
+                    "reportingRestrictionReason": "",
+                    "welshReportingRestrictionReason": "",
+                    "startTime": "10:00",
+                    "hearingType": "Sentence",
+                    "welshHearingType": "Adolygiad Cyn-treial",
+                    "caseNumber": "46GD2032024",
+                    "caseId": "5d1909ef-d05a-44af-82a8-993dc4a192e8",
+                    "prosecutorType": "TVL",
+                    "defendants": [
+                      {
+                        "id": "f5208ae5-944b-4740-a606-a1a03ad9493a",
+                        "organisationName": "",
+                        "firstName": "Lilla",
+                        "surname": "Cassin",
+                        "dateOfBirth": "11 Mar 1985",
+                        "age": "39",
+                        "nationality": "British",
+                        "address": {
+                          "address1": "UZ3SohruqO"
+                        },
+                        "reportingRestrictions": [],
+                        "offences": [
+                          {
+                            "id": "4fb03aac-8a0d-4e65-b044-73a418b1b6b9",
+                            "adjournedDate": "2024-05-25",
+                            "adjournedHearingType": "To attend or a warrant to issue",
+                            "offenceCode": "CA03014",
+                            "offenceTitle": "Fail / refuse give assistance to person executing Communications Act search warrant",
+                            "offenceWording": "Some offence wording",
+                            "listingNumber": 1,
+                            "offenceLegislation": "Section 18 - attempt    wounding with intent Legislation"
+                          }
+                        ],
+                        "gender": "NOT_SPECIFIED"
+                      }
+                    ],
+                    "adjournedHearingDate": "",
+                    "panel": "ADULT"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "hearingDate": "2024-05-29",
+        "hearingDateWelsh": "29 Mai 2024",
+        "courtRooms": [
+          {
+            "courtRoomName": "Courtroom 02",
+            "welshCourtRoomName": "Courtroom 02",
+            "judiciaryNames": "Mr Daber",
+            "welshJudiciaryNames": "Mr  Daber",
+            "timeslots": [
+              {
+                "hearings": [
+                  {
+                    "id": "0c5b86f6-450c-4ef6-a397-9b545fa8b578",
+                    "sequence": 0,
+                    "reportingRestrictionReason": "",
+                    "welshReportingRestrictionReason": "",
+                    "startTime": "10:00",
+                    "hearingType": "Sentence",
+                    "welshHearingType": "Adolygiad Cyn-treial",
+                    "caseNumber": "42GD7292024",
+                    "caseId": "b88829c6-3cee-4801-831b-83b7cc8e2b06",
+                    "prosecutorType": "TVL",
+                    "defendants": [
+                      {
+                        "id": "a1c91e9d-f61f-4550-b57c-20325a9d1c1e",
+                        "organisationName": "",
+                        "firstName": "Buck",
+                        "surname": "Rath",
+                        "dateOfBirth": "29 Sep 2002",
+                        "age": "21",
+                        "nationality": "British",
+                        "address": {
+                          "address1": "9jI2dkobLJ"
+                        },
+                        "reportingRestrictions": [],
+                        "offences": [
+                          {
+                            "id": "81785e14-9455-4f5e-a275-b3a916134f3c",
+                            "adjournedDate": "2024-05-25",
+                            "adjournedHearingType": "To attend or a warrant to issue",
+                            "offenceCode": "CA03014",
+                            "offenceTitle": "Fail / refuse give assistance to person executing Communications Act search warrant",
+                            "offenceWording": "Some offence wording",
+                            "listingNumber": 1,
+                            "offenceLegislation": "Section 18 - attempt    wounding with intent Legislation"
+                          }
+                        ],
+                        "gender": "NOT_SPECIFIED"
+                      }
+                    ],
+                    "adjournedHearingDate": "",
+                    "panel": "ADULT"
+                  },
+                  {
+                    "id": "ebcf76e6-62d1-4cc2-8f89-d2227f7a104e",
+                    "sequence": 0,
+                    "reportingRestrictionReason": "",
+                    "welshReportingRestrictionReason": "",
+                    "startTime": "10:00",
+                    "hearingType": "Sentence",
+                    "welshHearingType": "Adolygiad Cyn-treial",
+                    "caseNumber": "46GD2032024",
+                    "caseId": "5d1909ef-d05a-44af-82a8-993dc4a192e8",
+                    "prosecutorType": "TVL",
+                    "defendants": [
+                      {
+                        "id": "f5208ae5-944b-4740-a606-a1a03ad9493a",
+                        "organisationName": "",
+                        "firstName": "Lilla",
+                        "surname": "Cassin",
+                        "dateOfBirth": "11 Mar 1985",
+                        "age": "39",
+                        "nationality": "British",
+                        "address": {
+                          "address1": "UZ3SohruqO"
+                        },
+                        "reportingRestrictions": [],
+                        "offences": [
+                          {
+                            "id": "4fb03aac-8a0d-4e65-b044-73a418b1b6b9",
+                            "adjournedDate": "2024-05-25",
+                            "adjournedHearingType": "To attend or a warrant to issue",
+                            "offenceCode": "CA03014",
+                            "offenceTitle": "Fail / refuse give assistance to person executing Communications Act search warrant",
+                            "offenceWording": "Some offence wording",
+                            "listingNumber": 1,
+                            "offenceLegislation": "Section 18 - attempt    wounding with intent Legislation"
+                          }
+                        ],
+                        "gender": "NOT_SPECIFIED"
+                      }
+                    ],
+                    "adjournedHearingDate": "",
+                    "panel": "ADULT"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "hearingDate": "2024-05-30",
+        "hearingDateWelsh": "30 Mai 2024",
+        "courtRooms": [
+          {
+            "courtRoomName": "Courtroom 02",
+            "welshCourtRoomName": "Courtroom 02",
+            "judiciaryNames": "Mr Daber",
+            "welshJudiciaryNames": "Mr  Daber",
+            "timeslots": [
+              {
+                "hearings": [
+                  {
+                    "id": "0c5b86f6-450c-4ef6-a397-9b545fa8b578",
+                    "sequence": 0,
+                    "reportingRestrictionReason": "",
+                    "welshReportingRestrictionReason": "",
+                    "startTime": "15:30",
+                    "hearingType": "Sentence",
+                    "welshHearingType": "Adolygiad Cyn-treial",
+                    "caseNumber": "42GD7292024",
+                    "caseId": "b88829c6-3cee-4801-831b-83b7cc8e2b06",
+                    "prosecutorType": "TVL",
+                    "defendants": [
+                      {
+                        "id": "a1c91e9d-f61f-4550-b57c-20325a9d1c1e",
+                        "organisationName": "",
+                        "firstName": "Buck",
+                        "surname": "Rath",
+                        "dateOfBirth": "29 Sep 2002",
+                        "age": "21",
+                        "nationality": "British",
+                        "address": {
+                          "address1": "9jI2dkobLJ"
+                        },
+                        "reportingRestrictions": [],
+                        "offences": [
+                          {
+                            "id": "81785e14-9455-4f5e-a275-b3a916134f3c",
+                            "adjournedDate": "2024-05-25",
+                            "adjournedHearingType": "To attend or a warrant to issue",
+                            "offenceCode": "CA03014",
+                            "offenceTitle": "Fail / refuse give assistance to person executing Communications Act search warrant",
+                            "offenceWording": "Some offence wording",
+                            "listingNumber": 1,
+                            "offenceLegislation": "Section 18 - attempt    wounding with intent Legislation"
+                          }
+                        ],
+                        "gender": "NOT_SPECIFIED"
+                      }
+                    ],
+                    "adjournedHearingDate": "",
+                    "panel": "ADULT"
+                  },
+                  {
+                    "id": "ebcf76e6-62d1-4cc2-8f89-d2227f7a104e",
+                    "sequence": 0,
+                    "reportingRestrictionReason": "",
+                    "welshReportingRestrictionReason": "",
+                    "startTime": "15:30",
+                    "hearingType": "Sentence",
+                    "welshHearingType": "Adolygiad Cyn-treial",
+                    "caseNumber": "46GD2032024",
+                    "caseId": "5d1909ef-d05a-44af-82a8-993dc4a192e8",
+                    "prosecutorType": "TVL",
+                    "defendants": [
+                      {
+                        "id": "f5208ae5-944b-4740-a606-a1a03ad9493a",
+                        "organisationName": "",
+                        "firstName": "Lilla",
+                        "surname": "Cassin",
+                        "dateOfBirth": "11 Mar 1985",
+                        "age": "39",
+                        "nationality": "British",
+                        "address": {
+                          "address1": "UZ3SohruqO"
+                        },
+                        "reportingRestrictions": [],
+                        "offences": [
+                          {
+                            "id": "4fb03aac-8a0d-4e65-b044-73a418b1b6b9",
+                            "adjournedDate": "2024-05-25",
+                            "adjournedHearingType": "To attend or a warrant to issue",
+                            "offenceCode": "CA03014",
+                            "offenceTitle": "Fail / refuse give assistance to person executing Communications Act search warrant",
+                            "offenceWording": "Some offence wording",
+                            "listingNumber": 1,
+                            "offenceLegislation": "Section 18 - attempt    wounding with intent Legislation"
+                          }
+                        ],
+                        "gender": "NOT_SPECIFIED"
+                      }
+                    ],
+                    "adjournedHearingDate": "",
+                    "panel": "ADULT"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "templateName": "BenchAndStandardCourtList",
+    "ljaCode": "2570",
+    "ljaName": "Central London Magistrates' Court",
+    "ouCode": "B01DU00",
+    "courtId": "c133d0de-c989-48b9-bd20-0431943e347e"
+  }
+}

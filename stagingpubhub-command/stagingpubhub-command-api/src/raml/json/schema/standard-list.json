@@ -1,0 +1,101 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "http://justice.gov.uk/staging/pubhub/standard-list.json",
+  "type": "object",
+  "properties": {
+    "listType": {
+      "type": "string"
+    },
+    "courtCentreName": {
+      "type": "string"
+    },
+    "courtCentreAddress1": {
+      "type": "string"
+    },
+    "courtCentreAddress2": {
+      "type": "string"
+    },
+    "welshCourtCentreName": {
+      "type": "string"
+    },
+    "welshCourtCentreAddress1": {
+      "type": "string"
+    },
+    "welshCourtCentreAddress2": {
+      "type": "string"
+    },
+    "hearingDates": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/hearingDate"
+      }
+    },
+    "templateName": {
+      "type": "string"
+    },
+    "ouCode": {
+      "type": "string"
+    },
+    "courtId": {
+      "type": "string"
+    }
+  },
+  "definitions": {
+    "hearingDate": {
+      "type": "object",
+      "properties": {
+        "hearingDate": {
+          "type": "string"
+        },
+        "hearingDateWelsh": {
+          "type": "string"
+        },
+        "courtRooms": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/courtRoom"
+          }
+        }
+      }
+    },
+    "courtRoom": {
+      "type": "object",
+      "properties": {
+        "courtRoomName": {
+          "type": "string"
+        },
+        "welshCourtRoomName": {
+          "type": "string"
+        },
+        "judiciaryNames": {
+          "type": "string"
+        },
+        "welshJudiciaryNames": {
+          "type": "string"
+        },
+        "timeslots": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/timeslot"
+          }
+        }
+      }
+    },
+    "timeslot": {
+      "type": "object",
+      "properties": {
+        "hearings": {
+          "type": "array",
+          "items": {
+            "$ref": "http://justice.gov.uk/staging/pubhub/hearing.json"
+          }
+        }
+      }
+    }
+
+  },
+  "required": [
+    "listType",
+    "courtCentreName"
+  ]
+}
