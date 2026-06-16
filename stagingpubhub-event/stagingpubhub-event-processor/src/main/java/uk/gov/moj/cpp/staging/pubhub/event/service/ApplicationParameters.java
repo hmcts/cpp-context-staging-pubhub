@@ -28,23 +28,23 @@ public class ApplicationParameters {
     private String retryTimes;
 
     @Inject
-    @GlobalValue(key = "azure.local.mi.apimAuth.clientId") // gitleaks:allow
+    @GlobalValue(key = "azure.local.mi.apimAuth.clientId", defaultValue = "") // gitleaks:allow
     private String azureLocalMiApimAuthClientId;
 
     @Inject
-    @GlobalValue(key = "azure.local.mi.tenantId") // gitleaks:allow
+    @GlobalValue(key = "azure.local.mi.tenantId", defaultValue = "") // gitleaks:allow
     private String azureLocalMiTenantId;
 
     @Inject
-    @GlobalValue(key = "azure.dts.fi.clientId")
+    @GlobalValue(key = "azure.dts.fi.clientId", defaultValue = "")
     private String azureDtsFiClientId;
 
     @Inject
-    @GlobalValue(key = "azure.dts.fi.tenantId")
+    @GlobalValue(key = "azure.dts.fi.tenantId", defaultValue = "")
     private String azureDtsFiTenantId;
 
     @Inject
-    @GlobalValue(key = "azure.dts.appRegistration.Id")
+    @GlobalValue(key = "azure.dts.appRegistration.Id", defaultValue = "")
     private String azureDtsAppRegistrationId;
 
     @Inject
