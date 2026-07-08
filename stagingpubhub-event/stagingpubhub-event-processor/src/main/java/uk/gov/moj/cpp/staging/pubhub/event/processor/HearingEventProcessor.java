@@ -39,7 +39,6 @@ public class HearingEventProcessor {
 
             sender.send(envelopeFrom(metadataFrom(jsonEnvelope.metadata()).withName(STAGING_PUBHUB_COMMAND_LIVE_STATUS),
                     payload));
-            LOGGER.debug("Sent {} command", STAGING_PUBHUB_COMMAND_LIVE_STATUS);
         } else {
             LOGGER.info("Feature is not enabled {}", PUBLIC_EVENT_LIVE_STATUS_PUBLISHED);
         }
