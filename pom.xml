@@ -18,7 +18,7 @@
     <properties>
         <sjp.version>17.103.166</sjp.version>
         <referencedata.version>17.104.141</referencedata.version>
-        <coredomain.version>17.103.13</coredomain.version>
+        <coredomain.version>17.103.14</coredomain.version>
         <results.version>17.0.2</results.version>
 
         <!-- WARNING - these are old libraries, some of whom are obsolete and have security vulnerabilities - update and move to common-bom -->
